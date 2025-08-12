@@ -1,15 +1,14 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Navbar from "../Navbar";
 import Wrapper from "../Wrapper";
 
 export default function Hero() {
   return (
-    <div
-      className="h-screen flex justify-center bg-cover bg-center relative"
-      style={{ backgroundImage: "url('/abstract-desk.png')" }}
-    >
+    <div className="h-screen flex justify-center bg-cover bg-center relative">
+      <Image className="object-cover" src="/abstract-desk.png" alt="" fill />
       <Wrapper className="w-screen h-full flex flex-col justify-between relative !pt-0 z-10">
         <Navbar />
         <div className="flex flex-col items-end text-white gap-4">

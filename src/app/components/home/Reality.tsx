@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Wrapper from "../Wrapper";
@@ -30,24 +31,24 @@ export default function Reality() {
             }}
           >
             {images.map((image, i) => (
-              <div
-                key={`first-${i}`}
-                className="h-[40vh] bg-cover aspect-3/4"
-                style={{
-                  backgroundImage: `url('/${image.src}')`,
-                  marginTop: image.offset,
-                }}
-              />
+              <div key={i} className="h-[40vh] relative aspect-3/4">
+                <Image
+                  className="object-cover"
+                  src={`/${image.src}`}
+                  alt=""
+                  fill
+                />
+              </div>
             ))}
             {images.map((image, i) => (
-              <div
-                key={`second-${i}`}
-                className="h-[40vh] bg-cover aspect-3/4"
-                style={{
-                  backgroundImage: `url('/${image.src}')`,
-                  marginTop: image.offset,
-                }}
-              />
+              <div key={i} className="h-[40vh] relative aspect-3/4">
+                <Image
+                  className="object-cover"
+                  src={`/${image.src}`}
+                  alt=""
+                  fill
+                />
+              </div>
             ))}
           </motion.div>
           <div className="w-1/2 h-full absolute top-0 left-0">

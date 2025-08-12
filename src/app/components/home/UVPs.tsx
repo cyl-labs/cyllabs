@@ -291,22 +291,25 @@ export default function UVPs({ vh }: { vh: number }) {
                   rotate: card2Rotate,
                 }}
               >
+                <div className="relative aspect-square">
+                  <Image
+                    className="object-cover"
+                    src="/sanity.png"
+                    alt=""
+                    fill
+                  />
+                </div>
                 <div
-                  className="z-30 flex items-end bg-cover aspect-square text-white relative"
-                  style={{ backgroundImage: "url('/sanity.png')" }}
-                >
-                  <div className="w-full flex flex-col gap-4 p-10 max-[1200px]:p-8 max-md:p-6 relative">
-                    <div
-                      className="absolute inset-0"
-                      style={{
-                        background:
-                          "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%)",
-                      }}
-                    ></div>
-                    <h2 className="text-[32px] font-semibold relative z-10">
-                      Update it yourself in minutes
-                    </h2>
-                  </div>
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%)",
+                  }}
+                ></div>
+                <div className="flex flex-col gap-4 text-white absolute bottom-0 z-10 p-10 max-[1200px]:p-8 max-md:p-6">
+                  <h2 className="text-[32px] font-semibold">
+                    Update it yourself in minutes
+                  </h2>
                 </div>
               </motion.div>
               <motion.div
@@ -359,22 +362,25 @@ export default function UVPs({ vh }: { vh: number }) {
                   rotate: card4Rotate,
                 }}
               >
+                <div className="relative aspect-square">
+                  <Image
+                    className="object-cover"
+                    src="/competitors.png"
+                    alt=""
+                    fill
+                  />
+                </div>
                 <div
-                  className="bg-cover bg-right bg-bottom relative aspect-square p-10 max-[1200px]:p-8 max-md:p-6"
-                  style={{ backgroundImage: "url('/competitors.png')" }}
-                >
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      background:
-                        "linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%)",
-                    }}
-                  ></div>
-                  <div className="flex flex-col gap-4 text-white relative z-10">
-                    <h2 className="text-[32px] font-semibold">
-                      Beat your competitors
-                    </h2>
-                  </div>
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%)",
+                  }}
+                ></div>
+                <div className="flex flex-col gap-4 text-white absolute top-0 z-10 p-10 max-[1200px]:p-8 max-md:p-6">
+                  <h2 className="text-[32px] font-semibold">
+                    Beat your competitors
+                  </h2>
                 </div>
               </motion.div>
             </div>

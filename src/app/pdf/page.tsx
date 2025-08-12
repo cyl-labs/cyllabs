@@ -80,9 +80,7 @@ export default function Page() {
   useEffect(() => {
     if (mobileContainerRef.current) {
       setMobileContainerStart(
-        mobileContainerRef.current.getBoundingClientRect().top +
-          vh -
-          200
+        mobileContainerRef.current.getBoundingClientRect().top + vh - 200
       );
     }
   }, [mobileContainerRef.current]);
@@ -116,10 +114,7 @@ export default function Page() {
   const card2X = useSpring(
     useTransform(
       scrollY,
-      [
-        mobileContainerStart + vh * 0.5,
-        mobileContainerStart + vh,
-      ],
+      [mobileContainerStart + vh * 0.5, mobileContainerStart + vh],
       [0, vw]
     ),
     {
@@ -132,10 +127,7 @@ export default function Page() {
   const card3Rotate = useSpring(
     useTransform(
       scrollY,
-      [
-        mobileContainerStart + vh,
-        mobileContainerStart + vh * 1.5,
-      ],
+      [mobileContainerStart + vh, mobileContainerStart + vh * 1.5],
       [-10, 0]
     ),
     {
@@ -148,10 +140,7 @@ export default function Page() {
   const card3X = useSpring(
     useTransform(
       scrollY,
-      [
-        mobileContainerStart + vh * 1.5,
-        mobileContainerStart + vh * 2,
-      ],
+      [mobileContainerStart + vh * 1.5, mobileContainerStart + vh * 2],
       [0, vw]
     ),
     {
@@ -221,7 +210,8 @@ export default function Page() {
                   </div>
                   <div className="col-span-2 pt-16 max-[1200px]:col-span-full max-[1200px]:px-0">
                     <p className="w-3/4 text-[48px] font-semibold max-md:w-full max-sm:text-[40px]">
-                      The <span className="text-[#FD5001]">3rd</span> one will shock you, keep scrolling.
+                      The <span className="text-[#FD5001]">3rd</span> one will
+                      shock you, keep scrolling.
                     </p>
                   </div>
                 </div>
@@ -238,11 +228,14 @@ export default function Page() {
                             x: card1X,
                           }}
                         >
-                          <div
-                            className="flex flex-col justify-start bg-cover bg-center aspect-square p-10 max-[1200px]:p-8 max-md:p-6 max-md:h-[340px] max-md:bg-[position:0%_70%] max-md:aspect-auto"
-                            style={{ backgroundImage: "url('/money.png')" }}
-                          >
-                            <h3 className="text-[24px] font-semibold">
+                          <div className="flex flex-col justify-start aspect-square max-md:h-[340px] max-md:bg-[position:0%_70%] max-md:aspect-auto">
+                            <Image
+                              className="object-cover"
+                              src="/money.png"
+                              alt=""
+                              fill
+                            />
+                            <h3 className="absolute top-0 text-[24px] font-semibold p-10 max-[1200px]:p-8 max-md:p-6">
                               Spot the silent sales leaks draining your business
                               every month
                             </h3>
@@ -255,13 +248,14 @@ export default function Page() {
                             rotate: card2Rotate,
                           }}
                         >
-                          <div
-                            className="flex flex-col justify-start bg-cover bg-top aspect-square p-10 max-[1200px]:p-8 max-md:p-6 max-md:h-[340px] max-md:bg-center max-md:aspect-auto"
-                            style={{
-                              backgroundImage: "url('/competitors.png')",
-                            }}
-                          >
-                            <h3 className="text-[24px] font-semibold">
+                          <div className="flex flex-col justify-start aspect-square p-10 max-[1200px]:p-8 max-md:p-6 max-md:h-[340px] max-md:bg-center max-md:aspect-auto">
+                            <Image
+                              className="object-cover"
+                              src="/competitors.png"
+                              alt=""
+                              fill
+                            />
+                            <h3 className="absolute left-0 top-0 text-[24px] font-semibold p-10 max-[1200px]:p-8 max-md:p-6">
                               Why cheap or DIY sites make customers click away
                               instantly
                             </h3>
@@ -274,11 +268,14 @@ export default function Page() {
                             rotate: card3Rotate,
                           }}
                         >
-                          <div
-                            className="flex flex-col justify-start bg-cover bg-top blur-lg aspect-square p-10 max-[1200px]:p-8 max-md:p-6 max-md:h-[340px] max-md:aspect-auto"
-                            style={{ backgroundImage: "url('/clock.png')" }}
-                          >
-                            <h3 className="text-[24px] font-semibold">
+                          <div className="flex flex-col justify-start blur-lg aspect-square p-10 max-[1200px]:p-8 max-md:p-6 max-md:h-[340px] max-md:aspect-auto">
+                            <Image
+                              className="object-cover"
+                              src="/clock.png"
+                              alt=""
+                              fill
+                            />
+                            <h3 className="absolute left-0 top-0 text-[24px] font-semibold p-10 max-[1200px]:p-8 max-md:p-6">
                               The fastest way to get a trust-building site live
                               without wasting time or money
                             </h3>
@@ -303,8 +300,8 @@ export default function Page() {
                     <span className="text-[#FD5001]">competitors</span>.
                   </h2>
                   <p className="text-[20px] text-[#999999] leading-[1.2] tracking-normal">
-                    Here&apos;s an example from one of our clients who turned things
-                    around:
+                    Here&apos;s an example from one of our clients who turned
+                    things around:
                   </p>
                 </div>
 
