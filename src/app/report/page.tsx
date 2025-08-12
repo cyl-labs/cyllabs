@@ -108,8 +108,8 @@ export default function Page() {
         <div className="relative" ref={containerRef}>
           <div
             className="h-screen flex justify-center bg-cover bg-center relative"
-            style={{ backgroundImage: "url('/funnel-report.png')" }}
           >
+            <Image className="object-cover" src="/funnel-report.png" alt="" fill />
             <Wrapper className="w-screen h-full flex flex-col justify-between relative !pt-0 z-10">
               <Navbar />
               <div className="flex flex-col items-end gap-8 text-white text-right">
