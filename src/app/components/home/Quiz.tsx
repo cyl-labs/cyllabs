@@ -7,7 +7,6 @@ import {
   Easing,
 } from "framer-motion";
 import { useRef, ReactNode } from "react";
-import Wrapper from "../Wrapper";
 import { Button } from "@/components/ui/button";
 
 const swissEase: Easing = [0.25, 0.1, 0.25, 1];

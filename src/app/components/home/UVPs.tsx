@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
-export default function UVPs() {
+export default function UVPs({ vh }: { vh: number }) {
   const [containerStart, setContainerStart] = useState(0);
   const [mobileContainerStart, setMobileContainerStart] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -14,19 +14,13 @@ export default function UVPs() {
   useEffect(() => {
     if (containerRef.current) {
       setContainerStart(
-        containerRef.current.getBoundingClientRect().top +
-          window.innerHeight -
-          200
+        containerRef.current.getBoundingClientRect().top + vh - 200
       );
     }
   }, [containerRef.current]);
 
   const brushY = useSpring(
-    useTransform(
-      scrollY,
-      [containerStart - window.innerHeight, containerStart],
-      [100, 0]
-    ),
+    useTransform(scrollY, [containerStart - vh, containerStart], [100, 0]),
     {
       stiffness: 100,
       damping: 30,
@@ -43,9 +37,7 @@ export default function UVPs() {
   useEffect(() => {
     if (mobileContainerRef.current) {
       setMobileContainerStart(
-        mobileContainerRef.current.getBoundingClientRect().top +
-          window.innerHeight -
-          200
+        mobileContainerRef.current.getBoundingClientRect().top + vh - 200
       );
     }
   }, [mobileContainerRef.current]);
@@ -53,7 +45,7 @@ export default function UVPs() {
   const card1X = useSpring(
     useTransform(
       scrollY,
-      [mobileContainerStart - window.innerHeight * 0.5, mobileContainerStart],
+      [mobileContainerStart - vh * 0.5, mobileContainerStart],
       [0, vw]
     ),
     {
@@ -66,7 +58,7 @@ export default function UVPs() {
   const card2Rotate = useSpring(
     useTransform(
       scrollY,
-      [mobileContainerStart, mobileContainerStart + window.innerHeight * 0.5],
+      [mobileContainerStart, mobileContainerStart + vh * 0.5],
       [10, 0]
     ),
     {
@@ -79,10 +71,7 @@ export default function UVPs() {
   const card2X = useSpring(
     useTransform(
       scrollY,
-      [
-        mobileContainerStart + window.innerHeight * 0.5,
-        mobileContainerStart + window.innerHeight,
-      ],
+      [mobileContainerStart + vh * 0.5, mobileContainerStart + vh],
       [0, vw]
     ),
     {
@@ -95,10 +84,7 @@ export default function UVPs() {
   const card3Rotate = useSpring(
     useTransform(
       scrollY,
-      [
-        mobileContainerStart + window.innerHeight,
-        mobileContainerStart + window.innerHeight * 1.5,
-      ],
+      [mobileContainerStart + vh, mobileContainerStart + vh * 1.5],
       [-10, 0]
     ),
     {
@@ -111,10 +97,7 @@ export default function UVPs() {
   const card3X = useSpring(
     useTransform(
       scrollY,
-      [
-        mobileContainerStart + window.innerHeight * 1.5,
-        mobileContainerStart + window.innerHeight * 2,
-      ],
+      [mobileContainerStart + vh * 1.5, mobileContainerStart + vh * 2],
       [0, vw]
     ),
     {
@@ -127,10 +110,7 @@ export default function UVPs() {
   const card4Rotate = useSpring(
     useTransform(
       scrollY,
-      [
-        mobileContainerStart + window.innerHeight * 2,
-        mobileContainerStart + window.innerHeight * 2.5,
-      ],
+      [mobileContainerStart + vh * 2, mobileContainerStart + vh * 2.5],
       [15, 0]
     ),
     {
@@ -143,10 +123,7 @@ export default function UVPs() {
   const card4X = useSpring(
     useTransform(
       scrollY,
-      [
-        mobileContainerStart + window.innerHeight * 2.5,
-        mobileContainerStart + window.innerHeight * 3,
-      ],
+      [mobileContainerStart + vh * 2.5, mobileContainerStart + vh * 3],
       [0, vw]
     ),
     {

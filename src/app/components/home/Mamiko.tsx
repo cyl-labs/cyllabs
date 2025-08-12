@@ -3,7 +3,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Wrapper from "../Wrapper";
 
-export default function Mamiko() {
+export default function Mamiko({ vh }: { vh: number }) {
   const [containerStart, setContainerStart] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
@@ -11,19 +11,13 @@ export default function Mamiko() {
   useEffect(() => {
     if (containerRef.current) {
       setContainerStart(
-        containerRef.current.getBoundingClientRect().top +
-          window.innerHeight -
-          200
+        containerRef.current.getBoundingClientRect().top + vh - 200
       );
     }
   }, [containerRef.current]);
 
   const scale = useSpring(
-    useTransform(
-      scrollY,
-      [containerStart - window.innerHeight, containerStart],
-      [1, 0]
-    ),
+    useTransform(scrollY, [containerStart - vh, containerStart], [1, 0]),
     {
       stiffness: 100,
       damping: 30,
@@ -32,11 +26,7 @@ export default function Mamiko() {
   );
 
   const opacity = useSpring(
-    useTransform(
-      scrollY,
-      [containerStart - window.innerHeight, containerStart],
-      [1, 0]
-    ),
+    useTransform(scrollY, [containerStart - vh, containerStart], [1, 0]),
     {
       stiffness: 100,
       damping: 30,
@@ -59,7 +49,9 @@ export default function Mamiko() {
               Mamiko
             </h1>
             <p className="text-[20px] leading-[1.2] tracking-normal opacity-70 max-sm:text-[20px]">
-            Ecommerce launch with 150+ products, Stripe checkout live, and mobile-first performance. Clean product database and tracking installed.
+              Ecommerce launch with 150+ products, Stripe checkout live, and
+              mobile-first performance. Clean product database and tracking
+              installed.
             </p>
           </div>
         </motion.div>

@@ -102,10 +102,10 @@ export default function Home() {
                 className="flex flex-col relative bg-white z-10"
                 style={{ top: uvpY }}
               >
-                <UVPs />
+                <UVPs vh={vh} />
                 <Quiz />
                 <motion.div className="relative z-10">
-                  <Mamiko />
+                  <Mamiko vh={vh} />
                   <FamilyMookata />
                 </motion.div>
                 <div className="min-h-[200vh] relative">

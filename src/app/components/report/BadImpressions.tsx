@@ -2,14 +2,10 @@ export default function BadImpressions({
   reach,
   messages,
   price,
-  currentRevenue,
-  possibleRevenue,
 }: {
   reach: number;
   messages: number;
   price: number;
-  currentRevenue: number;
-  possibleRevenue: number;
 }) {
   return (
     <div className="flex flex-col gap-16">

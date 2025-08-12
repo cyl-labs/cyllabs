@@ -81,7 +81,7 @@ export default function Page() {
     if (mobileContainerRef.current) {
       setMobileContainerStart(
         mobileContainerRef.current.getBoundingClientRect().top +
-          window.innerHeight -
+          vh -
           200
       );
     }
@@ -90,7 +90,7 @@ export default function Page() {
   const card1X = useSpring(
     useTransform(
       scrollY,
-      [mobileContainerStart - window.innerHeight * 0.5, mobileContainerStart],
+      [mobileContainerStart - vh * 0.5, mobileContainerStart],
       [0, vw]
     ),
     {
@@ -103,7 +103,7 @@ export default function Page() {
   const card2Rotate = useSpring(
     useTransform(
       scrollY,
-      [mobileContainerStart, mobileContainerStart + window.innerHeight * 0.5],
+      [mobileContainerStart, mobileContainerStart + vh * 0.5],
       [10, 0]
     ),
     {
@@ -117,8 +117,8 @@ export default function Page() {
     useTransform(
       scrollY,
       [
-        mobileContainerStart + window.innerHeight * 0.5,
-        mobileContainerStart + window.innerHeight,
+        mobileContainerStart + vh * 0.5,
+        mobileContainerStart + vh,
       ],
       [0, vw]
     ),
@@ -133,8 +133,8 @@ export default function Page() {
     useTransform(
       scrollY,
       [
-        mobileContainerStart + window.innerHeight,
-        mobileContainerStart + window.innerHeight * 1.5,
+        mobileContainerStart + vh,
+        mobileContainerStart + vh * 1.5,
       ],
       [-10, 0]
     ),
@@ -149,8 +149,8 @@ export default function Page() {
     useTransform(
       scrollY,
       [
-        mobileContainerStart + window.innerHeight * 1.5,
-        mobileContainerStart + window.innerHeight * 2,
+        mobileContainerStart + vh * 1.5,
+        mobileContainerStart + vh * 2,
       ],
       [0, vw]
     ),
@@ -333,7 +333,7 @@ export default function Page() {
                   </p>
                 </div>
               </div>
-              <div className="flex gap-16">
+              <div className="flex gap-16 max-md:flex-col">
                 <div className="w-full flex flex-col gap-8">
                   <h1 className="text-[64px] font-semibold max-[1200px]:w-4/5 max-[1200px]:text-[48px] max-md:w-full max-sm:text-[40px]">
                     Stop guessing.{" "}

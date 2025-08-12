@@ -181,8 +181,6 @@ export default function Page() {
                   reach={data.reach}
                   messages={data.messages}
                   price={data.price}
-                  currentRevenue={currentRevenue}
-                  possibleRevenue={possibleRevenue}
                 />
               ) : conversionRate >= 3 ? (
                 <GoodConversions possibleRevenue={possibleRevenue} />
@@ -192,7 +190,7 @@ export default function Page() {
                   possibleRevenue={possibleRevenue}
                 />
               )}
-              <div className="flex gap-16">
+              <div className="flex gap-16 max-md:flex-col">
                 <div className="w-full flex flex-col gap-8">
                   <h1 className="text-[64px] font-semibold max-[1200px]:w-4/5 max-[1200px]:text-[48px] max-md:w-full max-sm:text-[40px]">
                     Plug the leak now. Keep the revenue.
