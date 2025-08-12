@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 import Hero from "./components/home/Hero";
 import Reality from "./components/home/Reality";
 import UVPs from "./components/home/UVPs";
