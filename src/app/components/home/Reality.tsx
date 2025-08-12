@@ -31,7 +31,11 @@ export default function Reality() {
             }}
           >
             {images.map((image, i) => (
-              <div key={i} className="h-[40vh] relative aspect-3/4">
+              <div
+                key={i}
+                className="h-[40vh] relative aspect-3/4"
+                style={{ marginTop: image.offset }}
+              >
                 <Image
                   className="object-cover"
                   src={`/${image.src}`}
@@ -41,7 +45,11 @@ export default function Reality() {
               </div>
             ))}
             {images.map((image, i) => (
-              <div key={i} className="h-[40vh] relative aspect-3/4">
+              <div
+                key={i}
+                className="h-[40vh] relative aspect-3/4"
+                style={{ marginTop: image.offset }}
+              >
                 <Image
                   className="object-cover"
                   src={`/${image.src}`}
