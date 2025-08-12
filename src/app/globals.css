@@ -1,0 +1,115 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  @apply appearance-none m-0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+@font-face {
+  font-family: "Anton";
+  src: url("../app/fonts/anton.ttf");
+  ascent-override: 100%;
+}
+
+.anton {
+  font-family: "Anton";
+}
+
+@font-face {
+  font-family: "JetBrains Mono Medium";
+  src: url("../app/fonts/JetBrainsMono-Medium.ttf");
+  ascent-override: 100%;
+}
+
+.jetbrains-medium {
+  font-family: "JetBrains Mono Medium";
+}
+
+@font-face {
+  font-family: "Inter Semibold";
+  src: url("../app/fonts/Inter-SemiBold.otf");
+  ascent-override: 100%;
+}
+
+.inter-semibold {
+  font-family: "Inter Semibold";
+}
+
+@font-face {
+  font-family: "Inter Bold";
+  src: url("../app/fonts/Inter-Bold.otf");
+  ascent-override: 100%;
+}
+
+.inter-bold {
+  font-family: "Inter Bold";
+}
+
+/* Universal styles */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 0;
+}
+
+body {
+  font-family: "Helvetica Medium", sans-serif;
+  padding: 0;
+  margin: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Smooth scrolling and scrollbar styles */
+* {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #262424;
+}
+
+@supports (-webkit-overflow-scrolling: touch) {
+  html,
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@supports (scroll-behavior: smooth) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Colours */
+.primary-text {
+  color: #000000;
+}
+
+.secondary-text {
+  color: #eee5da;
+}
+
+.accent-text {
+  color: #fd5001;
+}
+
+.primary-bg {
+  background-color: #262424;
+}
+
+.secondary-bg {
+  background-color: #2a2a2a;
+}
+
+.accent-bg {
+  background-color: #fd5001;
+}
