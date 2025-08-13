@@ -82,6 +82,17 @@ export default function PdfStack() {
                   </h3>
                 </div>
               </motion.div>
+              <motion.div className="w-full h-full flex flex-col items-center absolute gap-8 z-0">
+                <div
+                  className="w-2/3 bg-contain bg-center bg-no-repeat relative aspect-square p-10 max-[1200px]:p-8 max-md:p-6"
+                  style={{ backgroundImage: "url('/arrow.png')" }}
+                ></div>
+                <div className="flex flex-col justify-end gap-4 relative z-10">
+                  <h2 className="text-[32px] text-center font-semibold">
+                    Keep <span className="text-[#FD5001]">scrolling</span>.
+                  </h2>
+                </div>
+              </motion.div>
             </div>
           </div>
           <div className="flex flex-col gap-8 max-sm:gap-5">

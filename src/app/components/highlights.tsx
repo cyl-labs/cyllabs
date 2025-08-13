@@ -262,7 +262,7 @@ export default function Highlights() {
           {/* Mobile Layout */}
           <div className="lg:hidden w-full h-full px-10 py-12 flex flex-col max-w-md mx-auto">
             {/* Square Image */}
-            <div className="w-full aspect-square relative overflow-hidden rounded-lg mb-6 flex-shrink-0">
+            <div className="w-full aspect-square relative overflow-hidden mb-6 flex-shrink-0">
               <img
                 src={card.image}
                 alt={card.imageAlt}
