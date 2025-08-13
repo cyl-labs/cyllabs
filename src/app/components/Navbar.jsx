@@ -1,4 +1,13 @@
 import Link from "next/link";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
 
 export default function Navbar() {
   return (
@@ -13,7 +22,30 @@ export default function Navbar() {
         <Link href="/">About</Link>
       </div>
       <div>
-        <p className="cursor-pointer font-semibold">Contact Us</p>
+        <p className="cursor-pointer font-semibold max-sm:hidden">Contact Us</p>
+        <Sheet>
+          <SheetTrigger className="sm:hidden">
+            <Menu size={24} />
+          </SheetTrigger>
+          <SheetContent className="bg-white">
+            <SheetHeader>
+              <SheetTitle>
+                <Link className="flex items-end gap-[5px]" href="/">
+                  <h1 className="text-[32px] font-semibold">cyllabs</h1>
+                  <div className="w-2 h-2 bg-[#FD5001] rounded-full mb-[5px]"></div>
+                </Link>
+              </SheetTitle>
+              <SheetDescription className="leading-[1.2] tracking-normal">
+                cut your losses.
+              </SheetDescription>
+              <div className="flex flex-col py-4 gap-8 text-[20px] font-semibold">
+                <Link href="/">Home</Link>
+                <Link href="/">Pricing</Link>
+                <Link href="/">About</Link>
+              </div>
+            </SheetHeader>
+          </SheetContent>
+        </Sheet>
       </div>
     </div>
   );
