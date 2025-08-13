@@ -8,13 +8,13 @@ import Wrapper from "../Wrapper";
 import { Button } from "@/components/ui/button";
 
 export default function Reality() {
-  const [scrollDuration, setScrollDuration] = useState(20);
+  const [scrollOffset, setScrollOffset] = useState("-50%");
 
   useEffect(() => {
     if (window.innerWidth < 640) {
-      setScrollDuration(5);
+      setScrollOffset("-200%");
     } else {
-      setScrollDuration(20);
+      setScrollOffset("-50%");
     }
   }, []);
 
@@ -33,10 +33,10 @@ export default function Reality() {
         <div className="relative overflow-hidden">
           <motion.div
             className="flex gap-4"
-            key={scrollDuration}
-            animate={{ x: ["-50%", "0%"] }}
+            key={scrollOffset}
+            animate={{ x: [scrollOffset, "0%"] }}
             transition={{
-              duration: scrollDuration,
+              duration: 20,
               repeat: Infinity,
               ease: "linear",
             }}
