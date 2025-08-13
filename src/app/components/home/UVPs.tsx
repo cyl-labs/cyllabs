@@ -21,7 +21,7 @@ export default function UVPs() {
 
   return (
     <div
-      className="min-h-screen flex justify-center max-sm:min-h-[500vh]"
+      className="min-h-screen flex bg-white justify-center max-sm:min-h-[500vh]"
       ref={containerRef}
     >
       <div className="max-w-[1600px] px-16 py-24 overflow-hidden max-md:px-6 max-sm:py-24 max-sm:gap-10 relative max-sm:h-fit max-sm:sticky max-sm:top-0">

@@ -162,7 +162,7 @@ const AccentText: React.FC<AccentTextProps> = ({ children }) => {
 
 export default function Quiz(): React.ReactElement {
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center overflow-x-hidden bg-white items-center">
       <div className="max-w-[1600px] px-16 py-24 max-md:px-6 max-sm:pt-0 max-sm:pb-24 max-sm:gap-10 flex justify-between gap-8 max-[1200px]:flex-col">
         <motion.div
           className="flex w-full justify-between gap-8 max-[1200px]:flex-col"

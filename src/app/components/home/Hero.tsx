@@ -7,7 +7,7 @@ import Wrapper from "../Wrapper";
 
 export default function Hero() {
   return (
-    <div className="h-screen flex justify-center bg-cover bg-center relative">
+    <div className="h-screen bg-white flex justify-center bg-cover bg-center relative">
       <Image className="object-cover" src="/abstract-desk.png" alt="" fill />
       <Wrapper className="w-screen h-full flex flex-col justify-between relative !pt-0 z-10">
         <Navbar />

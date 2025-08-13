@@ -1,8 +1,8 @@
 "use client";
-
 import { Instagram, Facebook } from "lucide-react";
 import { motion, useInView, Variants } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
+import emailjs from "@emailjs/browser";
 import {
   Accordion,
   AccordionContent,
@@ -12,7 +12,87 @@ import {
 
 export default function Footer() {
   const ref = useRef<HTMLElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
+
+  // State for popup and form submission
+  const [showSuccessPopup, setShowSuccessPopup] = useState<boolean>(false);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [email, setEmail] = useState<string>("");
+  const [isAgreed, setIsAgreed] = useState<boolean>(false);
+
+  // Initialize audio
+  useEffect(() => {
+    audioRef.current = new Audio("/sound/notification-effect.wav");
+    audioRef.current.volume = 0.5;
+    // Preload the audio
+    audioRef.current.preload = "auto";
+  }, []);
+
+  const playSuccessSound = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+      // Add more robust error handling and user interaction check
+      const playPromise = audioRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            console.log("Audio played successfully");
+          })
+          .catch((error) => {
+            console.log("Could not play sound:", error);
+            // Fallback - try playing on next user interaction
+            document.addEventListener(
+              "click",
+              () => {
+                audioRef.current?.play().catch(console.log);
+              },
+              { once: true }
+            );
+          });
+      }
+    }
+  };
+
+  const showSuccessMessage = () => {
+    setShowSuccessPopup(true);
+    playSuccessSound();
+
+    // Auto-hide after 4 seconds
+    setTimeout(() => {
+      setShowSuccessPopup(false);
+    }, 4000);
+  };
+
+  const handleEmailSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!formRef.current || isSubmitting || !isAgreed) return;
+
+    setIsSubmitting(true);
+
+    try {
+      await emailjs.sendForm(
+        process.env.NEXT_PUBLIC_SERVICE_ID as string,
+        process.env.NEXT_PUBLIC_TEMPLATE_EMAIL_ID as string,
+        formRef.current,
+        {
+          publicKey: process.env.NEXT_PUBLIC_PUBLIC_KEY as string,
+        }
+      );
+
+      console.log("Email subscription SUCCESS!");
+      setEmail("");
+      setIsAgreed(false);
+      formRef.current?.reset();
+      showSuccessMessage();
+    } catch (error) {
+      console.log("Email subscription FAILED...", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   // Animation variants
   const containerVariants: Variants = {
@@ -145,12 +225,11 @@ export default function Footer() {
     <>
       <motion.section
         ref={ref}
-        className="secondary-text secondary-bg min-h-screen min-h-screen tracking-normal overflow-x-hidden flex flex-col justify-between py-6 sm:py-12 md:py-20 lg:py-[100px] px-4 sm:px-6 md:px-12 lg:px-[60px] pb-4 sm:pb-8"
+        className="secondary-text secondary-bg h-screen w-full tracking-normal overflow-x-hidden flex flex-col justify-between py-6 pt-18 sm:py-12 md:py-20 lg:py-[100px] px-4 sm:px-6 md:px-12 lg:px-[60px] pb-4 sm:pb-8"
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         style={{
-          // Ensure the footer has a solid background for the parallax effect
           position: "relative",
           zIndex: 40,
         }}
@@ -171,32 +250,43 @@ export default function Footer() {
             >
               Stay in the Loop
             </motion.h4>
-
-            {/* Email signup */}
-            <motion.div
+            {/* Email signup form */}
+            <motion.form
+              ref={formRef}
+              onSubmit={handleEmailSubmit}
               className="text-[13px] inter-semibold flex flex-col sm:flex-row items-stretch sm:items-center gap-7 lg:gap-[40px]"
               variants={fadeInUp}
             >
               <motion.input
                 type="email"
+                name="email"
                 placeholder="YOUR EMAIL"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full bg-[#474747] placeholder-gray-400 px-4 sm:px-6 py-3 sm:py-4 rounded-lg text-sm font-medium focus:outline-none focus:ring-1 focus:ring-[#E8492A] min-w-0 sm:min-w-[250px]"
                 variants={fadeInUp}
                 whileFocus={{
                   scale: 1.02,
                   transition: { duration: 0.2 },
                 }}
+                required
+                disabled={isSubmitting}
               />
               <motion.button
-                className="w-full sm:w-auto sm:min-w-[160px] font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg transition-colors duration-200 shadow-[0_-20px_40px_-12px_rgba(232,73,42,0.5),20px_0_40px_-12px_rgba(232,73,42,0.5),-20px_0_40px_-12px_rgba(232,73,42,0.5),0_20px_40px_-12px_rgba(232,73,42,0.5)] text-sm border hover:cursor-pointer border-[#E8492A]"
+                type="submit"
+                className={`w-full sm:w-auto sm:min-w-[160px] font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg transition-colors duration-200 shadow-[0_-20px_40px_-12px_rgba(232,73,42,0.5),20px_0_40px_-12px_rgba(232,73,42,0.5),-20px_0_40px_-12px_rgba(232,73,42,0.5),0_20px_40px_-12px_rgba(232,73,42,0.5)] text-sm border hover:cursor-pointer border-[#E8492A] ${
+                  isSubmitting || !isAgreed
+                    ? "opacity-70 cursor-not-allowed"
+                    : ""
+                }`}
                 variants={buttonHover}
-                whileHover="hover"
-                whileTap="tap"
+                whileHover={!isSubmitting && isAgreed ? "hover" : {}}
+                whileTap={!isSubmitting && isAgreed ? "tap" : {}}
+                disabled={isSubmitting || !isAgreed}
               >
-                SUBSCRIBE
+                {isSubmitting ? "SUBSCRIBING..." : "SUBSCRIBE"}
               </motion.button>
-            </motion.div>
-
+            </motion.form>
             <motion.div
               className="flex flex-row gap-2 pt-5 lg:pt-2 xl:pt-3"
               variants={fadeInUp}
@@ -208,9 +298,12 @@ export default function Footer() {
                 <motion.input
                   type="checkbox"
                   id="email-agreement"
+                  checked={isAgreed}
+                  onChange={(e) => setIsAgreed(e.target.checked)}
                   className="appearance-none w-4 h-4 bg-transparent border-2 border-[#E8492A] rounded-sm hover:cursor-pointer checked:border-[#E8492A] checked:bg-[#E8492A] relative checked:after:content-['✓'] checked:after:absolute checked:after:top-[-2px] checked:after:left-[1px] checked:after:text-white checked:after:text-xs checked:after:font-bold"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
+                  disabled={isSubmitting}
                 />
               </motion.div>
               <motion.label
@@ -223,7 +316,6 @@ export default function Footer() {
               </motion.label>
             </motion.div>
           </motion.div>
-
           {/* Right section */}
           <motion.div
             className="footer-right flex flex-col lg:flex-row gap-6 lg:gap-16 xl:gap-30"
@@ -251,24 +343,32 @@ export default function Footer() {
                     variants={staggerChildren}
                   >
                     {section.items.map((item, index) => (
-                      <motion.p
+                      <motion.div
                         key={index}
+                        className="relative cursor-pointer group"
                         variants={footerItemVariants}
                         whileHover={{
                           x: 5,
                           color: "#E8492A",
                           transition: { duration: 0.2 },
                         }}
-                        className="cursor-pointer"
                       >
-                        {item}
-                      </motion.p>
+                        <p>{item}</p>
+                        <motion.div
+                          className="absolute bottom-0 left-0 h-[1px] bg-[#E8492A] origin-left"
+                          initial={{ scaleX: 0 }}
+                          whileHover={{ scaleX: 1 }}
+                          transition={{
+                            duration: 0.3,
+                            ease: [0.4, 0, 0.2, 1],
+                          }}
+                        />
+                      </motion.div>
                     ))}
                   </motion.div>
                 </motion.div>
               ))}
             </motion.div>
-
             {/* Mobile accordion */}
             <motion.div className="lg:hidden w-full" variants={fadeInUp}>
               <Accordion type="multiple" className="w-full">
@@ -289,8 +389,9 @@ export default function Footer() {
                         transition={{ duration: 0.2, ease: "easeOut" }}
                       >
                         {section.items.map((item, index) => (
-                          <motion.p
+                          <motion.div
                             key={index}
+                            className="relative cursor-pointer group"
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{
@@ -298,10 +399,20 @@ export default function Footer() {
                               delay: index * 0.05,
                               ease: "easeOut",
                             }}
-                            className="cursor-pointer inter-semibold text-sm hover:text-[#E8492A] transition-colors duration-150 py-1"
                           >
-                            {item}
-                          </motion.p>
+                            <p className="inter-semibold text-sm hover:text-[#E8492A] transition-colors duration-150 py-1">
+                              {item}
+                            </p>
+                            <motion.div
+                              className="absolute bottom-0 left-0 h-[1px] bg-[#E8492A] origin-left"
+                              initial={{ scaleX: 0 }}
+                              whileHover={{ scaleX: 1 }}
+                              transition={{
+                                duration: 0.3,
+                                ease: [0.4, 0, 0.2, 1],
+                              }}
+                            />
+                          </motion.div>
                         ))}
                       </motion.div>
                     </AccordionContent>
@@ -309,7 +420,6 @@ export default function Footer() {
                 ))}
               </Accordion>
             </motion.div>
-
             {/* Socials section */}
             <motion.div
               className="footer-socials flex flex-col gap-4"
@@ -321,8 +431,11 @@ export default function Footer() {
               >
                 Socials
               </motion.h4>
-              <motion.div
-                className="social inter-semibold text-xs flex flex-row gap-2 items-center cursor-pointer"
+              <motion.a
+                href="https://www.instagram.com/cyl.labs/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social inter-semibold text-xs flex flex-row gap-2 items-center cursor-pointer group relative"
                 variants={footerItemVariants}
                 whileHover={{
                   x: 5,
@@ -332,16 +445,27 @@ export default function Footer() {
               >
                 <motion.div
                   whileHover={{
-                    rotate: 15,
                     transition: { duration: 0.2 },
                   }}
                 >
                   <Instagram size={16} />
                 </motion.div>
                 <p>Instagram</p>
-              </motion.div>
-<motion.div
-                className="social inter-semibold text-xs flex flex-row gap-2 items-center cursor-pointer"
+                <motion.div
+                  className="absolute bottom-0 left-0 h-[1px] bg-[#E8492A] origin-left"
+                  initial={{ scaleX: 0 }}
+                  whileHover={{ scaleX: 1 }}
+                  transition={{
+                    duration: 0.3,
+                    ease: [0.4, 0, 0.2, 1],
+                  }}
+                />
+              </motion.a>
+              <motion.a
+                href="https://www.facebook.com/profile.php?id=61578162347776"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social inter-semibold text-xs flex flex-row gap-2 items-center cursor-pointer group relative"
                 variants={footerItemVariants}
                 whileHover={{
                   x: 5,
@@ -351,27 +475,33 @@ export default function Footer() {
               >
                 <motion.div
                   whileHover={{
-                    rotate: 15,
                     transition: { duration: 0.2 },
                   }}
                 >
                   <Facebook size={16} />
                 </motion.div>
                 <p>Facebook</p>
-              </motion.div>
+                <motion.div
+                  className="absolute bottom-0 left-0 h-[1px] bg-[#E8492A] origin-left"
+                  initial={{ scaleX: 0 }}
+                  whileHover={{ scaleX: 1 }}
+                  transition={{
+                    duration: 0.3,
+                    ease: [0.4, 0, 0.2, 1],
+                  }}
+                />
+              </motion.a>
             </motion.div>
           </motion.div>
         </motion.div>
-
         {/* Big animated name */}
-        <div className="relative py-20 lg:py-24 xl:py-42 2xl:py-54 text-[60px] sm:text-[80px] md:text-[120px] lg:text-[200px] xl:text-[280px] 2xl:text-[360px] 3xl:text-[440px] leading-[1.19] text-center inter-semibold flex justify-center">
+        <div className="relative py-20 lg:py-24 lg:pb-36 xl:py-42 2xl:py-54 text-[60px] sm:text-[80px] md:text-[120px] lg:text-[200px] xl:text-[280px] 2xl:text-[360px] 3xl:text-[440px] leading-[1.19] text-center inter-semibold flex justify-center">
           <motion.h1
-            className="text-white top-[50%] absolute transform translate-y-[-55%]"
+            className="text-white lg:top-[40%] xl:top-[50%] absolute transform translate-y-[-55%]"
             variants={logoTextVariants}
           >
             cyllabs.
           </motion.h1>
-
           <motion.h1
             className="accent-text animate-[animate_7s_ease-in-out_infinite] absolute transform translate-y-[-55%] "
             variants={logoTextVariants}
@@ -380,6 +510,23 @@ export default function Footer() {
           </motion.h1>
         </div>
       </motion.section>
+
+      {/* Success Popup - Positioned relative to viewport */}
+      {typeof window !== "undefined" && (
+        <div
+          className={`font-extrabold fixed bottom-12 right-8 bg-green-500 text-white px-8 py-4 rounded shadow-lg transition-all duration-500 ease-in-out ${
+            showSuccessPopup
+              ? "opacity-100 translate-x-0"
+              : "opacity-0 translate-x-full"
+          }`}
+          style={{
+            zIndex: 9999,
+            position: "fixed",
+          }}
+        >
+          Successfully subscribed to newsletter!
+        </div>
+      )}
 
       {/* Animation style */}
       <style>{`
@@ -391,7 +538,6 @@ export default function Footer() {
             100% 100%, 0% 100%
           );
         }
-
         25% {
           clip-path: polygon(
             0% 58%, 10% 60%, 20% 62%, 30% 60%, 40% 57%,
@@ -399,7 +545,6 @@ export default function Footer() {
             100% 100%, 0% 100%
           );
         }
-
         50% {
           clip-path: polygon(
             0% 55%, 10% 57%, 20% 60%, 30% 62%, 40% 60%,
@@ -407,7 +552,6 @@ export default function Footer() {
             100% 100%, 0% 100%
           );
         }
-
         75% {
           clip-path: polygon(
             0% 57%, 10% 60%, 20% 62%, 30% 60%, 40% 58%,
@@ -416,7 +560,6 @@ export default function Footer() {
           );
         }
       }
-
       `}</style>
     </>
   );
