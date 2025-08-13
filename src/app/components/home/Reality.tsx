@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -8,6 +8,16 @@ import Wrapper from "../Wrapper";
 import { Button } from "@/components/ui/button";
 
 export default function Reality() {
+  const [scrollDuration, setScrollDuration] = useState(20);
+
+  useEffect(() => {
+    if (window.innerWidth < 640) {
+      setScrollDuration(5);
+    } else {
+      setScrollDuration(20);
+    }
+  }, []);
+
   const images = [
     { name: "vistiq", src: "vistiq.png", offset: 80 },
     { name: "realest", src: "realest.png", offset: 40 },
@@ -23,9 +33,10 @@ export default function Reality() {
         <div className="relative overflow-hidden">
           <motion.div
             className="flex gap-4"
+            key={scrollDuration}
             animate={{ x: ["-50%", "0%"] }}
             transition={{
-              duration: 20,
+              duration: scrollDuration,
               repeat: Infinity,
               ease: "linear",
             }}
