@@ -1,146 +1,35 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
-export default function UVPs({ vh }: { vh: number }) {
-  const [containerStart, setContainerStart] = useState(0);
-  const [mobileContainerStart, setMobileContainerStart] = useState(0);
+export default function UVPs() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const mobileContainerRef = useRef<HTMLDivElement>(null);
-  const { scrollY } = useScroll();
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
 
-  useEffect(() => {
-    if (containerRef.current) {
-      setContainerStart(
-        containerRef.current.getBoundingClientRect().top + vh - 200
-      );
-    }
-  }, [containerRef.current]);
-
-  const brushY = useSpring(
-    useTransform(scrollY, [containerStart - vh, containerStart], [100, 0]),
-    {
-      stiffness: 100,
-      damping: 30,
-      restDelta: 0.001,
-    }
-  );
-
-  const [vw, setVw] = useState(0);
-
-  useEffect(() => {
-    setVw(window.innerWidth);
-  }, []);
-
-  useEffect(() => {
-    if (mobileContainerRef.current) {
-      setMobileContainerStart(
-        mobileContainerRef.current.getBoundingClientRect().top + vh - 200
-      );
-    }
-  }, [mobileContainerRef.current]);
-
-  const card1X = useSpring(
-    useTransform(
-      scrollY,
-      [mobileContainerStart - vh * 0.5, mobileContainerStart],
-      [0, vw]
-    ),
-    {
-      stiffness: 100,
-      damping: 30,
-      restDelta: 0.001,
-    }
-  );
-
-  const card2Rotate = useSpring(
-    useTransform(
-      scrollY,
-      [mobileContainerStart, mobileContainerStart + vh * 0.5],
-      [10, 0]
-    ),
-    {
-      stiffness: 100,
-      damping: 30,
-      restDelta: 0.001,
-    }
-  );
-
-  const card2X = useSpring(
-    useTransform(
-      scrollY,
-      [mobileContainerStart + vh * 0.5, mobileContainerStart + vh],
-      [0, vw]
-    ),
-    {
-      stiffness: 100,
-      damping: 30,
-      restDelta: 0.001,
-    }
-  );
-
-  const card3Rotate = useSpring(
-    useTransform(
-      scrollY,
-      [mobileContainerStart + vh, mobileContainerStart + vh * 1.5],
-      [-10, 0]
-    ),
-    {
-      stiffness: 100,
-      damping: 30,
-      restDelta: 0.001,
-    }
-  );
-
-  const card3X = useSpring(
-    useTransform(
-      scrollY,
-      [mobileContainerStart + vh * 1.5, mobileContainerStart + vh * 2],
-      [0, vw]
-    ),
-    {
-      stiffness: 100,
-      damping: 30,
-      restDelta: 0.001,
-    }
-  );
-
-  const card4Rotate = useSpring(
-    useTransform(
-      scrollY,
-      [mobileContainerStart + vh * 2, mobileContainerStart + vh * 2.5],
-      [15, 0]
-    ),
-    {
-      stiffness: 100,
-      damping: 30,
-      restDelta: 0.001,
-    }
-  );
-
-  const card4X = useSpring(
-    useTransform(
-      scrollY,
-      [mobileContainerStart + vh * 2.5, mobileContainerStart + vh * 3],
-      [0, vw]
-    ),
-    {
-      stiffness: 100,
-      damping: 30,
-      restDelta: 0.001,
-    }
-  );
+  const card1X = useTransform(scrollYProgress, [0, 0.25], [0, 1000]);
+  const card2X = useTransform(scrollYProgress, [0.25, 0.4], [0, 1000]);
+  const card2Rotate = useTransform(scrollYProgress, [0.25, 0.4], [10, 0]);
+  const card3X = useTransform(scrollYProgress, [0.4, 0.55], [0, 1000]);
+  const card3Rotate = useTransform(scrollYProgress, [0.4, 0.55], [-10, 0]);
+  const card4X = useTransform(scrollYProgress, [0.55, 0.7], [0, 1000]);
+  const card4Rotate = useTransform(scrollYProgress, [0.55, 0.7], [15, 0]);
 
   return (
-    <div className="min-h-screen flex justify-center max-sm:min-h-[500vh]">
-      <div className="max-w-[1600px] px-16 py-24 max-md:px-6 max-sm:py-24 max-sm:gap-10 relative max-sm:h-fit max-sm:sticky max-sm:top-0">
-        <div className="flex flex-col gap-16 max-sm:hidden" ref={containerRef}>
+    <div
+      className="min-h-screen flex justify-center max-sm:min-h-[500vh]"
+      ref={containerRef}
+    >
+      <div className="max-w-[1600px] px-16 py-24 overflow-hidden max-md:px-6 max-sm:py-24 max-sm:gap-10 relative max-sm:h-fit max-sm:sticky max-sm:top-0">
+        <div className="flex flex-col gap-16 max-sm:hidden">
           <div className="flex flex-col gap-8 max-sm:gap-5">
             <h1 className="w-1/2 text-[64px] text-[#020202] font-semibold max-[1200px]:w-4/5 max-sm:w-full max-sm:text-[40px]">
-              Why we
-              <span className="text-[#FD5001]">beat</span> your other options.
+              Why we <span className="text-[#FD5001]">beat</span> your other
+              options.
             </h1>
             <p className="text-[20px] text-[#999999] opacity-90 leading-[1.2] tracking-normal max-sm:text-[20px]">
               Built to win against DIY, freelancers, and template shops.
@@ -185,10 +74,7 @@ export default function UVPs({ vh }: { vh: number }) {
                     the whole build.
                   </p>
                 </div>
-                <motion.div
-                  className="h-[150%] absolute bottom-[-280px] aspect-1/5 z-10 max-md:bottom-[-260px]"
-                  style={{ y: brushY }}
-                >
+                <motion.div className="h-[150%] absolute bottom-[-280px] aspect-1/5 z-10 max-md:bottom-[-260px]">
                   <Image src="/brush.png" alt="" fill />
                 </motion.div>
                 <div className="w-3/5 bg-white absolute blur-3xl aspect-square left-[-5%] bottom-[-15vh] max-[1200px]:bottom-[-10vh] max-md:left-[-15%] max-md:bottom-[-20vh]"></div>
@@ -251,10 +137,7 @@ export default function UVPs({ vh }: { vh: number }) {
             </div>
           </div>
         </div>
-        <div
-          className="flex flex-col gap-24 sm:hidden"
-          ref={mobileContainerRef}
-        >
+        <div className="flex flex-col gap-24 sm:hidden">
           <div className="flex justify-center">
             <div className="w-[90%] relative aspect-square">
               <motion.div
@@ -275,10 +158,7 @@ export default function UVPs({ vh }: { vh: number }) {
                       No juniors. No handoffs.
                     </h2>
                   </div>
-                  <motion.div
-                    className="h-[150%] absolute bottom-[-280px] aspect-1/5 z-10 max-md:bottom-[-260px]"
-                    style={{ y: brushY }}
-                  >
+                  <motion.div className="h-[150%] absolute bottom-[-280px] aspect-1/5 z-10 max-md:bottom-[-260px]">
                     <Image src="/brush.png" alt="" fill />
                   </motion.div>
                   <div className="w-3/5 bg-white absolute blur-3xl aspect-square left-[-5%] bottom-[-15vh] max-[1200px]:bottom-[-10vh] max-md:left-[-15%] max-md:bottom-[-20vh]"></div>
@@ -291,25 +171,22 @@ export default function UVPs({ vh }: { vh: number }) {
                   rotate: card2Rotate,
                 }}
               >
-                <div className="relative aspect-square">
-                  <Image
-                    className="object-cover"
-                    src="/sanity.png"
-                    alt=""
-                    fill
-                  />
-                </div>
                 <div
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%)",
-                  }}
-                ></div>
-                <div className="flex flex-col gap-4 text-white absolute bottom-0 z-10 p-10 max-[1200px]:p-8 max-md:p-6">
-                  <h2 className="text-[32px] font-semibold">
-                    Update it yourself in minutes
-                  </h2>
+                  className="z-30 flex items-end bg-cover aspect-square text-white relative"
+                  style={{ backgroundImage: "url('/sanity.png')" }}
+                >
+                  <div className="w-full flex flex-col gap-4 p-10 max-[1200px]:p-8 max-md:p-6 relative">
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        background:
+                          "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%)",
+                      }}
+                    ></div>
+                    <h2 className="text-[32px] font-semibold relative z-10">
+                      Update it yourself in minutes
+                    </h2>
+                  </div>
                 </div>
               </motion.div>
               <motion.div
@@ -362,25 +239,22 @@ export default function UVPs({ vh }: { vh: number }) {
                   rotate: card4Rotate,
                 }}
               >
-                <div className="relative aspect-square">
-                  <Image
-                    className="object-cover"
-                    src="/competitors.png"
-                    alt=""
-                    fill
-                  />
-                </div>
                 <div
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      "linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%)",
-                  }}
-                ></div>
-                <div className="flex flex-col gap-4 text-white absolute top-0 z-10 p-10 max-[1200px]:p-8 max-md:p-6">
-                  <h2 className="text-[32px] font-semibold">
-                    Beat your competitors
-                  </h2>
+                  className="bg-cover bg-right bg-bottom relative aspect-square p-10 max-[1200px]:p-8 max-md:p-6"
+                  style={{ backgroundImage: "url('/competitors.png')" }}
+                >
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background:
+                        "linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%)",
+                    }}
+                  ></div>
+                  <div className="flex flex-col gap-4 text-white relative z-10">
+                    <h2 className="text-[32px] font-semibold">
+                      Beat your competitors
+                    </h2>
+                  </div>
                 </div>
               </motion.div>
             </div>
