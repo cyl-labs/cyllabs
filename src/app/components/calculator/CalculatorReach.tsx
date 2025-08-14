@@ -20,10 +20,10 @@ export default function CalculatorReach({
   }
 
   return (
-    <div className="h-full max-h-[500px] h-full max-h-[500px] flex flex-col flex-grow justify-between py-8">
+    <div className="max-w-[100vw] h-full max-h-[500px] flex flex-col flex-grow justify-between px-16 max-md:px-6">
       <div className="flex flex-col gap-8">
         <motion.h1
-          className="text-[64px] text-white font-semibold"
+          className="text-[64px] text-white font-semibold max-[1200px]:text-[48px] max-sm:text-[40px]"
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{
@@ -67,10 +67,22 @@ export default function CalculatorReach({
           Monthly reach or profile views
         </h2>
         <input
-          className="text-[64px] text-[#FEF1E1] font-semibold placeholder-[#999999] focus:outline-none"
+          className="text-[64px] text-[#FEF1E1] font-semibold placeholder-[#999999] focus:outline-none max-[1200px]:text-[48px] max-sm:text-[40px] max-sm:hidden"
           type="number"
           value={reach}
           placeholder="Enter your reach e.g. 8,000"
+          onChange={(e) => {
+            const value = e.target.value;
+            if (value === "" || Number(value) >= 0) {
+              setReach(value);
+            }
+          }}
+        />
+        <input
+          className="text-[64px] text-[#FEF1E1] font-semibold placeholder-[#999999] focus:outline-none max-[1200px]:text-[48px] max-sm:text-[40px] sm:hidden"
+          type="number"
+          value={reach}
+          placeholder="Enter here"
           onChange={(e) => {
             const value = e.target.value;
             if (value === "" || Number(value) >= 0) {

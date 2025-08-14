@@ -26,10 +26,10 @@ export default function CalculatorPrice({
   }
 
   return (
-    <div className="h-full max-h-[500px] flex flex-col flex-grow justify-between py-8">
+    <div className="max-w-[100vw] h-full max-h-[500px] flex flex-col flex-grow justify-between px-16 max-md:px-6">
       <div className="flex flex-col gap-8">
         <motion.h1
-          className="text-[64px] text-white font-semibold"
+          className="text-[64px] text-white font-semibold max-[1200px]:text-[48px] max-sm:text-[40px]"
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{
@@ -73,11 +73,24 @@ export default function CalculatorPrice({
           Average sale value
         </h2>
         <input
-          className="text-[64px] text-[#FEF1E1] font-semibold placeholder-[#999999] focus:outline-none"
+          className="text-[64px] text-[#FEF1E1] font-semibold placeholder-[#999999] focus:outline-none max-[1200px]:text-[48px] max-sm:text-[40px] max-sm:hidden"
           type="number"
           min="0"
           value={price}
           placeholder="Enter your average sale value e.g. 250"
+          onChange={(e) => {
+            const value = e.target.value;
+            if (value === "" || Number(value) >= 0) {
+              setPrice(value);
+            }
+          }}
+        />
+         <input
+          className="text-[64px] text-[#FEF1E1] font-semibold placeholder-[#999999] focus:outline-none max-[1200px]:text-[48px] max-sm:text-[40px] sm:hidden"
+          type="number"
+          min="0"
+          value={price}
+          placeholder="Enter here"
           onChange={(e) => {
             const value = e.target.value;
             if (value === "" || Number(value) >= 0) {

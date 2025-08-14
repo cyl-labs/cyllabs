@@ -7,10 +7,10 @@ export default function CalculatorWelcome({
   setSection: (section: string) => void;
 }) {
   return (
-    <div className="h-full max-h-[500px] flex flex-col flex-grow justify-between py-8">
+    <div className="h-full max-h-[500px] flex flex-col flex-grow justify-between px-16 max-md:px-6">
       <div className="flex flex-col gap-8">
         <motion.h1
-          className="text-[64px] text-white font-semibold"
+          className="text-[64px] text-white font-semibold max-[1200px]:text-[48px] max-sm:text-[40px]"
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{

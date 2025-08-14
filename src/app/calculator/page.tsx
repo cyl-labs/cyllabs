@@ -20,8 +20,10 @@ export default function Page() {
   return (
     <div className="min-h-screen relative overflow-hidden">
       <Gradient />
-      <Wrapper className="w-full h-screen flex flex-col relative !py-0">
-        <Navbar />
+      <Wrapper className="w-full h-screen flex flex-col relative !px-0 !py-0 !gap-0">
+        <div className="px-16 max-md:px-6">
+          <Navbar />
+        </div>
         <div className="flex-1 flex items-center justify-center">
           {section === "welcome" && (
             <CalculatorWelcome setSection={setSection} />
