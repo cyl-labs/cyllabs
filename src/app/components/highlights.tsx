@@ -24,9 +24,9 @@ const cardData: CardData[] = [
     title: "Mamiko",
     subtitle: "2025",
     description:
-      "Exploring the intersection of contemporary fashion and digital artistry through bold compositions and striking visual narratives that challenge conventional boundaries.",
+      "Ecommerce launch with 150+ products, Stripe checkout live, and mobile-first performance. Clean product database and tracking installed.",
     image:
-      "https://framerusercontent.com/images/JiH7Nt3sT9vn16JnEmju4dPL4s.jpg",
+      "/mamiko_highlight.jpg",
     imageAlt: "Mamiko",
     layout: "image-left",
   },
@@ -35,9 +35,9 @@ const cardData: CardData[] = [
     title: "Family Mookata",
     subtitle: "2025",
     description:
-      "Embracing the power of negative space and geometric precision to create experiences that speak through simplicity and intentional restraint.",
+      "Restaurant site that loads fast and removes friction. Menu UX simplified, hours and locations upfront, reviews visible. $12k in sales kept in the first month.",
     image:
-      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&h=600&fit=crop&crop=center",
+      "/fm_highlight.jpg",
     imageAlt: "Family Mookata",
     layout: "image-right",
   },

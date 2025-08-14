@@ -9,7 +9,7 @@ import Footer from "./components/footer";
 import Highlights from "./components/highlights";
 
 export default function Home() {
-  const handleMessageSent = () => {};
+  const handleMessageSent = () => { };
   const mainContentRef = useRef<HTMLDivElement>(null);
   const footerRevealRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
@@ -85,13 +85,15 @@ export default function Home() {
       </div>
 
       {/* Main Content */}
-      <div ref={mainContentRef} className="relative z-30 bg-black">
+      <div ref={mainContentRef} className="relative z-30 bg-black"> {/* bg-black because white DOM shows for the highlights */}
         <div className="overflow-hidden">
           <Hero />
           <Reality />
         </div>
-        <UVPs />
-        <Quiz />
+        <div className="bg-white"> {/* bg-white because there's a random black line in phone screens from the DOM */}
+          <UVPs />
+          <Quiz />
+        </div>
         <Highlights />
         <div ref={contactRef} className="will-change-transform">
           <Contact onMessageSent={handleMessageSent} />
