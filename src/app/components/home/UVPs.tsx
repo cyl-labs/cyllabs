@@ -11,13 +11,43 @@ export default function UVPs() {
     offset: ["start start", "end end"],
   });
 
-  const card1X = useTransform(scrollYProgress, [0, 0.25], [0, 1000]);
-  const card2X = useTransform(scrollYProgress, [0.25, 0.4], [0, 1000]);
-  const card2Rotate = useTransform(scrollYProgress, [0.25, 0.4], [10, 0]);
-  const card3X = useTransform(scrollYProgress, [0.4, 0.55], [0, 1000]);
-  const card3Rotate = useTransform(scrollYProgress, [0.4, 0.55], [-10, 0]);
-  const card4X = useTransform(scrollYProgress, [0.55, 0.7], [0, 1000]);
-  const card4Rotate = useTransform(scrollYProgress, [0.55, 0.7], [15, 0]);
+  const segment = 1 / 8;
+  const card1X = useTransform(scrollYProgress, [0, segment], [0, 500]);
+  const card2Rotate = useTransform(
+    scrollYProgress,
+    [segment, segment * 2],
+    [10, 0]
+  );
+
+  const card2X = useTransform(
+    scrollYProgress,
+    [segment * 2, segment * 3],
+    [0, 500]
+  );
+
+  const card3Rotate = useTransform(
+    scrollYProgress,
+    [segment * 3, segment * 4],
+    [-10, 0]
+  );
+
+  const card3X = useTransform(
+    scrollYProgress,
+    [segment * 4, segment * 5],
+    [0, 500]
+  );
+
+  const card4Rotate = useTransform(
+    scrollYProgress,
+    [segment * 5, segment * 6],
+    [15, 0]
+  );
+
+  const card4X = useTransform(
+    scrollYProgress,
+    [segment * 6, segment * 7],
+    [0, 500]
+  );
 
   return (
     <div

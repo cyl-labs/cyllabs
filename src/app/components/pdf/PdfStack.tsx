@@ -9,11 +9,27 @@ export default function PdfStack() {
     offset: ["start start", "end end"],
   });
 
-  const card1X = useTransform(scrollYProgress, [0, 0.33], [0, 1000]);
-  const card2X = useTransform(scrollYProgress, [0.33, 0.66], [0, 1000]);
-  const card2Rotate = useTransform(scrollYProgress, [0.33, 0.66], [10, 0]);
-  const card3X = useTransform(scrollYProgress, [0.66, 1], [0, 1000]);
-  const card3Rotate = useTransform(scrollYProgress, [0.66, 1], [-10, 0]);
+  const segment = 1 / 5;
+  const card1X = useTransform(scrollYProgress, [0, segment], [0, 500]);
+  const card2Rotate = useTransform(
+    scrollYProgress,
+    [segment, segment * 2],
+    [10, 0]
+  );
+
+  const card2X = useTransform(
+    scrollYProgress,
+    [segment * 2, segment * 3],
+    [0, 1000]
+  );
+
+  const card3Rotate = useTransform(
+    scrollYProgress,
+    [segment * 3, segment * 4],
+    [-10, 0]
+  );
+
+  const card3X = useTransform(scrollYProgress, [segment * 4, 1], [0, 500]);
 
   return (
     <div
@@ -69,14 +85,14 @@ export default function PdfStack() {
                   rotate: card3Rotate,
                 }}
               >
-                <div className="flex flex-col justify-start blur-lg aspect-square p-10 max-[1200px]:p-8 max-md:p-6 max-md:h-[340px] max-md:aspect-auto">
+                <div className="flex flex-col justify-start aspect-square p-10 max-[1200px]:p-8 max-md:p-6 max-md:h-[340px]">
                   <Image
-                    className="object-cover"
+                    className="object-cover blur-lg"
                     src="/clock.png"
                     alt=""
                     fill
                   />
-                  <h3 className="absolute left-0 top-0 text-[24px] font-semibold p-10 max-[1200px]:p-8 max-md:p-6">
+                  <h3 className="absolute left-0 top-0 blur-lg text-[24px] font-semibold p-10 max-[1200px]:p-8 max-md:p-6">
                     The fastest way to get a trust-building site live without
                     wasting time or money
                   </h3>
@@ -96,11 +112,22 @@ export default function PdfStack() {
             </div>
           </div>
           <div className="flex flex-col gap-8 max-sm:gap-5">
-            <p className="w-full text-[48px] font-semibold max-sm:text-[40px]">
+            <motion.p
+              className="w-full text-[48px] font-semibold max-sm:text-[40px]"
+              initial={{ x: -100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{
+                type: "spring",
+                stiffness: 100,
+                damping: 30,
+                restDelta: 0.001,
+              }}
+              viewport={{ once: true }}
+            >
               Unlock this and{" "}
               <span className="text-[#FD5001]">8 other causes</span> in the
               guide
-            </p>
+            </motion.p>
           </div>
         </div>
       </div>

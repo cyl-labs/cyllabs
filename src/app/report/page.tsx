@@ -50,12 +50,33 @@ export default function Page() {
         <Wrapper className="w-screen h-full flex flex-col justify-between relative !pt-0 z-10">
           <Navbar />
           <div className="flex flex-col items-end gap-8 text-white text-right">
-            <h1 className="w-2/3 text-[64px] font-semibold max-[1200px]:w-4/5 max-[1200px]:text-[48px] max-md:w-full max-sm:text-[40px]">
+            <motion.h1
+              className="w-2/3 text-[64px] font-semibold max-[1200px]:w-4/5 max-[1200px]:text-[48px] max-md:w-full max-sm:text-[40px]"
+              initial={{ x: 100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{
+                type: "spring",
+                stiffness: 100,
+                damping: 30,
+                restDelta: 0.001,
+              }}
+            >
               Your funnel report. Here&apos;s the breakdown.
-            </h1>
-            <p className="w-1/3 opacity-70 text-[20px] text-right leading-[1.2] tracking-normal max-[1200px]:w-4/5 max-md:w-full">
+            </motion.h1>
+            <motion.p
+              className="w-1/3 opacity-70 text-[20px] text-right leading-[1.2] tracking-normal max-[1200px]:w-4/5 max-md:w-full"
+              initial={{ x: 100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{
+                type: "spring",
+                stiffness: 100,
+                damping: 30,
+                restDelta: 0.001,
+                delay: 0.2,
+              }}
+            >
               Find out why you&apos;re leaving money behind.
-            </p>
+            </motion.p>
           </div>
         </Wrapper>
       </div>
@@ -66,47 +87,107 @@ export default function Page() {
         >
           <div className="flex justify-between gap-16 max-[1200px]:flex-col">
             <div className="w-1/4 flex flex-col gap-8 max-[1200px]:w-1/2 max-md:w-full">
-              <h2 className="text-[64px] font-semibold max-[1200px]:text-[48px] max-sm:text-[40px]">
+              <motion.h2
+                className="text-[64px] font-semibold max-[1200px]:text-[48px] max-sm:text-[40px]"
+                initial={{ x: -100, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 30,
+                  restDelta: 0.001,
+                }}
+              >
                 How You’re Performing
-              </h2>
-              <p className="opacity-70 text-[20px] leading-[1.2] tracking-normal">
+              </motion.h2>
+              <motion.p
+                className="opacity-70 text-[20px] leading-[1.2] tracking-normal"
+                initial={{ x: -100, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 30,
+                  restDelta: 0.001,
+                }}
+              >
                 Your key website metrics, updated from real data.
-              </p>
+              </motion.p>
             </div>
             <div className="w-3/5 flex flex-col gap-16 max-[1200px]:w-3/4">
               <div className="flex justify-between flex-wrap gap-16">
-                <div className="flex flex-col gap-4">
+                <motion.div
+                  className="flex flex-col gap-4"
+                  initial={{ x: -100, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 30,
+                    restDelta: 0.001,
+                  }}
+                >
                   <p className="text-[80px] font-semibold">
                     {Number(data.reach).toFixed(0).toLocaleString()}
                   </p>
                   <h3 className="opacity-70 text-[20x] leading-[1.2] tracking-normal">
                     Impressions
                   </h3>
-                </div>
-                <div className="flex flex-col gap-4">
+                </motion.div>
+                <motion.div
+                  className="flex flex-col gap-4"
+                  initial={{ x: -100, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 30,
+                    restDelta: 0.001,
+                  }}
+                >
                   <p className="text-[80px] font-semibold">
                     {Number(data.messages).toFixed(0).toLocaleString()}
                   </p>
                   <h3 className="opacity-70 text-[20x] leading-[1.2] tracking-normal">
                     Weekly messages
                   </h3>
-                </div>
-                <div className="flex flex-col gap-4">
+                </motion.div>
+                <motion.div
+                  className="flex flex-col gap-4"
+                  initial={{ x: -100, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 30,
+                    restDelta: 0.001,
+                  }}
+                >
                   <p className="text-[80px] font-semibold">
                     ${Number(data.price).toFixed(0).toLocaleString()}
                   </p>
                   <h3 className="opacity-70 text-[20x] leading-[1.2] tracking-normal">
                     Average cost
                   </h3>
-                </div>
+                </motion.div>
               </div>
-              <p className="text-[48px] font-semibold max-sm:text-[40px]">
+              <motion.p
+                className="text-[48px] font-semibold max-sm:text-[40px]"
+                initial={{ x: -100, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 30,
+                  restDelta: 0.001,
+                }}
+              >
                 Your conversion rate is{" "}
                 <span className="text-[#FD5001]">
                   {conversionRate.toFixed(2)}%
                 </span>
                 .
-              </p>
+              </motion.p>
             </div>
           </div>
           {data.reach <= 400 ? (
@@ -125,36 +206,77 @@ export default function Page() {
           )}
           <div className="flex gap-16 max-md:flex-col">
             <div className="w-full flex flex-col gap-8">
-              <h1 className="text-[64px] font-semibold max-[1200px]:w-4/5 max-[1200px]:text-[48px] max-md:w-full max-sm:text-[40px]">
+              <motion.h1
+                className="text-[64px] font-semibold max-[1200px]:w-4/5 max-[1200px]:text-[48px] max-md:w-full max-sm:text-[40px]"
+                initial={{ x: -100, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 30,
+                  restDelta: 0.001,
+                }}
+              >
                 Plug the leak now. Keep the revenue.
-              </h1>
-              <p className="opacity-70 text-[20px] leading-[1.2] tracking-normal">
+              </motion.h1>
+              <motion.p
+                className="opacity-70 text-[20px] leading-[1.2] tracking-normal"
+                initial={{ x: -100, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 30,
+                  restDelta: 0.001,
+                }}
+              >
                 You are leaving <span className="text-[#FD5001]">money</span>{" "}
                 behind every month. We will show you how to keep it.
-              </p>
-              <Button className="w-fit h-fit bg-[#FD5001] rounded-full !px-8 !py-4 text-[20px] text-white font-semibold">
-                Get your revenue plan
-                <svg
-                  className="min-w-6 min-h-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                >
-                  <path
-                    d="M7 7H17M17 7V17M17 7L7 17"
-                    stroke="white"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </Button>
+              </motion.p>
+              <motion.div
+                initial={{ x: -100, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 30,
+                  restDelta: 0.001,
+                }}
+              >
+                <Button className="w-fit h-fit bg-[#FD5001] rounded-full !px-8 !py-4 text-[20px] text-white font-semibold">
+                  Get your revenue plan
+                  <svg
+                    className="min-w-6 min-h-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M7 7H17M17 7V17M17 7L7 17"
+                      stroke="white"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </Button>
+              </motion.div>
             </div>
-            <div className="w-full relative aspect-square">
+            <motion.div
+              className="w-full relative aspect-square"
+              initial={{ x: -100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{
+                type: "spring",
+                stiffness: 100,
+                damping: 30,
+                restDelta: 0.001,
+              }}
+            >
               <Image className="object-cover" src="/money.png" alt="" fill />
-            </div>
+            </motion.div>
           </div>
         </Wrapper>
       </motion.div>
