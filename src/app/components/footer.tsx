@@ -225,7 +225,7 @@ export default function Footer() {
     <>
       <motion.section
         ref={ref}
-        className="secondary-text secondary-bg h-screen w-full tracking-normal overflow-x-hidden flex flex-col justify-between py-6 pt-18 sm:py-12 md:py-20 lg:py-[100px] px-4 sm:px-6 md:px-12 lg:px-[60px] pb-4 sm:pb-8"
+        className="secondary-text overflow-y-hidden secondary-bg h-screen w-screen tracking-normal overflow-x-hidden flex flex-col justify-between py-6 pt-18 sm:py-12 md:py-20 lg:py-[100px] px-4 sm:px-6 md:px-12 lg:px-[60px] pb-4 sm:pb-8"
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
@@ -511,21 +511,24 @@ export default function Footer() {
         </div>
       </motion.section>
 
-      {/* Success Popup - Positioned relative to viewport */}
-      {typeof window !== "undefined" && (
-        <div
-          className={`font-extrabold fixed bottom-12 right-8 bg-green-500 text-white px-8 py-4 rounded shadow-lg transition-all duration-500 ease-in-out ${
-            showSuccessPopup
-              ? "opacity-100 translate-x-0"
-              : "opacity-0 translate-x-full"
-          }`}
+      {/* Success Popup - Only render when showSuccessPopup is true */}
+      {showSuccessPopup && (
+        <motion.div
+          className="font-extrabold fixed bottom-12 right-8 bg-green-500 text-white px-8 py-4 rounded shadow-lg"
           style={{
             zIndex: 9999,
             position: "fixed",
           }}
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: 100 }}
+          transition={{
+            duration: 0.5,
+            ease: [0.25, 0.25, 0, 1],
+          }}
         >
           Successfully subscribed to newsletter!
-        </div>
+        </motion.div>
       )}
 
       {/* Animation style */}

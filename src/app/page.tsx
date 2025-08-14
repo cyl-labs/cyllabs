@@ -101,7 +101,7 @@ export default function Home() {
       {/* Footer Reveal Scroll Space */}
       <div
         ref={footerRevealRef}
-        className="relative z-20 h-[calc(100vh+2px)]"
+        className="relative z-20 h-[calc(100vh+2px)] overflow-x-hidden"
         style={{ pointerEvents: "none" }}
       />
     </main>

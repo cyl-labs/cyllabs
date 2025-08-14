@@ -390,21 +390,24 @@ export default function Contact({ onMessageSent }: ContactProps) {
         </div>
       </motion.section>
 
-      {/* Success Popup - Positioned relative to viewport */}
-      {typeof window !== "undefined" && (
-        <div
-          className={`fixed font-extrabold bottom-12 right-8 bg-green-500 text-white px-8 py-4 rounded shadow-lg transition-all duration-500 ease-in-out ${
-            showSuccessPopup
-              ? "opacity-100 translate-x-0"
-              : "opacity-0 translate-x-full"
-          }`}
+      {/* Success Popup - Only render when showSuccessPopup is true */}
+      {showSuccessPopup && (
+        <motion.div
+          className="fixed font-extrabold bottom-12 right-8 bg-green-500 text-white px-8 py-4 rounded shadow-lg"
           style={{
             zIndex: 9999,
             position: "fixed",
           }}
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: 100 }}
+          transition={{
+            duration: 0.5,
+            ease: [0.25, 0.25, 0, 1],
+          }}
         >
           Message sent successfully!
-        </div>
+        </motion.div>
       )}
     </>
   );
