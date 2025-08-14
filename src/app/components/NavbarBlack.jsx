@@ -9,9 +9,9 @@ import {
 } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 
-export default function Navbar() {
+export default function NavbarBlack() {
   return (
-    <div className="w-full flex justify-between items-center py-8 text-[16px] text-white font-semibold">
+    <div className="w-full flex justify-between items-center py-8 text-[16px] font-semibold">
       <Link className="flex items-end gap-[5px]" href="/">
         <h1 className="text-[32px] font-semibold">cyllabs</h1>
         <div className="w-2 h-2 bg-[#FD5001] rounded-full mb-[5px]"></div>

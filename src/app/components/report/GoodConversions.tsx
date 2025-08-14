@@ -18,6 +18,7 @@ export default function GoodConversions({
             damping: 30,
             restDelta: 0.001,
           }}
+          viewport={{ once: true }}
         >
           You&apos;re doing well. Let&apos;s make it{" "}
           <span className="text-[#FD5001]">bigger</span>.
@@ -32,6 +33,7 @@ export default function GoodConversions({
             damping: 30,
             restDelta: 0.001,
           }}
+          viewport={{ once: true }}
         >
           What works now can work even harder with one more way to convert.
         </motion.p>
@@ -46,6 +48,7 @@ export default function GoodConversions({
           damping: 30,
           restDelta: 0.001,
         }}
+        viewport={{ once: true }}
       >
         Adding a website could add 3% more sales.
       </motion.p>
@@ -59,6 +62,7 @@ export default function GoodConversions({
           damping: 30,
           restDelta: 0.001,
         }}
+        viewport={{ once: true }}
       >
         That&apos;s an extra $
         {Number(possibleRevenue.toFixed(0)).toLocaleString()} a month.
@@ -73,6 +77,7 @@ export default function GoodConversions({
           damping: 30,
           restDelta: 0.001,
         }}
+        viewport={{ once: true }}
       >
         That&apos;s{" "}
         <span className="text-[#FD5001]">

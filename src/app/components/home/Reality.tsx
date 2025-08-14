@@ -101,7 +101,7 @@ export default function Reality() {
               (label) => (
                 <span
                   key={label}
-                    className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-4 text-sm leading-[1.2] tracking-normal"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

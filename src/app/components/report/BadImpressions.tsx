@@ -22,11 +22,12 @@ export default function BadImpressions({
             damping: 30,
             restDelta: 0.001,
           }}
+          viewport={{ once: true }}
         >
           We can show your business to 5x more people.
         </motion.h2>
         <motion.p
-          className="w-1/5 text-[20px] text-[#999999] text-right leading-[1.2] tracking-normal max-[1200px]:w-4/5 max-[1200px]:text-left max-md:w-full"
+          className="w-1/5 text-[20px] text-right leading-[1.2] tracking-normal !opacity-70 max-[1200px]:w-4/5 max-[1200px]:text-left max-md:w-full"
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{
@@ -35,6 +36,7 @@ export default function BadImpressions({
             damping: 30,
             restDelta: 0.001,
           }}
+          viewport={{ once: true }}
         >
           Right now, most people don’t know you exist. That means fewer clicks,
           calls, and sales.
@@ -50,6 +52,7 @@ export default function BadImpressions({
           damping: 30,
           restDelta: 0.001,
         }}
+        viewport={{ once: true }}
       >
         Even if only 3% buy.
       </motion.p>
@@ -63,6 +66,7 @@ export default function BadImpressions({
           damping: 30,
           restDelta: 0.001,
         }}
+        viewport={{ once: true }}
       >
         That’s a{" "}
         {Number(

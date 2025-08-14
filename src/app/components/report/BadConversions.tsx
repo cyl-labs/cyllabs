@@ -20,6 +20,7 @@ export default function BadConversions({
             damping: 30,
             restDelta: 0.001,
           }}
+          viewport={{ once: true }}
         >
           People are visiting. They are not buying. A trust-first website{" "}
           <span className="text-[#FD5001]">gives them a clear next step.</span>
@@ -34,6 +35,7 @@ export default function BadConversions({
             damping: 30,
             restDelta: 0.001,
           }}
+          viewport={{ once: true }}
         >
           You have the audience. Now it&apos;s time to turn them into paying
           customers.
@@ -49,6 +51,7 @@ export default function BadConversions({
           damping: 30,
           restDelta: 0.001,
         }}
+        viewport={{ once: true }}
       >
         With an average conversion rate of 3%.
       </motion.p>
@@ -62,6 +65,7 @@ export default function BadConversions({
             damping: 30,
             restDelta: 0.001,
           }}
+          viewport={{ once: true }}
         >
           Current revenue: ${Number(currentRevenue.toFixed(0)).toLocaleString()}
         </motion.p>
@@ -75,6 +79,7 @@ export default function BadConversions({
             damping: 30,
             restDelta: 0.001,
           }}
+          viewport={{ once: true }}
         >
           Possible revenue: $
           {Number(possibleRevenue.toFixed(0)).toLocaleString()}
@@ -90,6 +95,7 @@ export default function BadConversions({
           damping: 30,
           restDelta: 0.001,
         }}
+        viewport={{ once: true }}
       >
         That&apos;s{" "}
         <span className="text-[#FD5001]">

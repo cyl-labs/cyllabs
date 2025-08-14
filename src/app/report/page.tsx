@@ -97,8 +97,9 @@ export default function Page() {
                   damping: 30,
                   restDelta: 0.001,
                 }}
+                viewport={{ once: true }}
               >
-                How You’re Performing
+                How You&apos;re Performing
               </motion.h2>
               <motion.p
                 className="opacity-70 text-[20px] leading-[1.2] tracking-normal"
@@ -110,6 +111,7 @@ export default function Page() {
                   damping: 30,
                   restDelta: 0.001,
                 }}
+                viewport={{ once: true }}
               >
                 Your key website metrics, updated from real data.
               </motion.p>
@@ -126,6 +128,7 @@ export default function Page() {
                     damping: 30,
                     restDelta: 0.001,
                   }}
+                  viewport={{ once: true }}
                 >
                   <p className="text-[80px] font-semibold">
                     {Number(data.reach).toFixed(0).toLocaleString()}
@@ -144,6 +147,7 @@ export default function Page() {
                     damping: 30,
                     restDelta: 0.001,
                   }}
+                  viewport={{ once: true }}
                 >
                   <p className="text-[80px] font-semibold">
                     {Number(data.messages).toFixed(0).toLocaleString()}
@@ -162,6 +166,7 @@ export default function Page() {
                     damping: 30,
                     restDelta: 0.001,
                   }}
+                  viewport={{ once: true }}
                 >
                   <p className="text-[80px] font-semibold">
                     ${Number(data.price).toFixed(0).toLocaleString()}
@@ -181,6 +186,7 @@ export default function Page() {
                   damping: 30,
                   restDelta: 0.001,
                 }}
+                viewport={{ once: true }}
               >
                 Your conversion rate is{" "}
                 <span className="text-[#FD5001]">
@@ -216,11 +222,12 @@ export default function Page() {
                   damping: 30,
                   restDelta: 0.001,
                 }}
+                viewport={{ once: true }}
               >
                 Plug the leak now. Keep the revenue.
               </motion.h1>
               <motion.p
-                className="opacity-70 text-[20px] leading-[1.2] tracking-normal"
+                className="opacity-70 text-[20px] leading-[1.2] tracking-normal !opacity-70"
                 initial={{ x: -100, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{
@@ -229,8 +236,9 @@ export default function Page() {
                   damping: 30,
                   restDelta: 0.001,
                 }}
+                viewport={{ once: true }}
               >
-                You are leaving <span className="text-[#FD5001]">money</span>{" "}
+                You are leaving <span className="text-[#FD5001] !opacity-100">money</span>{" "}
                 behind every month. We will show you how to keep it.
               </motion.p>
               <motion.div
@@ -242,6 +250,7 @@ export default function Page() {
                   damping: 30,
                   restDelta: 0.001,
                 }}
+                viewport={{ once: true }}
               >
                 <Button className="w-fit h-fit bg-[#FD5001] rounded-full !px-8 !py-4 text-[20px] text-white font-semibold">
                   Get your revenue plan
@@ -274,6 +283,7 @@ export default function Page() {
                 damping: 30,
                 restDelta: 0.001,
               }}
+              viewport={{ once: true }}
             >
               <Image className="object-cover" src="/money.png" alt="" fill />
             </motion.div>
