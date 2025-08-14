@@ -9,7 +9,7 @@ export default function FamilyMookata() {
           <div className="w-3/4 h-full relative max-[1200px]:w-full max-[1200px]:h-1/2">
             <Image
               className="object-cover"
-              src="/abstract-desk.png"
+              src="/fm_highlight.png"
               alt=""
               fill
             />

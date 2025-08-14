@@ -198,7 +198,7 @@ export default function Quiz(): React.ReactElement {
             </motion.h1>
           </ParallaxText>
 
-          <div className="w-1/5 flex flex-col items-end gap-8 text-right max-[1200px]:w-4/5 max-[1200px]:items-start max-[1200px]:text-left max-md:w-full">
+          <div className="w-1/5 flex flex-col items-end gap-8 text-right max-[1200px]:w-4/5 max-[1200px]:text-left max-md:w-full max-sm:items-center max-sm:text-center">
             <ParallaxText offset={10}>
               <motion.p
                 className="text-[20px] text-[#999999] leading-[1.2] tracking-normal"
@@ -219,11 +219,11 @@ export default function Quiz(): React.ReactElement {
             <motion.div variants={buttonVariants}>
               <Button
                 asChild
-                className="w-fit h-fit bg-[#FD5001] rounded-full !px-8 !py-4 text-[20px] text-white font-semibold overflow-hidden relative group"
+                className="w-fit h-fit max-sm:self-center bg-[#FD5001] rounded-full !px-8 !py-4 text-[20px] text-white font-semibold overflow-hidden relative group"
               >
                 <Link href="/calculator">
                   <motion.div
-                    className="flex items-center gap-2"
+                    className="flex items-center gap-2 max-sm:justify-center"
                     whileHover="hover"
                     whileTap="tap"
                     variants={{
@@ -284,6 +284,40 @@ export default function Quiz(): React.ReactElement {
                   />
                 </Link>
               </Button>
+
+              {/* Badges — match file 2 logic */}
+              <motion.div
+                className="mt-6 md:mt-8 flex flex-wrap items-center justify-center gap-3"
+                variants={textRevealVariants}
+              >
+                {[
+                  "No email required",
+                  "No sign up",
+                  "Takes under 60 seconds",
+                ].map((label) => (
+                  <span
+                    key={label}
+                    className="inline-flex flex-none items-center gap-2 whitespace-nowrap rounded-full border border-black/10 bg-black/5 px-4 py-2 text-sm text-[#020202]"
+                  >
+                    <svg
+                      className="shrink-0"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M20 6L9 17l-5-5" />
+                    </svg>
+                    {label}
+                  </span>
+                ))}
+              </motion.div>
             </motion.div>
           </div>
         </motion.div>
