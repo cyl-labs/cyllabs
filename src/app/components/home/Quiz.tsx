@@ -198,7 +198,7 @@ export default function Quiz(): React.ReactElement {
             </motion.h1>
           </ParallaxText>
 
-          <div className="w-1/5 flex flex-col items-end gap-8 text-right max-[1200px]:w-4/5 max-[1200px]:text-left max-md:w-full max-sm:items-center max-sm:text-center">
+          <div className="w-1/5 flex flex-col items-end gap-8 text-right max-[1200px]:w-4/5 max-[1200px]:text-left max-md:w-full max-[1200px]:items-start max-sm:text-center">
             <ParallaxText offset={10}>
               <motion.p
                 className="text-[20px] text-[#999999] leading-[1.2] tracking-normal"
@@ -287,7 +287,7 @@ export default function Quiz(): React.ReactElement {
 
               {/* Badges — match file 2 logic */}
               <motion.div
-                className="mt-6 md:mt-8 flex flex-wrap items-center justify-center gap-3"
+                className="w-full mt-6 md:mt-8 flex flex-wrap items-center justify-end gap-3 max-[1200px]:justify-start max-sm:justify-center"
                 variants={textRevealVariants}
               >
                 {[
@@ -297,7 +297,7 @@ export default function Quiz(): React.ReactElement {
                 ].map((label) => (
                   <span
                     key={label}
-                    className="inline-flex flex-none items-center gap-2 whitespace-nowrap rounded-full border border-black/10 bg-black/5 px-4 py-2 text-sm text-[#020202]"
+                    className="inline-flex flex-none items-center gap-2 whitespace-nowrap rounded-full border border-black/10 bg-black/5 px-6 py-4 text-sm text-[#020202] leading-[1.2] tracking-normal"
                   >
                     <svg
                       className="shrink-0"
