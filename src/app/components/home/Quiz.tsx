@@ -152,7 +152,7 @@ const AccentText: React.FC<AccentTextProps> = ({ children }) => {
       variants={singaporeanHighlight}
     >
       <motion.span
-        className="absolute inset-0 bg-[#FC350B] opacity-20 rounded-md"
+        className="absolute inset-0 bg-[#FC350B] opacity-20"
         variants={highlightSweep}
       />
       <span className="relative z-10 px-1 sm:px-2">{children}</span>

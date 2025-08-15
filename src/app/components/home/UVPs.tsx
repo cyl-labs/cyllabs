@@ -153,7 +153,7 @@ export default function UVPs() {
                     className="w-full flex items-center bg-white rounded-[12px] shadow-2xl absolute mt-5 p-4 gap-3"
                     initial={{ y: 100, opacity: 0, scale: 0.9 }}
                     whileInView={{ y: 0, opacity: 1, scale: 0.9 }}
-                    viewport={{ once: true, amount: 1 }}
+                    viewport={{ once: true }}
                     transition={{ duration: 0.3 }}
                   >
                     <div className="w-10 h-10 bg-[#FD5001] rounded-full"></div>

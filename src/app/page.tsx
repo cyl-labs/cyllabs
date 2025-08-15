@@ -7,9 +7,10 @@ import Quiz from "./components/home/Quiz";
 import Contact from "./components/home/contact";
 import Footer from "./components/footer";
 import Highlights from "./components/highlights";
+import WhatsAppContact from "./components/home/WhatsAppContact";
 
 export default function Home() {
-  const handleMessageSent = () => { };
+  const handleMessageSent = () => {};
   const mainContentRef = useRef<HTMLDivElement>(null);
   const footerRevealRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
@@ -85,17 +86,22 @@ export default function Home() {
       </div>
 
       {/* Main Content */}
-      <div ref={mainContentRef} className="relative z-30 bg-black"> {/* bg-black because white DOM shows for the highlights */}
+      <div ref={mainContentRef} className="relative z-30 bg-black">
+        {" "}
+        {/* bg-black because white DOM shows for the highlights */}
         <div className="overflow-hidden">
           <Hero />
           <Reality />
         </div>
-        <div className="bg-white"> {/* bg-white because there's a random black line in phone screens from the DOM */}
+        <div className="bg-white">
+          {" "}
+          {/* bg-white because there's a random black line in phone screens from the DOM */}
           <UVPs />
           <Quiz />
         </div>
         <Highlights />
-        <div ref={contactRef} className="will-change-transform">
+        <div ref={contactRef} className="bg-white will-change-transform">
+          <WhatsAppContact />
           <Contact onMessageSent={handleMessageSent} />
         </div>
       </div>

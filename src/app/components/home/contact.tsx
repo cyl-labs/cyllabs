@@ -243,9 +243,9 @@ export default function Contact({ onMessageSent }: ContactProps) {
                 className="contact-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 md:mb-6 lg:mb-8 leading-tight tracking-tight"
                 variants={fadeInUp}
               >
-                Want to stand out?
+                Not Ready to Chat on WhatsApp?
                 <br />
-                Let&apos;s make your dream a reality.
+                Here’s Another Way to Reach Us.
               </motion.h1>
 
               <motion.form
