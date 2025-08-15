@@ -1,17 +1,4 @@
 {
-  "redirects": [
-    {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.cyllabs.com"
-        }
-      ],
-      "destination": "https://cyllabs.com/$1",
-      "permanent": true
-    }
-  ],
   "headers": [
     {
       "source": "/(.*).(otf|ttf|woff|woff2)",
