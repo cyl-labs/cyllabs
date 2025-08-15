@@ -133,7 +133,7 @@ export default function Page() {
                   <p className="text-[80px] font-semibold">
                     {Number(data.reach).toFixed(0).toLocaleString()}
                   </p>
-                  <h3 className="opacity-70 text-[20x] leading-[1.2] tracking-normal">
+                  <h3 className="opacity-70 text-[20px] leading-[1.2] tracking-normal">
                     Impressions
                   </h3>
                 </motion.div>
@@ -152,7 +152,7 @@ export default function Page() {
                   <p className="text-[80px] font-semibold">
                     {Number(data.messages).toFixed(0).toLocaleString()}
                   </p>
-                  <h3 className="opacity-70 text-[20x] leading-[1.2] tracking-normal">
+                  <h3 className="opacity-70 text-[20px] leading-[1.2] tracking-normal">
                     Weekly messages
                   </h3>
                 </motion.div>
@@ -171,7 +171,7 @@ export default function Page() {
                   <p className="text-[80px] font-semibold">
                     ${Number(data.price).toFixed(0).toLocaleString()}
                   </p>
-                  <h3 className="opacity-70 text-[20x] leading-[1.2] tracking-normal">
+                  <h3 className="opacity-70 text-[20pfx] leading-[1.2] tracking-normal">
                     Average cost
                   </h3>
                 </motion.div>
@@ -210,7 +210,10 @@ export default function Page() {
               possibleRevenue={possibleRevenue}
             />
           )}
+
+          {/* === Final section: CTA left, two-number comparison right === */}
           <div className="flex gap-16 max-md:flex-col">
+            {/* Left: CTA block (unchanged) */}
             <div className="w-full flex flex-col gap-8">
               <motion.h1
                 className="text-[64px] font-semibold max-[1200px]:w-4/5 max-[1200px]:text-[48px] max-md:w-full max-sm:text-[40px]"
@@ -224,7 +227,7 @@ export default function Page() {
                 }}
                 viewport={{ once: true }}
               >
-                Plug the leak now. Keep the revenue.
+                Stop the leak. Keep the cash.
               </motion.h1>
               <motion.p
                 className="opacity-70 text-[20px] leading-[1.2] tracking-normal !opacity-70"
@@ -238,9 +241,15 @@ export default function Page() {
                 }}
                 viewport={{ once: true }}
               >
-                You are leaving{" "}
-                <span className="text-[#FD5001] !opacity-100">money</span>{" "}
-                behind every month. We will show you how to keep it.
+                You&apos;re leaving{" "}
+                <span className="text-[#FD5001] !opacity-100">
+                  $
+                  {Number(
+                    (possibleRevenue - currentRevenue).toFixed(0)
+                  ).toLocaleString()}
+                </span>{" "}
+                on the table every month. Let&apos;s lock it in before next
+                month&apos;s gone.
               </motion.p>
               <motion.div
                 initial={{ x: -100, opacity: 0 }}
@@ -254,7 +263,7 @@ export default function Page() {
                 viewport={{ once: true }}
               >
                 <Button className="w-fit h-fit bg-[#FD5001] rounded-full !px-8 !py-4 text-[20px] text-white font-semibold">
-                  Get your revenue plan
+                Only 2 Spots Left – Claim Yours Now
                   <svg
                     className="min-w-6 min-h-6"
                     xmlns="http://www.w3.org/2000/svg"
@@ -274,6 +283,8 @@ export default function Page() {
                 </Button>
               </motion.div>
             </div>
+
+            {/* Right: Replace image with two-number comparison */}
             <motion.div
               className="w-full relative aspect-square"
               initial={{ x: -100, opacity: 0 }}
@@ -286,9 +297,35 @@ export default function Page() {
               }}
               viewport={{ once: true }}
             >
-              <Image className="object-cover" src="/singapore-money.jpg" alt="" fill />
+              <div className="absolute inset-0 rounded-2xl p-6 sm:p-8 flex flex-col justify-start">
+                {/* Two columns: current vs potential */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="rounded-xl bg-black/30 p-4">
+                    <p className="text-sm opacity-70 text-white">
+                      You&apos;re making now
+                    </p>
+                    <p className="mt-1 text-3xl font-semibold text-white">
+                      ${Number(currentRevenue.toFixed(0)).toLocaleString()}
+                    </p>
+                  </div>
+                  <div className="rounded-xl bg-black/30 p-4">
+                    <p className="text-sm opacity-70 text-white">
+                      How much more we can make you
+                    </p>
+                    <p className="mt-1 text-3xl font-semibold text-white">
+                      <span className="text-[#FD5001]">
+                        $
+                        {Number(
+                          (possibleRevenue - currentRevenue).toFixed(0)
+                        ).toLocaleString()}
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           </div>
+          {/* === End final section === */}
         </Wrapper>
       </motion.div>
     </div>
