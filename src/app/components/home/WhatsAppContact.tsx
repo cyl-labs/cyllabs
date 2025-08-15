@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 export default function WhatsAppContact() {
   return (
     <div className="flex justify-center items-center">
-      <div className="max-w-[1600px] px-16 pt-64 max-md:px-6 max-sm:pt-32 max-sm:gap-10 flex flex-col items-center gap-8">
+      <div className="max-w-[1600px] px-16 pt-64 max-md:px-6 max-sm:pt-32 max-sm:gap-10 flex flex-col items-center gap-8 max-md:pb-32">
         <motion.h1 className="w-3/5 text-[64px] text-center font-semibold max-[1200px]:w-4/5 max-[1200px]:text-[48px] max-md:w-full max-sm:text-[40px]">
           <motion.span
             initial={{ opacity: 0 }}
