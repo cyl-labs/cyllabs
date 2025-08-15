@@ -9,6 +9,8 @@ export default function Hero() {
   return (
     <div className="h-screen bg-white flex justify-center bg-cover bg-center relative">
       <Image className="object-cover" src="/abstract-desk.png" alt="" fill />
+      <div className="w-[200%] h-[20%] bg-black absolute blur-2xl left-[-50%] top-[-10%]"></div>
+
       <Wrapper className="w-screen h-full flex flex-col justify-between relative !pt-0 z-10">
         <Navbar />
         <div className="flex flex-col items-end text-white gap-4">
