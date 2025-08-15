@@ -1,31 +1,35 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function PdfHero() {
   return (
     <section className="px-auto items-center sm:gap-4 xl:gap-20 md:justify-center h-full flex flex-col md:flex-row">
-
-        <div className="flex flex-col text-left">
-          <p className="leading-tight text-6xl md:text-7xl lg:text-8xl xl:text-[120px] 2xl:text-[140px] anton uppercase accent-text">
-            20,000
-          </p>
-          <p className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-black anton uppercase leading-none tracking-tight">
-            impressions
-          </p>
-          <p className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl text-black anton uppercase py-2 md:py-4 leading-none tracking-tight">
-            in one month
-          </p>
-          <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl leading-tight text-black uppercase font-semibold tracking-normal mt-2 md:mt-4">
-            Singaporean websites <span className="italic accent-text">fail</span>,
-            <br /> beat the market
-          </p>
-          <Button className="w-fit h-fit accent-bg mt-4 md:mt-6 text-white rounded-full !px-8 !py-3 md:!py-4 text-lg md:text-xl font-semibold cursor-pointer">
-            Get it now
+      <div className="flex flex-col text-left">
+        <p className="leading-tight text-6xl md:text-7xl lg:text-8xl xl:text-[120px] 2xl:text-[140px] anton uppercase accent-text">
+          20,000
+        </p>
+        <p className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-black anton uppercase leading-none tracking-tight">
+          impressions
+        </p>
+        <p className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl text-black anton uppercase py-2 md:py-4 leading-none tracking-tight">
+          in one month
+        </p>
+        <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl leading-tight text-black uppercase font-semibold tracking-normal mt-2 md:mt-4">
+          Singaporean websites <span className="italic accent-text">fail</span>,
+          <br /> beat the market
+        </p>
+        <Button
+          asChild
+          className="w-fit h-fit bg-[#FD5001] rounded-full mt-8 !px-8 !py-4 text-[20px] text-white font-semibold"
+        >
+          <Link href="/expectations-vs-reality.pdf" target="_blank">
+            Get the Free Guide
             <svg
-              className="min-w-5 min-h-5 md:min-w-6 md:min-h-6"
+              className="min-w-6 min-h-6"
               xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
+              width="24"
+              height="24"
               viewBox="0 0 24 24"
               fill="none"
             >
@@ -37,8 +41,9 @@ export default function PdfHero() {
                 strokeLinejoin="round"
               />
             </svg>
-          </Button>
-        </div>
+          </Link>
+        </Button>
+      </div>
 
       {/* Right image */}
       <div className="min-w-xs md:min-w-sm lg:min-w-xl xl:min-w-2xl flex">
@@ -54,5 +59,5 @@ export default function PdfHero() {
         </div>
       </div>
     </section>
-  )
+  );
 }

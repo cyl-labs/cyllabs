@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -16,6 +17,7 @@ interface CardData {
   image: string;
   imageAlt: string;
   layout: "image-left" | "image-right";
+  link: string;
 }
 
 const cardData: CardData[] = [
@@ -25,10 +27,10 @@ const cardData: CardData[] = [
     subtitle: "2025",
     description:
       "Ecommerce launch with 150+ products, Stripe checkout live, and mobile-first performance. Clean product database and tracking installed.",
-    image:
-      "/mamiko_highlight.jpg",
+    image: "/mamiko_highlight.jpg",
     imageAlt: "Mamiko",
     layout: "image-left",
+    link: "",
   },
   {
     id: 2,
@@ -36,10 +38,10 @@ const cardData: CardData[] = [
     subtitle: "2025",
     description:
       "Restaurant site that loads fast and removes friction. Menu UX simplified, hours and locations upfront, reviews visible. $12k in sales kept in the first month.",
-    image:
-      "/fm_highlight.jpg",
+    image: "/fm_highlight.jpg",
     imageAlt: "Family Mookata",
     layout: "image-right",
+    link: "https://familymookata.com/",
   },
 ];
 
@@ -228,32 +230,40 @@ export default function Highlights() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-5xl helvetica-bold text-white leading-tight ">
+                  <h3 className="text-5xl helvetica-bold text-white leading-tight font-semibold">
                     {card.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-lg text-gray-300 leading-relaxed helvetica-light tracking-wide">
+                  <p className="text-lg text-gray-300 leading-relaxed helvetica-light leading-[1.2] tracking-normal">
                     {card.description}
                   </p>
 
                   {/* CTA */}
-                  <div className="pt-4">
-                    <button
-                      className={`group inline-flex items-center gap-3 text-md font-medium tracking-wide text-white hover:text-gray-300 transition-colors duration-300 ${
-                        card.layout === "image-right" ? "" : "flex-row-reverse"
-                      }`}
-                    >
-                      <span className="cursor-pointer helvetica-semibold">
-                        Explore Site
-                      </span>
-                      <div
-                        className={`w-6 h-px bg-white group-hover:w-8 transition-all duration-300 ${
-                          card.layout === "image-right" ? "" : "order-first"
+                  {card.title !== "Mamiko" && (
+                    <div className="pt-4">
+                      <button
+                        className={`group inline-flex items-center gap-3 text-md font-medium leading-[1.2] tracking-normal text-white hover:text-gray-300 transition-colors duration-300 ${
+                          card.layout === "image-right"
+                            ? ""
+                            : "flex-row-reverse"
                         }`}
-                      ></div>
-                    </button>
-                  </div>
+                      >
+                        <Link
+                          className="cursor-pointer helvetica-semibold"
+                          href={card.link}
+                          target="_blank"
+                        >
+                          Explore Site
+                        </Link>
+                        <div
+                          className={`w-6 h-px bg-white group-hover:w-8 transition-all duration-300 ${
+                            card.layout === "image-right" ? "" : "order-first"
+                          }`}
+                        ></div>
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -283,24 +293,30 @@ export default function Highlights() {
               </div>
 
               {/* Title */}
-              <h3 className="text-3xl lg:text-2xl helvetica-bold text-white leading-tight">
+              <h3 className="text-3xl lg:text-2xl helvetica-bold text-white leading-tight font-semibold">
                 {card.title}
               </h3>
 
               {/* Description */}
-              <p className="text-md lg:text-sm text-gray-300 leading-relaxed helvetica-light tracking-wide">
+              <p className="text-md lg:text-sm text-gray-300 leading-relaxed helvetica-light leading-[1.2] tracking-normal">
                 {card.description}
               </p>
 
               {/* CTA */}
-              <div className="pt-0">
-                <button className="group inline-flex items-center gap-3 text-md lg:text-sm font-medium tracking-wide text-white hover:text-gray-300 transition-colors duration-300">
-                  <span className="cursor-pointer helvetica-semibold">
-                    Explore Site
-                  </span>
-                  <div className="w-6 h-px bg-white group-hover:w-8 transition-all duration-300"></div>
-                </button>
-              </div>
+              {card.title !== "Mamiko" && (
+                <div className="pt-0">
+                  <button className="group inline-flex items-center gap-3 text-md lg:text-sm font-medium leading-[1.2] tracking-normal text-white hover:text-gray-300 transition-colors duration-300">
+                    <Link
+                      className="cursor-pointer helvetica-semibold"
+                      href={card.link}
+                      target="_blank"
+                    >
+                      Explore Site
+                    </Link>
+                    <div className="w-6 h-px bg-white group-hover:w-8 transition-all duration-300"></div>
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>

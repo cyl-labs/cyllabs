@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import Wrapper from "../Wrapper";
 import { Button } from "@/components/ui/button";
@@ -37,24 +38,29 @@ export default function PdfFooter() {
             }}
             viewport={{ once: true }}
           >
-            <Button className="w-fit h-fit bg-[#FD5001] rounded-full !px-8 !py-4 text-[20px] text-white font-semibold">
-              Get the Free Guide
-              <svg
-                className="min-w-6 min-h-6"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <path
-                  d="M7 7H17M17 7V17M17 7L7 17"
-                  stroke="white"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+            <Button
+              asChild
+              className="w-fit h-fit bg-[#FD5001] rounded-full !px-8 !py-4 text-[20px] text-white font-semibold"
+            >
+              <Link href="/expectations-vs-reality.pdf" target="_blank">
+                Get the Free Guide
+                <svg
+                  className="min-w-6 min-h-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M7 7H17M17 7V17M17 7L7 17"
+                    stroke="white"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </Link>
             </Button>
           </motion.div>
         </div>
@@ -70,7 +76,7 @@ export default function PdfFooter() {
           }}
           viewport={{ once: true }}
         >
-          <Image className="object-cover" src="/phone.png" alt="" fill />
+          <Image className="object-cover" src="/phone.jpeg" alt="" fill />
         </motion.div>
       </div>
     </Wrapper>
