@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { motion, useInView, Variants } from "framer-motion";
+import Image from "next/image";
 
 const images = [
   "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop",
@@ -298,10 +299,12 @@ export default function ScrollCarousel() {
                 variants={imageVariant}
               >
                 <div className="relative w-[70vw] sm:w-[60vw] md:w-80 lg:w-96 xl:w-[28rem] h-32 sm:h-40 md:h-48 lg:h-64 xl:h-72 rounded-lg overflow-hidden shadow-xl">
-                  <img
+                  <Image
                     src={src}
                     alt={`Landscape ${index + 1}`}
-                    className="w-full h-full object-cover grayscale"
+                    layout="fill"
+                    objectFit="cover"
+                    className="grayscale"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                   <div className="absolute bottom-1.5 xs:bottom-2 sm:bottom-3 md:bottom-4 left-1.5 xs:left-2 sm:left-3 md:left-4 text-white">
@@ -411,10 +414,11 @@ export default function ScrollCarousel() {
                   variants={imageVariant}
                 >
                   <div className="relative w-[70vw] sm:w-[60vw] md:w-80 lg:w-96 xl:w-[28rem] h-32 sm:h-40 md:h-48 lg:h-64 xl:h-72 rounded-lg overflow-hidden shadow-xl">
-                    <img
+                    <Image
                       src={src}
                       alt={`Orange theme ${index + 1}`}
-                      className="w-full h-full object-cover"
+                      layout="fill"
+                      objectFit="cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-orange-900/40 to-transparent" />
                     <div className="absolute bottom-1.5 xs:bottom-2 sm:bottom-3 md:bottom-4 left-1.5 xs:left-2 sm:left-3 md:left-4 text-white">

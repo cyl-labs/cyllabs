@@ -1,8 +1,10 @@
 "use client";
+
 import { useState, useEffect, useRef } from "react";
 import { Instagram } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import { motion, useInView, Variants } from "framer-motion";
+import Image from "next/image";
 
 interface ContactProps {
   onMessageSent: () => void;
@@ -311,14 +313,18 @@ export default function Contact({ onMessageSent }: ContactProps) {
                   disabled={isSubmitting}
                 >
                   <div className="relative w-4 h-4 md:w-5 md:h-5 mr-2">
-                    <img
+                    <Image
                       src="/icons/submit.svg"
                       alt="submit"
+                      width={20}
+                      height={20}
                       className="absolute inset-0 w-full h-full transition-opacity duration-300 group-hover:opacity-0"
                     />
-                    <img
+                    <Image
                       src="/icons/submit-white.svg"
                       alt="submit"
+                      width={20}
+                      height={20}
                       className="absolute inset-0 w-full h-full transition-opacity duration-300 opacity-0 group-hover:opacity-100"
                     />
                   </div>

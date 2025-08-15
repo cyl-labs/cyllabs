@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import Navbar from "./navbarv2";
 import { motion, Variants } from "framer-motion";
+import Image from "next/image";
 
 export default function Hero() {
   const containerVariants: Variants = {
@@ -106,9 +107,11 @@ export default function Hero() {
             transition: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] },
           }}
         >
-          <img
+          <Image
             src="/hero.png"
             alt="Hero"
+            width={600}
+            height={800}
             className="w-full max-w-sm sm:max-w-md md:max-w-md xl:max-w-xl rounded-xl object-cover shadow-2xl lg:[height:calc(100vh-13rem)]"
           />
         </motion.div>

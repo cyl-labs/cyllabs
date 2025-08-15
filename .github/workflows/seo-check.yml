@@ -1,0 +1,30 @@
+name: SEO Check
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  seo-audit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Build audit script
+        run: npm run build:scripts
+
+      - name: Run SEO audit
+        run: npm run seo:audit -- http://localhost:3000

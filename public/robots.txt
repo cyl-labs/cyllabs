@@ -1,0 +1,15 @@
+# *
+User-agent: *
+Allow: /
+
+# *
+User-agent: *
+Disallow: /api
+Disallow: /preview
+
+# Host
+Host: https://cyllabs.com
+
+# Sitemaps
+Sitemap: https://cyllabs.com/sitemap.xml
+Sitemap: https://cyllabs.com/sitemap-images.xml

@@ -1,0 +1,16 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.cyllabs.com"
+        }
+      ],
+      "destination": "https://cyllabs.com/:path*",
+      "permanent": true
+    }
+  ],
+  "trailingSlash": false
+}

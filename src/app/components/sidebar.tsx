@@ -1,16 +1,19 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 export default function Sidebar() {
   const [currentSection, setCurrentSection] = useState("Services");
 
-  const menuItems = [
-    { name: "Services", id: "services" },
-    { name: "Why Us?", id: "why-us" },
-    { name: "Exposure", id: "exposure" },
-    { name: "Highlights", id: "highlights" },
-    { name: "Contact Us", id: "contact-us" },
-  ];
+  const menuItems = useMemo(
+    () => [
+      { name: "Services", id: "services" },
+      { name: "Why Us?", id: "why-us" },
+      { name: "Exposure", id: "exposure" },
+      { name: "Highlights", id: "highlights" },
+      { name: "Contact Us", id: "contact-us" },
+    ],
+    []
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,7 +42,7 @@ export default function Sidebar() {
     handleScroll(); // Check initial position
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [menuItems]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);

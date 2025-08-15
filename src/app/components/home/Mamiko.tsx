@@ -14,7 +14,7 @@ export default function Mamiko({ vh }: { vh: number }) {
         containerRef.current.getBoundingClientRect().top + vh - 200
       );
     }
-  }, [containerRef.current]);
+  }, [vh]);
 
   const scale = useSpring(
     useTransform(scrollY, [containerStart - vh, containerStart], [1, 0]),

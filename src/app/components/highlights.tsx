@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -195,10 +196,12 @@ export default function Highlights() {
             >
               {/* Image Section - 3/5 width on desktop */}
               <div className="w-3/5 relative overflow-hidden">
-                <img
+                <Image
                   src={card.image}
                   alt={card.imageAlt}
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  layout="fill"
+                  objectFit="cover"
+                  className="transition-transform duration-700 hover:scale-105"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-black/10"></div>
@@ -273,10 +276,12 @@ export default function Highlights() {
           <div className="lg:hidden w-full h-full px-10 py-12 flex flex-col max-w-md mx-auto">
             {/* Square Image */}
             <div className="w-full aspect-square relative overflow-hidden mb-6 flex-shrink-0">
-              <img
+              <Image
                 src={card.image}
                 alt={card.imageAlt}
-                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                layout="fill"
+                objectFit="cover"
+                className="transition-transform duration-700 hover:scale-105"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-black/10"></div>
