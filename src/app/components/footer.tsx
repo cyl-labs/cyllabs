@@ -216,8 +216,8 @@ export default function Footer() {
       items: ["What You Get", "Funnel Report"],
     },
     {
-      title: "Pricing",
-      items: ["Plans", "Add-ons"],
+      title: "Plans",
+      items: ["Plans"],
     },
   ];
 
