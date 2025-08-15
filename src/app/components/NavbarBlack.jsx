@@ -19,8 +19,8 @@ export default function NavbarBlack() {
       <div className="flex gap-16 max-md:hidden">
         <Link href="/">Home</Link>
         <Link href="/packages">Plans</Link>
-        <Link href="/pdf">PDF for winning customers online</Link>
-        <Link href="/calculator">See what's losing you sales</Link>
+        <Link href="/pdf">Win customers online</Link>
+        <Link href="/calculator">Fix sales losses</Link>
       </div>
       <div>
         <Link
@@ -48,8 +48,8 @@ export default function NavbarBlack() {
               <div className="flex flex-col py-4 gap-8 text-[20px] font-semibold">
                 <Link href="/">Home</Link>
                 <Link href="/packages">Plans</Link>
-                <Link href="/pdf">PDF for winning customers online</Link>
-                <Link href="/calculator">See what's losing you sales</Link>
+                <Link href="/pdf">Win customers online</Link>
+                <Link href="/calculator">Fix sales losses</Link>
                 <Link
                   href="https://wa.me/6587670797?text=Hi%2C%20I%20would%20like%20to%20claim%20my%20free%20consultation"
                   target="_blank"

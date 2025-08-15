@@ -4,6 +4,7 @@ import NavbarBlack from "../components/NavbarBlack";
 import PackagesTable from '../components/packages/PackagesTable';
 import Contact from "../components/home/contact";
 import Footer from "../components/footer";
+import WhatsAppContact from "../components/home/WhatsAppContact";
 
 export default function Page() {
   const handleMessageSent = () => { };
@@ -95,6 +96,7 @@ export default function Page() {
         
         {/* Contact Section */}
         <div ref={contactRef} className="will-change-transform overflow-x-hidden">
+          <WhatsAppContact />
           <Contact onMessageSent={handleMessageSent} />
         </div>
       </div>
