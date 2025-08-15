@@ -19,6 +19,8 @@ export default function NavbarBlack() {
       <div className="flex gap-16 max-sm:hidden">
         <Link href="/">Home</Link>
         <Link href="/">Pricing</Link>
+        <Link href="/pdf">PDF for winning customers online</Link>
+        <Link href="/calculator">See what's losing you sales</Link>
       </div>
       <div>
         <p className="cursor-pointer font-semibold max-sm:hidden">Contact Us</p>
@@ -40,6 +42,8 @@ export default function NavbarBlack() {
               <div className="flex flex-col py-4 gap-8 text-[20px] font-semibold">
                 <Link href="/">Home</Link>
                 <Link href="/">Pricing</Link>
+                <Link href="/pdf">PDF for winning customers online</Link>
+                <Link href="/calculator">See what's losing you sales</Link>
               </div>
             </SheetHeader>
           </SheetContent>

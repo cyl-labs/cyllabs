@@ -80,11 +80,11 @@ export default function Page() {
           </div>
         </Wrapper>
       </div>
-      <motion.div className="bg-white relative z-10">
-        <Wrapper
-          className="flex flex-col bg-cover !gap-48 max-[1200px]:flex-col"
-          style={{ backgroundImage: "url('/gradient-3.png')" }}
-        >
+      <motion.div
+        className="bg-cover relative z-10"
+        style={{ backgroundImage: "url('/gradient-3.png')" }}
+      >
+        <Wrapper className="flex flex-col !gap-48 max-[1200px]:flex-col">
           <div className="flex justify-between gap-16 max-[1200px]:flex-col">
             <div className="w-1/4 flex flex-col gap-8 max-[1200px]:w-1/2 max-md:w-full">
               <motion.h2
@@ -238,7 +238,8 @@ export default function Page() {
                 }}
                 viewport={{ once: true }}
               >
-                You are leaving <span className="text-[#FD5001] !opacity-100">money</span>{" "}
+                You are leaving{" "}
+                <span className="text-[#FD5001] !opacity-100">money</span>{" "}
                 behind every month. We will show you how to keep it.
               </motion.p>
               <motion.div
@@ -285,7 +286,7 @@ export default function Page() {
               }}
               viewport={{ once: true }}
             >
-              <Image className="object-cover" src="/money.png" alt="" fill />
+              <Image className="object-cover" src="/singapore-money.jpg" alt="" fill />
             </motion.div>
           </div>
         </Wrapper>
