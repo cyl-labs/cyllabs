@@ -1,4 +1,6 @@
 "use client";
+
+import Link from "next/link";
 import { Instagram, Facebook } from "lucide-react";
 import { motion, useInView, Variants } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
@@ -213,11 +215,13 @@ export default function Footer() {
   const footerSections = [
     {
       title: "Home",
-      items: ["What You Get", "Funnel Report"],
+      items: ["Win customers online", "Fix sales losses"],
+      links: ["/pdf", "/calculator"],
     },
     {
-      title: "Plans",
-      items: ["Plans"],
+      title: "Packages",
+      items: ["Packages"],
+      links: ["/packages"],
     },
   ];
 
@@ -353,7 +357,7 @@ export default function Footer() {
                           transition: { duration: 0.2 },
                         }}
                       >
-                        <p>{item}</p>
+                        <Link href={section.links[index]}>{item}</Link>
                         <motion.div
                           className="absolute bottom-0 left-0 h-[1px] bg-[#E8492A] origin-left"
                           initial={{ scaleX: 0 }}
@@ -400,9 +404,12 @@ export default function Footer() {
                               ease: "easeOut",
                             }}
                           >
-                            <p className="inter-semibold text-sm hover:text-[#E8492A] transition-colors duration-150 py-1">
+                            <Link
+                              className="inter-semibold text-sm hover:text-[#E8492A] transition-colors duration-150 py-1"
+                              href={section.links[index]}
+                            >
                               {item}
-                            </p>
+                            </Link>
                             <motion.div
                               className="absolute bottom-0 left-0 h-[1px] bg-[#E8492A] origin-left"
                               initial={{ scaleX: 0 }}

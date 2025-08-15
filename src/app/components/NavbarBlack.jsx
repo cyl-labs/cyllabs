@@ -18,7 +18,7 @@ export default function NavbarBlack() {
       </Link>
       <div className="flex gap-16 max-md:hidden">
         <Link href="/">Home</Link>
-        <Link href="/packages">Plans</Link>
+        <Link href="/packages">Packages</Link>
         <Link href="/pdf">Win customers online</Link>
         <Link href="/calculator">Fix sales losses</Link>
       </div>
@@ -47,7 +47,7 @@ export default function NavbarBlack() {
               </SheetDescription>
               <div className="flex flex-col py-4 gap-8 text-[20px] font-semibold">
                 <Link href="/">Home</Link>
-                <Link href="/packages">Plans</Link>
+                <Link href="/packages">Packages</Link>
                 <Link href="/pdf">Win customers online</Link>
                 <Link href="/calculator">Fix sales losses</Link>
                 <Link
