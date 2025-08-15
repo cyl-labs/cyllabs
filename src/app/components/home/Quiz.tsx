@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import {
   motion,
@@ -163,9 +161,6 @@ const AccentText: React.FC<AccentTextProps> = ({ children }) => {
 };
 
 export default function Quiz(): React.ReactElement {
-  const currentRevenue = 0; // replace with real value if needed
-  const possibleRevenue = 0; // replace with real value if needed
-
   return (
     <div className="flex justify-center overflow-x-hidden bg-white items-center">
       <div className="max-w-[1600px] px-16 py-24 max-md:px-6 max-sm:pt-0 max-sm:pb-24 max-sm:gap-10 flex justify-between gap-8 max-[1200px]:flex-col">
@@ -290,47 +285,7 @@ export default function Quiz(): React.ReactElement {
                 </Link>
               </Button>
 
-              {/* Revenue gap card replacement */}
-              <motion.div
-                className="w-full relative aspect-square mt-6 md:mt-8"
-                initial={{ x: -100, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 30,
-                  restDelta: 0.001,
-                }}
-                viewport={{ once: true }}
-              >
-                <div className="absolute inset-0 rounded-2xl border border-black/10 bg-black/5 p-6 sm:p-8 flex flex-col justify-center">
-                  <h3 className="text-[20px] font-semibold mb-4">Your revenue gap</h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                    <div className="rounded-xl bg-black/30 p-4">
-                      <p className="text-sm opacity-70">Current monthly revenue</p>
-                      <p className="mt-1 text-3xl font-semibold">
-                        ${new Intl.NumberFormat("en-SG").format(Math.round(currentRevenue))}
-                      </p>
-                    </div>
-                    <div className="rounded-xl bg-black/30 p-4">
-                      <p className="text-sm opacity-70">Potential at 3% CR</p>
-                      <p className="mt-1 text-3xl font-semibold">
-                        ${new Intl.NumberFormat("en-SG").format(Math.round(possibleRevenue))}
-                      </p>
-                    </div>
-                    <div className="rounded-xl bg-black/30 p-4">
-                      <p className="text-sm opacity-70">Left on the table</p>
-                      <p className="mt-1 text-3xl font-semibold text-[#FD5001]">
-                        ${new Intl.NumberFormat("en-SG").format(
-                          Math.max(0, Math.round(possibleRevenue - currentRevenue))
-                        )}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Badges */}
+              {/* Badges — match file 2 logic */}
               <motion.div
                 className="w-full mt-6 md:mt-8 flex flex-wrap items-center justify-end gap-3 max-[1200px]:justify-start max-sm:justify-center"
                 variants={textRevealVariants}
