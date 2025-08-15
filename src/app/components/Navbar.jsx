@@ -16,16 +16,20 @@ export default function Navbar() {
         <h1 className="text-[32px] font-semibold">cyllabs</h1>
         <div className="w-2 h-2 bg-[#FD5001] rounded-full mb-[5px]"></div>
       </Link>
-      <div className="flex gap-16 max-sm:hidden">
+      <div className="flex items-center gap-16 max-md:hidden">
         <Link href="/">Home</Link>
         <Link href="/">Pricing</Link>
-        <Link href="/pdf">PDF for winning customers online</Link>
-        <Link href="/calculator">See what's losing you sales</Link>
       </div>
       <div>
-        <p className="cursor-pointer font-semibold max-sm:hidden">Contact Us</p>
+        <Link
+          className="cursor-pointer font-semibold max-md:hidden"
+          href="https://wa.me/6587670797?text=Hi%2C%20I%20would%20like%20to%20claim%20my%20free%20consultation"
+          target="_blank"
+        >
+          Contact Us
+        </Link>
         <Sheet>
-          <SheetTrigger className="sm:hidden">
+          <SheetTrigger className="md:hidden">
             <Menu size={24} />
           </SheetTrigger>
           <SheetContent className="bg-white">
@@ -44,6 +48,12 @@ export default function Navbar() {
                 <Link href="/">Pricing</Link>
                 <Link href="/pdf">PDF for winning customers online</Link>
                 <Link href="/calculator">See what's losing you sales</Link>
+                <Link
+                  href="https://wa.me/6587670797?text=Hi%2C%20I%20would%20like%20to%20claim%20my%20free%20consultation"
+                  target="_blank"
+                >
+                  Contact Us
+                </Link>
               </div>
             </SheetHeader>
           </SheetContent>
