@@ -18,7 +18,7 @@ export default function NavbarBlack() {
       </Link>
       <div className="flex gap-16 max-sm:hidden">
         <Link href="/">Home</Link>
-        <Link href="/">Pricing</Link>
+        <Link href="/packages">Plans</Link>
         <Link href="/pdf">PDF for winning customers online</Link>
         <Link href="/calculator">See what's losing you sales</Link>
       </div>
