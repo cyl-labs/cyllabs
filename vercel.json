@@ -1,15 +1,26 @@
 {
   "redirects": [
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [
         {
           "type": "host",
           "value": "www.cyllabs.com"
         }
       ],
-      "destination": "https://cyllabs.com/:path*",
+      "destination": "https://cyllabs.com/$1",
       "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*).(otf|ttf|woff|woff2)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
     }
   ],
   "trailingSlash": false
