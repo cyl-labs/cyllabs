@@ -5,19 +5,19 @@ import { motion, Variants } from "framer-motion";
 const PricingTable: React.FC = () => {
   const plans = [
     {
-      name: "Basic Plan",
+      name: "Basic Package",
       description: "Best for personal use",
       bgColor: "bg-gray-500",
       textColor: "text-white",
     },
     {
-      name: "Business Plan",
+      name: "Business Package",
       description: "Perfect for small startups",
       bgColor: "bg-gray-700",
       textColor: "text-white",
     },
     {
-      name: "Enterprise Plan",
+      name: "Enterprise Package",
       description: "Perfect for growing businesses",
       bgColor: "bg-orange-500",
       textColor: "text-white",
@@ -244,7 +244,7 @@ const PricingTable: React.FC = () => {
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
         >
-          Choose a plan that&apos;s{" "}
+          Choose a package that&apos;s{" "}
           <motion.span
             className="text-orange-500"
             initial={{ opacity: 0, scale: 0.8 }}
