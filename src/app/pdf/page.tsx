@@ -7,7 +7,6 @@ import PdfHeader from "../components/pdf/PdfHeader";
 import PdfStatistics from "../components/pdf/PdfStatistics";
 import PdfFooter from "../components/pdf/PdfFooter";
 import PdfStack from "../components/pdf/PdfStack";
-import Wrapper from "../components/Wrapper";
 
 export default function Page() {
   return (
