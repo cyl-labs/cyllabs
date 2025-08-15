@@ -47,7 +47,7 @@ export default function NavbarBlack() {
               </SheetDescription>
               <div className="flex flex-col py-4 gap-8 text-[20px] font-semibold">
                 <Link href="/">Home</Link>
-                <Link href="/">Pricing</Link>
+                <Link href="/packages">Plans</Link>
                 <Link href="/pdf">PDF for winning customers online</Link>
                 <Link href="/calculator">See what's losing you sales</Link>
                 <Link

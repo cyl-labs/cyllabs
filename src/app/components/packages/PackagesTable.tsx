@@ -44,27 +44,9 @@ const PricingTable: React.FC = () => {
       enterprise: 'Unlimited',
     },
     {
-      name: 'Domain Emails',
-      basic: false,
-      business: '1',
-      enterprise: 'Up to 5',
-    },
-    {
       name: 'Animated sections',
       basic: false,
       business: true,
-      enterprise: true,
-    },
-    {
-      name: 'One-time Photoshoot',
-      basic: false,
-      business: false,
-      enterprise: true,
-    },
-    {
-      name: 'Customized Graphics',
-      basic: false,
-      business: false,
       enterprise: true,
     },
     {
@@ -241,7 +223,7 @@ const PricingTable: React.FC = () => {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="bg-white min-h-screen box-border w-full max-w-[1600px] p-4 sm:p-6 md:p-8 lg:px-12 xl:px-20 2xl:px-24 flex flex-col text-black"
+      className="bg-white mx-auto box-border w-full max-w-[1600px] p-4 sm:p-6 md:p-8 lg:px-12 xl:px-20 2xl:px-24 flex flex-col text-black"
     >
       {/* Header */}
       <motion.div 
