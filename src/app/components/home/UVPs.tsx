@@ -49,6 +49,12 @@ export default function UVPs() {
     [0, 500]
   );
 
+  const { scrollYProgress: brushProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+  const brushY = useTransform(brushProgress, [0, 1], [100, 0]);
+
   return (
     <div
       className="min-h-screen flex bg-white justify-center max-sm:min-h-[500vh]"
@@ -104,7 +110,10 @@ export default function UVPs() {
                     the whole build.
                   </p>
                 </div>
-                <motion.div className="h-[150%] absolute bottom-[-280px] aspect-1/5 z-10 max-md:bottom-[-260px]">
+                <motion.div
+                  className="h-[150%] absolute bottom-[-280px] aspect-1/5 z-10 max-md:bottom-[-260px]"
+                  style={{ y: brushY }}
+                >
                   <Image src="/brush.png" alt="" fill />
                 </motion.div>
                 <div className="w-3/5 bg-white absolute blur-3xl aspect-square left-[-5%] bottom-[-15vh] max-[1200px]:bottom-[-10vh] max-md:left-[-15%] max-md:bottom-[-20vh]"></div>
