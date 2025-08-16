@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import Wrapper from "../components/Wrapper";
@@ -84,7 +85,7 @@ export default function Page() {
         className="bg-cover relative z-10"
         style={{ backgroundImage: "url('/gradient-3.png')" }}
       >
-        <Wrapper className="max-w-screen flex flex-col !gap-48 max-[1200px]:flex-col">
+        <Wrapper className="w-screen flex flex-col !gap-48 max-[1200px]:flex-col">
           <div className="flex justify-between gap-16 max-[1200px]:flex-col">
             <div className="w-1/4 flex flex-col gap-8 max-[1200px]:w-1/2 max-md:w-full">
               <motion.h2
@@ -211,7 +212,7 @@ export default function Page() {
             />
           )}
           <div className="flex justify-between max-md:flex-col max-md:gap-16">
-            <div className="w-3/5 flex flex-col gap-8">
+            <div className="w-3/5 flex flex-col gap-8 max-md:w-full">
               <motion.h1
                 className="text-[64px] font-semibold max-[1200px]:w-4/5 max-[1200px]:text-[48px] max-md:w-full max-sm:text-[40px]"
                 initial={{ x: -100, opacity: 0 }}
@@ -254,30 +255,38 @@ export default function Page() {
                 }}
                 viewport={{ once: true }}
               >
-                <Button className="w-fit h-fit bg-[#FD5001] rounded-full !px-8 !py-4 text-[20px] text-white font-semibold">
-                  Only 2 Spots Left – Claim Yours Now
-                  <svg
-                    className="min-w-6 min-h-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
+                <Button
+                  asChild
+                  className="w-fit h-fit bg-[#FD5001] rounded-full !px-8 !py-4 text-[20px] text-white font-semibold"
+                >
+                  <Link
+                    href="https://wa.me/6587670797?text=Hi%2C%20I%20would%20like%20to%20claim%20my%20free%20consultation"
+                    target="_blank"
                   >
-                    <path
-                      d="M7 7H17M17 7V17M17 7L7 17"
-                      stroke="white"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                    Get the Free Guide
+                    <svg
+                      className="min-w-6 min-h-6"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <path
+                        d="M7 7H17M17 7V17M17 7L7 17"
+                        stroke="white"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </Link>
                 </Button>
               </motion.div>
             </div>
             {data.reach <= 400 ? (
               <motion.div
-                className="flex flex-col items-end gap-2 text-right max-[1200px]:items-start"
+                className="flex flex-col items-end gap-2 text-right max-md:items-start"
                 initial={{ x: -100, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{
@@ -304,7 +313,7 @@ export default function Page() {
               </motion.div>
             ) : (
               <motion.div
-                className="flex flex-col items-end gap-2 text-right max-[1200px]:items-start"
+                className="flex flex-col items-end gap-2 text-right max-md:items-start"
                 initial={{ x: -100, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{
