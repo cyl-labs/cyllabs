@@ -16,7 +16,7 @@ export default function NavbarBlack() {
         <h1 className="text-[32px] font-semibold">cyllabs</h1>
         <div className="w-2 h-2 bg-[#FD5001] rounded-full mb-[5px]"></div>
       </Link>
-      <div className="flex gap-16 max-md:hidden">
+      <div className="flex gap-16 max-lg:hidden">
         <Link href="/">Home</Link>
         <Link href="/packages">Packages</Link>
         <Link href="/pdf">Win customers online</Link>
@@ -24,14 +24,14 @@ export default function NavbarBlack() {
       </div>
       <div>
         <Link
-          className="cursor-pointer font-semibold max-md:hidden"
+          className="cursor-pointer font-semibold max-lg:hidden"
           href="https://wa.me/6587670797?text=Hi%2C%20I%20would%20like%20to%20claim%20my%20free%20consultation"
           target="_blank"
         >
           Contact Us
         </Link>
         <Sheet>
-          <SheetTrigger className="md:hidden">
+          <SheetTrigger className="lg:hidden">
             <Menu size={24} />
           </SheetTrigger>
           <SheetContent className="bg-white">

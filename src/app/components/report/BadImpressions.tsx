@@ -68,7 +68,7 @@ export default function BadImpressions({
         }}
         viewport={{ once: true }}
       >
-        That’s a{" "}
+        That&apos;s a{" "}
         {Number(
           (((reach * 5 * 0.03 * price) / (messages * price)) * 100).toFixed(0)
         ).toLocaleString()}

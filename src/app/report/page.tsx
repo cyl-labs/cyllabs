@@ -84,7 +84,7 @@ export default function Page() {
         className="bg-cover relative z-10"
         style={{ backgroundImage: "url('/gradient-3.png')" }}
       >
-        <Wrapper className="flex flex-col !gap-48 max-[1200px]:flex-col">
+        <Wrapper className="max-w-screen flex flex-col !gap-48 max-[1200px]:flex-col">
           <div className="flex justify-between gap-16 max-[1200px]:flex-col">
             <div className="w-1/4 flex flex-col gap-8 max-[1200px]:w-1/2 max-md:w-full">
               <motion.h2
@@ -210,11 +210,8 @@ export default function Page() {
               possibleRevenue={possibleRevenue}
             />
           )}
-
-          {/* === Final section: CTA left, two-number comparison right === */}
-          <div className="flex gap-16 max-md:flex-col">
-            {/* Left: CTA block (unchanged) */}
-            <div className="w-full flex flex-col gap-8">
+          <div className="flex justify-between max-md:flex-col max-md:gap-16">
+            <div className="w-3/5 flex flex-col gap-8">
               <motion.h1
                 className="text-[64px] font-semibold max-[1200px]:w-4/5 max-[1200px]:text-[48px] max-md:w-full max-sm:text-[40px]"
                 initial={{ x: -100, opacity: 0 }}
@@ -242,13 +239,8 @@ export default function Page() {
                 viewport={{ once: true }}
               >
                 You&apos;re leaving{" "}
-                <span className="text-[#FD5001] !opacity-100">
-                  $
-                  {Number(
-                    (possibleRevenue - currentRevenue).toFixed(0)
-                  ).toLocaleString()}
-                </span>{" "}
-                on the table every month. Let&apos;s lock it in before next
+                <span className="text-[#FD5001] !opacity-100">money</span> on
+                the table every month. Let&apos;s lock it in before next
                 month&apos;s gone.
               </motion.p>
               <motion.div
@@ -263,7 +255,7 @@ export default function Page() {
                 viewport={{ once: true }}
               >
                 <Button className="w-fit h-fit bg-[#FD5001] rounded-full !px-8 !py-4 text-[20px] text-white font-semibold">
-                Only 2 Spots Left – Claim Yours Now
+                  Only 2 Spots Left – Claim Yours Now
                   <svg
                     className="min-w-6 min-h-6"
                     xmlns="http://www.w3.org/2000/svg"
@@ -283,49 +275,55 @@ export default function Page() {
                 </Button>
               </motion.div>
             </div>
-
-            {/* Right: Replace image with two-number comparison */}
-            <motion.div
-              className="w-full relative aspect-square"
-              initial={{ x: -100, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{
-                type: "spring",
-                stiffness: 100,
-                damping: 30,
-                restDelta: 0.001,
-              }}
-              viewport={{ once: true }}
-            >
-              <div className="absolute inset-0 rounded-2xl p-6 sm:p-8 flex flex-col justify-start">
-                {/* Two columns: current vs potential */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="rounded-xl bg-black/30 p-4">
-                    <p className="text-sm opacity-70 text-white">
-                      You&apos;re making now
-                    </p>
-                    <p className="mt-1 text-3xl font-semibold text-white">
-                      ${Number(currentRevenue.toFixed(0)).toLocaleString()}
-                    </p>
-                  </div>
-                  <div className="rounded-xl bg-black/30 p-4">
-                    <p className="text-sm opacity-70 text-white">
-                      How much more we can make you
-                    </p>
-                    <p className="mt-1 text-3xl font-semibold text-white">
-                      <span className="text-[#FD5001]">
-                        $
-                        {Number(
-                          (possibleRevenue - currentRevenue).toFixed(0)
-                        ).toLocaleString()}
-                      </span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+            {data.reach <= 400 ? (
+              <motion.div
+                className="flex flex-col items-end gap-2 text-right max-[1200px]:items-start"
+                initial={{ x: -100, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 30,
+                  restDelta: 0.001,
+                }}
+                viewport={{ once: true }}
+              >
+                <p className="text-[80px] text-[#FD5001] font-semibold">
+                  {Number(
+                    (
+                      ((data.reach * 5 * 0.03 * data.price) /
+                        (data.messages * data.price)) *
+                      100
+                    ).toFixed(0)
+                  ).toLocaleString()}
+                  %
+                </p>
+                <h3 className="text-[20px] opacity-70 leading-[1.2] tracking-normal">
+                  Boost in revenue saved
+                </h3>
+              </motion.div>
+            ) : (
+              <motion.div
+                className="flex flex-col items-end gap-2 text-right max-[1200px]:items-start"
+                initial={{ x: -100, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 30,
+                  restDelta: 0.001,
+                }}
+                viewport={{ once: true }}
+              >
+                <p className="text-[80px] text-[#FD5001] font-semibold">
+                  ${Number(possibleRevenue.toFixed(0)).toLocaleString()}
+                </p>
+                <h3 className="text-[20px] opacity-70 leading-[1.2] tracking-normal">
+                  Sales saved from competitors
+                </h3>
+              </motion.div>
+            )}
           </div>
-          {/* === End final section === */}
         </Wrapper>
       </motion.div>
     </div>

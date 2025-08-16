@@ -107,7 +107,7 @@ export default function CalculatorReach({
           className="w-fit cursor-pointer h-fit bg-white rounded-full !px-8 !py-4 text-[20px] font-semibold"
           onClick={handleSubmit}
         >
-          Read it for yourself
+          Next
           <svg
             className="min-w-6 min-h-6"
             xmlns="http://www.w3.org/2000/svg"
