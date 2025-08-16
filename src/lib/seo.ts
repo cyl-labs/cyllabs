@@ -15,7 +15,7 @@ export const BUSINESS = {
 };
 
 // Define site-wide constants
-export const SITE_NAME = "Cyllabs";
+export const SITE_NAME = "cyllabs";
 export const BASE_URL = "https://cyllabs.com";
 export const DEFAULT_DESC = "Web development for Singapore SMEs. Cut Your Losses with cyllabs.";
 export const DEFAULT_LOCALE = "en-SG";

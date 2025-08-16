@@ -3,9 +3,9 @@ import { absoluteUrl } from "@/lib/seo";
 import HomePageClient from "./components/home/HomePageClient";
 
 export const metadata: Metadata = {
-  title: "Web Design & Development for Singapore SMEs",
+  title: "Home | cyllabs",
   description:
-    "Cyllabs builds high-performance websites for Singapore SMEs that are designed to attract and convert. Get a free consultation today.",
+    "cut your losses.",
   alternates: {
     canonical: absoluteUrl("/"),
   },
