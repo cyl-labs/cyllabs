@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function PdfHero() {
   return (
-    <section className="px-auto items-center sm:gap-4 xl:gap-20 md:justify-center h-full flex flex-col md:flex-row">
+    <section className="px-auto items-center sm:gap-4 xl:gap-20 md:justify-center flex flex-col md:flex-row">
       <div className="flex flex-col text-left">
         <p className="leading-tight text-6xl md:text-7xl lg:text-8xl xl:text-[120px] 2xl:text-[140px] anton uppercase accent-text">
           20,000

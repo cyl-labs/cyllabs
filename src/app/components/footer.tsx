@@ -240,7 +240,7 @@ export default function Footer() {
       >
         {/* Footer section */}
         <motion.div
-          className="pb-0 flex flex-col lg:flex-row mx-auto gap-6 lg:gap-24 xl:gap-40"
+          className="pb-0 flex flex-col lg:flex-row mx-auto gap-6 lg:gap-24 xl:gap-32"
           variants={fadeInUp}
         >
           {/* Left section */}
@@ -322,12 +322,12 @@ export default function Footer() {
           </motion.div>
           {/* Right section */}
           <motion.div
-            className="footer-right flex flex-col lg:flex-row gap-6 lg:gap-16 xl:gap-30"
+            className="footer-right flex flex-col lg:flex-row gap-6 lg:gap-16 xl:gap-20"
             variants={fadeInRight}
           >
             {/* Desktop navigation */}
             <motion.div
-              className="footer-pages hidden lg:flex flex-row gap-16"
+              className="footer-pages hidden lg:flex flex-row gap-16 xl:gap-8"
               variants={staggerChildren}
             >
               {footerSections.map((section, sectionIndex) => (
