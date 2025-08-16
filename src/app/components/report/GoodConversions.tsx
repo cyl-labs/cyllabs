@@ -83,7 +83,7 @@ export default function GoodConversions({
         <span className="text-[#FD5001]">
           ${Number(possibleRevenue.toFixed(0)).toLocaleString()}
         </span>{" "}
-        you&apos;re not collecting yet
+        you&apos;re not collecting yet.
       </motion.p>
     </div>
   );

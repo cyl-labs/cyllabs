@@ -29,17 +29,17 @@ export default function ReportClient() {
 
       setData({
         reach: parsedData.reach || 0,
-        messages: parsedData.messages || 0,
+        messages: parsedData.messages * 4 || 0,
         price: parsedData.price || 0,
       });
 
       if (parsedData.reach > 0 && parsedData.messages >= 0) {
-        setConversionRate((parsedData.messages / parsedData.reach) * 100);
+        setConversionRate((parsedData.messages * 4 / parsedData.reach) * 100);
       } else {
         setConversionRate(0);
       }
 
-      setCurrentRevenue(parsedData.price * parsedData.messages);
+      setCurrentRevenue(parsedData.price * parsedData.messages * 4);
       setPossibleRevenue(parsedData.price * (parsedData.reach * 0.03));
     }
   }, []);
@@ -151,7 +151,9 @@ export default function ReportClient() {
                   viewport={{ once: true }}
                 >
                   <p className="text-[80px] font-semibold">
-                    {Number(data.messages).toFixed(0).toLocaleString()}
+                    {Number(data.messages / 4)
+                      .toFixed(0)
+                      .toLocaleString()}
                   </p>
                   <h3 className="opacity-70 text-[20px] leading-[1.2] tracking-normal">
                     Weekly messages
@@ -313,7 +315,7 @@ export default function ReportClient() {
               </motion.div>
             ) : (
               <motion.div
-                className="flex flex-col items-end gap-2 text-right max-md:items-start"
+                className="flex flex-col items-end gap-2 text-right max-md:items-start max-md:text-left"
                 initial={{ x: -100, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{
@@ -328,7 +330,8 @@ export default function ReportClient() {
                   ${Number(possibleRevenue.toFixed(0)).toLocaleString()}
                 </p>
                 <h3 className="text-[20px] opacity-70 leading-[1.2] tracking-normal">
-                  Sales saved from competitors
+                  Sales saved from competitors <br />
+                  every month
                 </h3>
               </motion.div>
             )}

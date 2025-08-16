@@ -54,7 +54,7 @@ export default function BadImpressions({
         }}
         viewport={{ once: true }}
       >
-        Even if only 3% buy.
+        Even if only 3% of people buy.
       </motion.p>
       <motion.p
         className="w-1/2 text-[48px] text-[#FD5001] font-semibold max-[1200px]:w-4/5 max-md:w-full max-sm:text-[40px]"
