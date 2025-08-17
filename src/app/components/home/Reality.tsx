@@ -49,6 +49,16 @@ export default function Reality() {
               </div>
             ))}
           </div>
+          <div className="absolute top-0 left-0 h-full w-1/2 pointer-events-none">
+            <div
+              className="h-full w-full"
+              style={{
+                background:
+                  "linear-gradient(to right, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)",
+                mixBlendMode: "saturation",
+              }}
+            />
+          </div>
         </div>
         <div className="flex flex-col items-center px-6 gap-8 text-white text-center">
           <h1 className="w-1/2 text-[64px] font-semibold max-[1200px]:w-4/5 max-md:w-full max-sm:text-[40px]">
