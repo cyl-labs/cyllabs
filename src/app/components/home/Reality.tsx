@@ -48,6 +48,20 @@ export default function Reality() {
                 />
               </div>
             ))}
+            {images.concat(images).map((image, i) => (
+              <div
+                key={i}
+                className="h-[40vh] relative aspect-3/4"
+                style={{ marginTop: image.offset }}
+              >
+                <Image
+                  className="object-cover"
+                  src={`/${image.src}`}
+                  alt=""
+                  fill
+                />
+              </div>
+            ))}
           </div>
 
           <div className="w-1/2 h-full absolute top-0 left-0">
