@@ -107,7 +107,7 @@ export default function ReportClient() {
                 }}
                 viewport={{ once: true }}
               >
-                How You&apos;re Performing.
+                How You&apos;re <span className="text-[#FD5001]">Performing</span>.
               </motion.h2>
               <motion.p
                 className="opacity-70 text-[20px] leading-[1.2] tracking-normal"
@@ -230,7 +230,7 @@ export default function ReportClient() {
                 }}
                 viewport={{ once: true }}
               >
-                Stop the leak. Keep the cash.
+                Stop the <span className="text-[#FD5001]">leak</span>. Keep the <span className="text-[#FD5001]">cash</span>.
               </motion.h1>
               <motion.p
                 className="opacity-70 text-[20px] leading-[1.2] tracking-normal !opacity-70"
