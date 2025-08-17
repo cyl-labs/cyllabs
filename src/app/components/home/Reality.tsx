@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import Wrapper from "../Wrapper";
 import { Button } from "@/components/ui/button";
 
