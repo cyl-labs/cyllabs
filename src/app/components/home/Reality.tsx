@@ -48,20 +48,6 @@ export default function Reality() {
                 />
               </div>
             ))}
-            {images.concat(images).map((image, i) => (
-              <div
-                key={i}
-                className="h-[40vh] relative aspect-3/4"
-                style={{ marginTop: image.offset }}
-              >
-                <Image
-                  className="object-cover"
-                  src={`/${image.src}`}
-                  alt=""
-                  fill
-                />
-              </div>
-            ))}
           </div>
         </div>
         <div className="flex flex-col items-center px-6 gap-8 text-white text-center">
@@ -130,7 +116,8 @@ export default function Reality() {
             </Link>
           </Button>
         </div>
-
+        <div className="w-[20%] h-full bg-[#020202] absolute left-[-10%] top-0 blur-2xl"></div>
+        <div className="w-[20%] h-full bg-[#020202] absolute right-[-10%] top-0 blur-2xl"></div>
       </Wrapper>
     </div>
   );
