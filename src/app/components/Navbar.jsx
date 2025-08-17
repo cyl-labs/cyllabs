@@ -25,7 +25,7 @@ export default function Navbar() {
       <div>
         <Link
           className="cursor-pointer font-semibold max-lg:hidden"
-          href="https://wa.me/6587670797?text=Hi%2C%20I%20would%20like%20to%20claim%20my%20free%20consultation"
+          href="https://wa.me/6581977376?text=Hi%2C%20I%20would%20like%20to%20claim%20my%20free%20consultation"
           target="_blank"
         >
           Contact Us
@@ -51,7 +51,7 @@ export default function Navbar() {
                 <Link href="/pdf">Win customers online</Link>
                 <Link href="/calculator">Fix sales losses</Link>
                 <Link
-                  href="https://wa.me/6587670797?text=Hi%2C%20I%20would%20like%20to%20claim%20my%20free%20consultation"
+                  href="https://wa.me/6581977376?text=Hi%2C%20I%20would%20like%20to%20claim%20my%20free%20consultation"
                   target="_blank"
                 >
                   Contact Us

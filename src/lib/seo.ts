@@ -20,7 +20,7 @@ export const BASE_URL = "https://cyllabs.com";
 export const DEFAULT_DESC = "Web development for Singapore SMEs. Cut Your Losses with cyllabs.";
 export const DEFAULT_LOCALE = "en-SG";
 export const SOCIAL_IMAGE_DEFAULT = "/og/default.png";
-export const WHATSAPP_LINK = "https://wa.me/6587670797?text=Hi%2C%20I%20would%20like%20to%20claim%20my%20free%20consultation";
+export const WHATSAPP_LINK = "https://wa.me/6581977376?text=Hi%2C%20I%20would%20like%20to%20claim%20my%20free%20consultation";
 
 /**
  * Generates an absolute URL by combining the base URL with a given path.

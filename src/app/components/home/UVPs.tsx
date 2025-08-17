@@ -60,7 +60,7 @@ export default function UVPs() {
       className="min-h-screen flex bg-white justify-center max-sm:min-h-[500vh]"
       ref={containerRef}
     >
-      <div className="max-w-[1600px] px-16 py-24 overflow-hidden max-md:px-6 max-sm:py-24 max-sm:gap-10 relative max-sm:h-fit max-sm:sticky max-sm:top-0">
+      <div className="max-w-[1600px] px-16 py-24 overflow-hidden max-md:px-6 max-sm:py-16 max-sm:gap-10 relative max-sm:h-fit max-sm:sticky max-sm:top-0">
         <div className="flex flex-col gap-16 max-sm:hidden">
           <div className="flex flex-col gap-8 max-sm:gap-5">
             <h1 className="w-1/2 text-[64px] text-[#020202] font-semibold max-[1200px]:w-4/5 max-sm:w-full max-sm:text-[40px]">
@@ -177,6 +177,15 @@ export default function UVPs() {
           </div>
         </div>
         <div className="flex flex-col gap-24 sm:hidden">
+          <div className="flex flex-col gap-8 max-sm:gap-5">
+            <h1 className="w-1/2 text-[64px] text-[#020202] font-semibold max-[1200px]:w-4/5 max-sm:w-full max-sm:text-[40px]">
+              Why we <span className="text-[#FD5001]">beat</span> your other
+              options
+            </h1>
+            <p className="text-[20px] text-[#999999] opacity-90 leading-[1.2] tracking-normal max-sm:text-[20px]">
+              Build to win against DIY, freelancers, and template shops.
+            </p>
+          </div>
           <div className="flex justify-center">
             <div className="w-[90%] relative aspect-square">
               <motion.div
@@ -319,15 +328,6 @@ export default function UVPs() {
                 </div>
               </motion.div>
             </div>
-          </div>
-          <div className="flex flex-col gap-8 max-sm:gap-5">
-            <h1 className="w-1/2 text-[64px] text-[#020202] font-semibold max-[1200px]:w-4/5 max-sm:w-full max-sm:text-[40px]">
-              Why we <span className="text-[#FD5001]">beat</span> your other
-              options
-            </h1>
-            <p className="text-[20px] text-[#999999] opacity-90 leading-[1.2] tracking-normal max-sm:text-[20px]">
-              Build to win against DIY, freelancers, and template shops.
-            </p>
           </div>
         </div>
       </div>

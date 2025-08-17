@@ -5,7 +5,7 @@ import { motion, useMotionValue, animate, useInView } from "framer-motion";
 
 export default function Counter({
   to = 0,
-  duration = 1,
+  duration = 1.5,
   startFactor = 0.7,
   decimalPlace = 0,
 }) {

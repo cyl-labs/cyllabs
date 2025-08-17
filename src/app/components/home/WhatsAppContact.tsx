@@ -34,7 +34,7 @@ export default function WhatsAppContact() {
           className="w-fit h-fit max-sm:self-center bg-[#FD5001] rounded-full !px-8 !py-4 text-[20px] text-white font-semibold overflow-hidden relative group"
         >
           <Link
-            href="https://wa.me/6587670797?text=Hi%2C%20I%20would%20like%20to%20claim%20my%20free%20consultation"
+            href="https://wa.me/6581977376?text=Hi%2C%20I%20would%20like%20to%20claim%20my%20free%20consultation"
             target="_blank"
           >
             <motion.div className="flex items-center gap-2 max-sm:justify-center">

@@ -352,7 +352,7 @@ export default function Contact({ onMessageSent }: ContactProps) {
                   cyllabsdigital@gmail.com
                 </p>
                 <p className="text-sm md:text-base cursor-pointer">
-                  +65 9711 2702
+                  +65 8197 7376
                 </p>
               </motion.div>
 
@@ -367,7 +367,8 @@ export default function Contact({ onMessageSent }: ContactProps) {
                     className="md:w-5 md:h-5"
                   />
                   <a
-                    href="https://github.com/Koyonari"
+                    href="https://www.instagram.com/cyl.labs/"
+                    target="_blank"
                     className="text-sm md:text-base helvetica-light link-hover text-center py-0.5 px-1"
                   >
                     cyl.labs
