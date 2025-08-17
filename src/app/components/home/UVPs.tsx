@@ -297,7 +297,7 @@ export default function UVPs() {
                         "linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%)",
                     }}
                   ></div>
-                  <div className="h-full flex flex-col gap-4 text-white relative z-10">
+                  <div className="flex flex-col gap-4 text-white relative z-10">
                     <h2 className="text-[32px] font-semibold">
                       Beat your competitors
                     </h2>
