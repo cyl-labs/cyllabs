@@ -196,6 +196,10 @@ export default function UVPs() {
                     <h2 className="text-[32px] font-semibold z-10">
                       No juniors. No handoffs.
                     </h2>
+                    <p className="text-[20px] text-right leading-[1.2] tracking-normal z-20">
+                      No relays, no interns. <br /> One expert team owns <br />{" "}
+                      the whole build.
+                    </p>
                   </div>
                   <motion.div className="h-[150%] absolute bottom-[-280px] aspect-1/5 z-10 max-md:bottom-[-260px]">
                     <Image src="/brush.png" alt="" fill />
@@ -214,7 +218,7 @@ export default function UVPs() {
                   className="z-30 flex items-end bg-cover aspect-square text-white relative"
                   style={{ backgroundImage: "url('/sanity.png')" }}
                 >
-                  <div className="w-full flex flex-col gap-4 p-10 max-[1200px]:p-8 max-md:p-6 relative">
+                  <div className="w-full h-full flex flex-col justify-between gap-4 p-10 max-[1200px]:p-8 max-md:p-6 relative">
                     <div
                       className="absolute inset-0"
                       style={{
@@ -225,6 +229,10 @@ export default function UVPs() {
                     <h2 className="text-[32px] font-semibold relative z-10">
                       Update it yourself in minutes
                     </h2>
+                    <p className="text-[20px] leading-[1.2] tracking-normal relative z-10">
+                      Change pages, prices, and photos without calling a
+                      developer.
+                    </p>
                   </div>
                 </div>
               </motion.div>
@@ -289,10 +297,13 @@ export default function UVPs() {
                         "linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%)",
                     }}
                   ></div>
-                  <div className="flex flex-col gap-4 text-white relative z-10">
+                  <div className="h-full flex flex-col justify-between gap-4 text-white relative z-10">
                     <h2 className="text-[32px] font-semibold">
                       Beat your competitors
                     </h2>
+                    <p className="text-[20px] leading-[1.2] tracking-normal">
+                      Send us their sites. We design yours to win head to head.
+                    </p>
                   </div>
                 </div>
               </motion.div>
