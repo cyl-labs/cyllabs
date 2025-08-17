@@ -127,8 +127,7 @@ export default function Reality() {
             </Link>
           </Button>
         </div>
-        <div className="w-[20%] h-full bg-[#020202] absolute left-[-10%] top-0 blur-2xl"></div>
-        <div className="w-[20%] h-full bg-[#020202] absolute right-[-10%] top-0 blur-2xl"></div>
+
       </Wrapper>
     </div>
   );
