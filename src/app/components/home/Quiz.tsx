@@ -198,7 +198,7 @@ export default function Quiz(): React.ReactElement {
             </motion.h1>
           </ParallaxText>
 
-          <div className="w-1/5 flex flex-col items-end gap-8 text-right max-[1200px]:w-4/5 max-[1200px]:text-left max-md:w-full max-[1200px]:items-start max-sm:text-center">
+          <div className="w-1/5 flex flex-col items-end gap-8 text-right max-[1200px]:w-4/5 max-[1200px]:text-left max-md:w-full max-[1200px]:items-start">
             <ParallaxText offset={10}>
               <motion.p
                 className="text-[20px] text-[#999999] leading-[1.2] tracking-normal"

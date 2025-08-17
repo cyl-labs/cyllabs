@@ -50,6 +50,20 @@ input[type="number"] {
   font-family: "Inter Bold";
 }
 
+@keyframes marquee {
+  0% {
+    transform: translateX(var(--scroll-offset, -50%));
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
 /* Universal styles */
 html {
   scroll-behavior: smooth;
@@ -77,6 +91,7 @@ body {
 }
 
 @supports (-webkit-overflow-scrolling: touch) {
+
   html,
   body {
     -webkit-overflow-scrolling: touch;

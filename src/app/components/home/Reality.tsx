@@ -31,17 +31,11 @@ export default function Reality() {
       <div className="w-[200%] h-[20%] bg-black absolute blur-2xl left-[-50%] top-[-10%]"></div>
       <Wrapper className="relative flex flex-col justify-between py-32 gap-32 overflow-hidden max-sm:py-16 max-sm:gap-8">
         <div className="relative overflow-hidden">
-          <motion.div
-            className="flex gap-4"
-            key={scrollOffset}
-            animate={{ x: [scrollOffset, "0%"] }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: "linear",
-            }}
+          <div
+            className="flex gap-4 animate-marquee will-change-transform"
+            style={{ "--scroll-offset": scrollOffset } as React.CSSProperties}
           >
-            {images.map((image, i) => (
+            {images.concat(images).map((image, i) => (
               <div
                 key={i}
                 className="h-[40vh] relative aspect-3/4"
@@ -55,21 +49,8 @@ export default function Reality() {
                 />
               </div>
             ))}
-            {images.map((image, i) => (
-              <div
-                key={i}
-                className="h-[40vh] relative aspect-3/4"
-                style={{ marginTop: image.offset }}
-              >
-                <Image
-                  className="object-cover"
-                  src={`/${image.src}`}
-                  alt=""
-                  fill
-                />
-              </div>
-            ))}
-          </motion.div>
+          </div>
+
           <div className="w-1/2 h-full absolute top-0 left-0">
             <div
               className="h-full w-full"
@@ -101,7 +82,7 @@ export default function Reality() {
               (label) => (
                 <span
                   key={label}
-                    className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-4 text-sm leading-[1.2] tracking-normal"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-4 text-sm leading-[1.2] tracking-normal"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
