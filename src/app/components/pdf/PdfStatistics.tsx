@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Counter from "../Counter";
 
 export default function PdfStatistics() {
   return (
@@ -41,7 +42,7 @@ export default function PdfStatistics() {
             <div className="flex flex-col items-end gap-8 max-[1200px]:items-start">
               <motion.div
                 className="flex flex-col items-end gap-2 max-[1200px]:items-start"
-                initial={{ x: -100, opacity: 0 }}
+                initial={{ x: 100, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{
                   type: "spring",
@@ -51,14 +52,16 @@ export default function PdfStatistics() {
                 }}
                 viewport={{ once: true }}
               >
-                <p className="text-[80px] font-semibold">$12,000+</p>
+                <p className="text-[80px] font-semibold">
+                  $<Counter to={12000} />+
+                </p>
                 <h3 className="text-[20px] text-[#999999] leading-[1.2] tracking-normal">
                   Sales saved from competitors
                 </h3>
               </motion.div>
               <motion.div
                 className="flex flex-col items-end gap-2 max-[1200px]:items-start"
-                initial={{ x: -100, opacity: 0 }}
+                initial={{ x: 100, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{
                   type: "spring",
@@ -68,7 +71,9 @@ export default function PdfStatistics() {
                 }}
                 viewport={{ once: true }}
               >
-                <p className="text-[80px] font-semibold">600+</p>
+                <p className="text-[80px] font-semibold">
+                  <Counter to={600} />+
+                </p>
                 <h3 className="text-[20px] text-[#999999] leading-[1.2] tracking-normal">
                   Clicks generated
                 </h3>
@@ -76,7 +81,7 @@ export default function PdfStatistics() {
             </div>
             <motion.p
               className="text-[20px] text-[#999999] leading-[1.2] tracking-normal mt-4"
-              initial={{ x: -100, opacity: 0 }}
+              initial={{ x: 100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{
                 type: "spring",

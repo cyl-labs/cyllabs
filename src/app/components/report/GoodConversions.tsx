@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Counter from "../Counter";
 
 export default function GoodConversions({
   possibleRevenue,
@@ -50,7 +51,7 @@ export default function GoodConversions({
         }}
         viewport={{ once: true }}
       >
-        Adding a website could add 3% more sales.
+        Adding a website could add <span className="text-[#FD5001]">3%</span> more sales.
       </motion.p>
       <motion.p
         className="w-1/2 text-[48px] text-[#FD5001] font-semibold max-[1200px]:w-4/5 max-md:w-full max-sm:text-[40px]"
@@ -65,7 +66,7 @@ export default function GoodConversions({
         viewport={{ once: true }}
       >
         That&apos;s an extra $
-        {Number(possibleRevenue.toFixed(0)).toLocaleString()} a month.
+        <Counter to={Number(possibleRevenue.toFixed(0))} /> a month.
       </motion.p>
       <motion.p
         className="w-1/2 text-[48px] font-semibold max-[1200px]:w-4/5 max-md:w-full max-sm:text-[40px]"
@@ -81,7 +82,7 @@ export default function GoodConversions({
       >
         That&apos;s{" "}
         <span className="text-[#FD5001]">
-          ${Number(possibleRevenue.toFixed(0)).toLocaleString()}
+          $<Counter to={Number(possibleRevenue.toFixed(0))} />
         </span>{" "}
         you&apos;re not collecting yet.
       </motion.p>

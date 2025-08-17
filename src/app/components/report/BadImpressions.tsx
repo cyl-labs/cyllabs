@@ -1,13 +1,10 @@
 import { motion } from "framer-motion";
+import Counter from "../Counter";
 
 export default function BadImpressions({
-  reach,
-  messages,
-  price,
+  jumpInRevenue,
 }: {
-  reach: number;
-  messages: number;
-  price: number;
+  jumpInRevenue: number;
 }) {
   return (
     <div className="flex flex-col gap-16">
@@ -54,7 +51,7 @@ export default function BadImpressions({
         }}
         viewport={{ once: true }}
       >
-        Even if only 3% of people buy.
+        Even if only <span className="text-[#FD5001]">3%</span> of people buy.
       </motion.p>
       <motion.p
         className="w-1/2 text-[48px] text-[#FD5001] font-semibold max-[1200px]:w-4/5 max-md:w-full max-sm:text-[40px]"
@@ -68,11 +65,7 @@ export default function BadImpressions({
         }}
         viewport={{ once: true }}
       >
-        That&apos;s a{" "}
-        {Number(
-          (((reach * 5 * 0.03 * price) / (messages * price)) * 100).toFixed(0)
-        ).toLocaleString()}
-        % jump in revenue.
+        That&apos;s a <Counter to={jumpInRevenue} />% jump in revenue.
       </motion.p>
     </div>
   );

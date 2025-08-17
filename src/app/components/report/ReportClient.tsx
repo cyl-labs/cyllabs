@@ -10,6 +10,7 @@ import GoodConversions from "../report/GoodConversions";
 import BadConversions from "../report/BadConversions";
 import BadImpressions from "../report/BadImpressions";
 import { Button } from "@/components/ui/button";
+import Counter from "../Counter";
 
 export default function ReportClient() {
   const [data, setData] = useState({
@@ -20,6 +21,7 @@ export default function ReportClient() {
   const [conversionRate, setConversionRate] = useState(0);
   const [currentRevenue, setCurrentRevenue] = useState(0);
   const [possibleRevenue, setPossibleRevenue] = useState(0);
+  const [jumpInRevenue, setJumpInRevenue] = useState(0);
 
   useEffect(() => {
     const storedData = localStorage.getItem("data");
@@ -34,13 +36,18 @@ export default function ReportClient() {
       });
 
       if (parsedData.reach > 0 && parsedData.messages >= 0) {
-        setConversionRate((parsedData.messages * 4 / parsedData.reach) * 100);
+        setConversionRate(((parsedData.messages * 4) / parsedData.reach) * 100);
       } else {
         setConversionRate(0);
       }
 
       setCurrentRevenue(parsedData.price * parsedData.messages * 4);
       setPossibleRevenue(parsedData.price * (parsedData.reach * 0.03));
+      setJumpInRevenue(
+        ((parsedData.reach * 5 * 0.03 * parsedData.price) /
+          (parsedData.messages * 4 * parsedData.price)) *
+          100
+      );
     }
   }, []);
 
@@ -100,7 +107,7 @@ export default function ReportClient() {
                 }}
                 viewport={{ once: true }}
               >
-                How You&apos;re Performing
+                How You&apos;re Performing.
               </motion.h2>
               <motion.p
                 className="opacity-70 text-[20px] leading-[1.2] tracking-normal"
@@ -200,11 +207,7 @@ export default function ReportClient() {
             </div>
           </div>
           {data.reach <= 400 ? (
-            <BadImpressions
-              reach={data.reach}
-              messages={data.messages}
-              price={data.price}
-            />
+            <BadImpressions jumpInRevenue={jumpInRevenue} />
           ) : conversionRate >= 3 ? (
             <GoodConversions possibleRevenue={possibleRevenue} />
           ) : (
@@ -300,14 +303,7 @@ export default function ReportClient() {
                 viewport={{ once: true }}
               >
                 <p className="text-[80px] text-[#FD5001] font-semibold">
-                  {Number(
-                    (
-                      ((data.reach * 5 * 0.03 * data.price) /
-                        (data.messages * data.price)) *
-                      100
-                    ).toFixed(0)
-                  ).toLocaleString()}
-                  %
+                  <Counter to={jumpInRevenue} />%
                 </p>
                 <h3 className="text-[20px] opacity-70 leading-[1.2] tracking-normal">
                   Boost in revenue saved
@@ -327,7 +323,7 @@ export default function ReportClient() {
                 viewport={{ once: true }}
               >
                 <p className="text-[80px] text-[#FD5001] font-semibold">
-                  ${Number(possibleRevenue.toFixed(0)).toLocaleString()}
+                  $<Counter to={Number(possibleRevenue.toFixed(0))} />
                 </p>
                 <h3 className="text-[20px] opacity-70 leading-[1.2] tracking-normal">
                   Sales saved from competitors <br />

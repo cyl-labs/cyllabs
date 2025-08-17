@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Counter from "../Counter";
 
 export default function BadConversions({
   currentRevenue,
@@ -53,7 +54,8 @@ export default function BadConversions({
         }}
         viewport={{ once: true }}
       >
-        With an average conversion rate of 3%.
+        With an average conversion rate of{" "}
+        <span className="text-[#FD5001]">3%</span>.
       </motion.p>
       <div className="w-1/2 flex flex-col gap-8 text-[48px] font-semibold max-[1200px]:w-4/5 max-md:w-full max-sm:text-[40px]">
         <motion.p
@@ -82,7 +84,7 @@ export default function BadConversions({
           viewport={{ once: true }}
         >
           Possible revenue: $
-          {Number(possibleRevenue.toFixed(0)).toLocaleString()}
+          <Counter to={Number(possibleRevenue.toFixed(0))} />
         </motion.p>
       </div>
       <motion.p
@@ -100,9 +102,7 @@ export default function BadConversions({
         That&apos;s{" "}
         <span className="text-[#FD5001]">
           $
-          {Number(
-            (possibleRevenue - currentRevenue).toFixed(0)
-          ).toLocaleString()}
+          <Counter to={Number((possibleRevenue - currentRevenue).toFixed(0))} />
         </span>{" "}
         dollars left on the table every month.
       </motion.p>

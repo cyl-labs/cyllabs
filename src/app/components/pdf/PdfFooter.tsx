@@ -76,7 +76,7 @@ export default function PdfFooter() {
           }}
           viewport={{ once: true }}
         >
-          <Image className="object-cover" src="/phone.jpeg" alt="" fill />
+          <Image className="object-contain" src="/pdf.png" alt="" fill />
         </motion.div>
       </div>
     </Wrapper>
