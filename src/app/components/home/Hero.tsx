@@ -15,9 +15,9 @@ export default function Hero() {
 
       <Wrapper className="w-screen h-full flex flex-col justify-between relative !pt-0 z-10">
         <Navbar />
-        <div className="flex flex-col items-end text-white gap-4">
+        <div className="flex flex-col items-end text-white gap-8">
           <motion.div
-            className="flex items-end gap-8 max-[1200px]:gap-[22px] max-md:gap-4 max-sm:gap-[10px]"
+            className="flex justify-end items-end gap-8 max-[1200px]:gap-[22px] max-md:gap-4 max-sm:gap-[10px]"
             initial={{ x: 100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{
@@ -27,13 +27,13 @@ export default function Hero() {
               restDelta: 0.001,
             }}
           >
-            <h1 className="text-[256px] font-semibold max-[1200px]:text-[176px] max-md:text-[128px] max-sm:text-[80px]">
-              cyllabs
+            <h1 className="w-3/4 text-[64px] text-right font-semibold max-[1200px]:text-[48px] max-md:w-full">
+              Launch a <span className="text-[#FD5001]">premium</span> website
+              in as little as <span className="text-[#FD5001]">14 days</span>.
             </h1>
-            <div className="w-8 h-8 bg-[#FD5001] rounded-full mb-10 max-[1200px]:w-[22px] max-[1200px]:h-[22px] max-[1200px]:mb-6 max-md:w-4 max-md:h-4 max-md:mb-5 max-sm:w-[10px] max-sm:h-[10px] max-sm:mb-3"></div>
           </motion.div>
           <motion.div
-          className="flex justify-end items-center flex-wrap gap-8"
+            className="flex justify-end items-center flex-wrap gap-8"
             initial={{ x: 100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{
