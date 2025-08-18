@@ -17,11 +17,11 @@ export default function CalculatorPrice({
   const router = useRouter();
 
   function handleSubmit() {
-    if (String(price) !== "" && Number(price) >= 0) {
+    if (String(price) !== "" && Number(price) > 0) {
       localStorage.setItem("data", JSON.stringify({ reach, messages, price }));
       router.push("/report");
     } else {
-      toast.error("Please enter a number into the field.");
+      toast.error("Please enter a valid number into the field.");
     }
   }
 
@@ -85,7 +85,7 @@ export default function CalculatorPrice({
             }
           }}
         />
-         <input
+        <input
           className="text-[64px] text-[#FEF1E1] font-semibold placeholder-[#999999] focus:outline-none max-[1200px]:text-[48px] max-sm:text-[40px] sm:hidden"
           type="number"
           min="0"

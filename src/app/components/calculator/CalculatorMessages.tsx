@@ -26,7 +26,7 @@ export default function CalculatorMessages({
       return;
     }
 
-    if (Number(messages) < Number(reach)) {
+    if (Number(messages) <= Number(reach)) {
       setSection("price");
     }
   }

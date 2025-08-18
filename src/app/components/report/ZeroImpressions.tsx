@@ -1,11 +1,7 @@
 import { motion } from "framer-motion";
 import Counter from "../Counter";
 
-export default function BadImpressions({
-  jumpInRevenue,
-}: {
-  jumpInRevenue: number;
-}) {
+export default function ZeroImpressions({ price }: { price: number }) {
   return (
     <div className="flex flex-col gap-16">
       <div className="flex justify-between gap-8 max-[1200px]:flex-col">
@@ -21,7 +17,7 @@ export default function BadImpressions({
           }}
           viewport={{ once: true }}
         >
-          We can show your business to 5x more people.
+          We can help you get your first clients through a website.
         </motion.h2>
         <motion.p
           className="w-1/5 text-[20px] text-right leading-[1.2] tracking-normal !opacity-70 max-[1200px]:w-4/5 max-[1200px]:text-left max-md:w-full"
@@ -35,8 +31,8 @@ export default function BadImpressions({
           }}
           viewport={{ once: true }}
         >
-          Right now, most people don&apos;t know you exist. That means fewer clicks,
-          calls, and sales.
+          Right now, no one knows you exist. That means no clicks, calls, or
+          sales.
         </motion.p>
       </div>
       <motion.p
@@ -51,7 +47,7 @@ export default function BadImpressions({
         }}
         viewport={{ once: true }}
       >
-        Even if only <span className="text-[#FD5001]">3%</span> of people buy.
+        We could get you <span className="text-[#FD5001]">600</span> clicks.
       </motion.p>
       <motion.p
         className="w-1/2 text-[48px] text-[#FD5001] font-semibold max-[1200px]:w-4/5 max-md:w-full max-sm:text-[40px]"
@@ -65,7 +61,7 @@ export default function BadImpressions({
         }}
         viewport={{ once: true }}
       >
-        That&apos;s a <Counter to={jumpInRevenue} />% jump in revenue.
+        You could be earning $<Counter to={price * 18} /> a month.
       </motion.p>
     </div>
   );

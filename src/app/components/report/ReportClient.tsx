@@ -9,6 +9,7 @@ import Wrapper from "../Wrapper";
 import GoodConversions from "../report/GoodConversions";
 import BadConversions from "../report/BadConversions";
 import BadImpressions from "../report/BadImpressions";
+import ZeroImpressions from "../report/ZeroImpressions";
 import { Button } from "@/components/ui/button";
 import Counter from "../Counter";
 
@@ -107,7 +108,8 @@ export default function ReportClient() {
                 }}
                 viewport={{ once: true }}
               >
-                How You&apos;re <span className="text-[#FD5001]">Performing</span>.
+                How You&apos;re{" "}
+                <span className="text-[#FD5001]">Performing</span>.
               </motion.h2>
               <motion.p
                 className="opacity-70 text-[20px] leading-[1.2] tracking-normal"
@@ -206,9 +208,11 @@ export default function ReportClient() {
               </motion.p>
             </div>
           </div>
-          {data.reach <= 400 ? (
+          {Number(data.reach) === 0 ? (
+            <ZeroImpressions price={data.price} />
+          ) : Number(data.reach) <= 400 ? (
             <BadImpressions jumpInRevenue={jumpInRevenue} />
-          ) : conversionRate >= 3 ? (
+          ) : Number(conversionRate) >= 3 ? (
             <GoodConversions possibleRevenue={possibleRevenue} />
           ) : (
             <BadConversions
@@ -230,7 +234,8 @@ export default function ReportClient() {
                 }}
                 viewport={{ once: true }}
               >
-                Stop the <span className="text-[#FD5001]">leak</span>. Keep the <span className="text-[#FD5001]">cash</span>.
+                Stop the <span className="text-[#FD5001]">leak</span>. Keep the{" "}
+                <span className="text-[#FD5001]">cash</span>.
               </motion.h1>
               <motion.p
                 className="opacity-70 text-[20px] leading-[1.2] tracking-normal !opacity-70"
@@ -289,7 +294,28 @@ export default function ReportClient() {
                 </Button>
               </motion.div>
             </div>
-            {data.reach <= 400 ? (
+            {Number(data.reach) === 0 ? (
+              <motion.div
+                className="flex flex-col items-end gap-2 text-right max-md:items-start max-md:text-left"
+                initial={{ x: -100, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 30,
+                  restDelta: 0.001,
+                }}
+                viewport={{ once: true }}
+              >
+                <p className="text-[80px] text-[#FD5001] font-semibold">
+                  $<Counter to={Number(data.price * 18)} />
+                </p>
+                <h3 className="text-[20px] opacity-70 leading-[1.2] tracking-normal">
+                  Sales saved from competitors <br />
+                  every month
+                </h3>
+              </motion.div>
+            ) : Number(data.reach) <= 400 ? (
               <motion.div
                 className="flex flex-col items-end gap-2 text-right max-md:items-start"
                 initial={{ x: -100, opacity: 0 }}
