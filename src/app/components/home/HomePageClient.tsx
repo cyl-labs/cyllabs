@@ -9,6 +9,7 @@ import Contact from "./contact";
 import Footer from "../footer";
 import Highlights from "../highlights";
 import WhatsAppContact from "./WhatsAppContact";
+import WaBtn from "../WaBtn";
 
 export default function HomePageClient() {
   const handleMessageSent = () => {};
@@ -69,6 +70,7 @@ export default function HomePageClient() {
 
   return (
     <main className="relative secondary-bg">
+      <WaBtn />
       <div
         ref={footerRef}
         className="fixed inset-0 z-10 secondary-bg overflow-x-hidden will-change-transform"

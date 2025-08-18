@@ -12,6 +12,7 @@ import BadImpressions from "../report/BadImpressions";
 import ZeroImpressions from "../report/ZeroImpressions";
 import { Button } from "@/components/ui/button";
 import Counter from "../Counter";
+import WaBtn from "../WaBtn";
 
 export default function ReportClient() {
   const [data, setData] = useState({
@@ -54,9 +55,10 @@ export default function ReportClient() {
 
   return (
     <div className="relative">
+      <WaBtn />
       <div className="h-screen flex justify-center bg-cover bg-center relative">
         <Image className="object-cover" src="/funnel-report.png" alt="" fill />
-        <Wrapper className="w-screen h-full flex flex-col justify-between relative !pt-0 z-10">
+        <Wrapper className="w-screen overflow-x-hidden h-full flex flex-col justify-between relative !pt-0 z-10">
           <Navbar />
           <div className="flex flex-col items-end gap-8 text-white text-right">
             <motion.h1
@@ -93,7 +95,7 @@ export default function ReportClient() {
         className="bg-cover relative z-10"
         style={{ backgroundImage: "url('/gradient-3.png')" }}
       >
-        <Wrapper className="w-screen flex flex-col !gap-48 max-[1200px]:flex-col">
+        <Wrapper className="w-screen overflow-x-hidden flex flex-col !gap-48 max-[1200px]:flex-col">
           <div className="flex justify-between gap-16 max-[1200px]:flex-col">
             <div className="w-1/4 flex flex-col gap-8 max-[1200px]:w-1/2 max-md:w-full">
               <motion.h2

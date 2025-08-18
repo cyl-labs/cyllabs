@@ -5,6 +5,7 @@ import PackagesTable from "../packages/PackagesTable";
 import Contact from "../home/contact";
 import Footer from "../footer";
 import WhatsAppContact from "../home/WhatsAppContact";
+import WaBtn from "../WaBtn";
 
 export default function PackagesClient() {
   const handleMessageSent = () => {};
@@ -72,6 +73,8 @@ export default function PackagesClient() {
 
   return (
     <main className="relative secondary-bg overflow-x-hidden">
+
+      <WaBtn />
       {/* Footer */}
       <div
         ref={footerRef}

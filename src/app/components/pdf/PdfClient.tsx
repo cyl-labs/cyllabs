@@ -7,10 +7,12 @@ import PdfHeader from "../pdf/PdfHeader";
 import PdfStatistics from "../pdf/PdfStatistics";
 import PdfFooter from "../pdf/PdfFooter";
 import PdfStack from "../pdf/PdfStack";
+import WaBtn from "../WaBtn";
 
 export default function PdfClient() {
   return (
     <div className="relative">
+      <WaBtn />
       <div className = "flex justify-center bg-cover bg-center relative bg-gradient-to-b from-white to-[#999999]">
         <div className="w-screen flex flex-col items-center relative !pt-0 z-10">
           <div className="flex justify-center items-center">
