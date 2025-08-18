@@ -7,9 +7,12 @@ type FBMeta = Record<string, unknown>;
 export default function MetaPixelEvents() {
   useEffect(() => {
     const handleClick = (eventName: string, metadata: FBMeta = {}) => {
-      if (typeof window !== "undefined" && (window as any).fbq) {
-        (window as any).fbq("trackCustom", eventName, metadata);
-      }
+        if (typeof window !== "undefined") {
+                const fbq = (window as unknown as { fbq?: (...args: unknown[]) => void }).fbq;
+                if (fbq) {
+                fbq("trackCustom", eventName, metadata);
+            }
+        }
     };
 
     // Map CTA types to Meta Pixel event names
