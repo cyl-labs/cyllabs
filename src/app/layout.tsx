@@ -10,6 +10,8 @@ import {
   jsonLdWebsite,
 } from "@/lib/seo";
 import { Metadata } from "next";
+import Script from "next/script";
+import MetaPixelEvents from "./components/MetaPixelEvents";
 
 const dmSans = DM_Sans({
   variable: "--font-inter",
@@ -74,7 +76,32 @@ export default function RootLayout({
       <body
         className={`${dmSans.className} antialiased leading-none tracking-[-0.08em]`}
       >
+        {/* Meta Pixel Code */}
+        <Script id="meta-pixel" strategy="afterInteractive">
+          {`
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '1147543727241214');
+            fbq('track', 'PageView');
+          `}
+        </Script>
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=1147543727241214&ev=PageView&noscript=1"
+          />
+        </noscript>
+        {/* End Meta Pixel Code */}
         <div className="relative z-10">{children}</div>
+        <MetaPixelEvents />
         <Toaster />
         <script
           type="application/ld+json"
