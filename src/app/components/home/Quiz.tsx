@@ -182,7 +182,7 @@ export default function Quiz(): React.ReactElement {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
-                How much money is your website not making you?
+                How much money are you missing without a website?
               </motion.span>
               <motion.span
                 className="text-[#999999] font-semibold block mt-2"
@@ -192,8 +192,7 @@ export default function Quiz(): React.ReactElement {
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
                 {" "}
-                For <AccentText>Singaporean</AccentText> businesses that rely on
-                trust.
+                Quick <AccentText>ROI check</AccentText> for Singapore SME owners.
               </motion.span>
             </motion.h1>
           </ParallaxText>
@@ -210,8 +209,7 @@ export default function Quiz(): React.ReactElement {
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.2 }}
                 >
-                  Most websites look fine but lose trust and sales. This quick
-                  ROI check shows what you&apos;re missing — and how to fix it.
+                A website brings in customers. Take this quick ROI check to see how much more you could make.
                 </motion.span>
               </motion.p>
             </ParallaxText>
