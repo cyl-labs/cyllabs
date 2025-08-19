@@ -11,7 +11,6 @@ import {
 } from "@/lib/seo";
 import { Metadata } from "next";
 import Script from "next/script";
-import MetaPixelEvents from "./components/MetaPixelEvents";
 
 const dmSans = DM_Sans({
   variable: "--font-inter",
