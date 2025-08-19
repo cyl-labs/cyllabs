@@ -101,7 +101,6 @@ export default function RootLayout({
         </noscript>
         {/* End Meta Pixel Code */}
         <div className="relative z-10">{children}</div>
-        <MetaPixelEvents />
         <Toaster />
         <script
           type="application/ld+json"
