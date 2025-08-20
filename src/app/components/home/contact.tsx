@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import { Instagram, Mail } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import { motion, useInView, Variants } from "framer-motion";
@@ -245,7 +246,8 @@ export default function Contact({ onMessageSent }: ContactProps) {
                 className="contact-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 md:mb-6 lg:mb-8 leading-tight tracking-tight"
                 variants={fadeInUp}
               >
-                Not Ready to Chat on WhatsApp? Here&apos;s Another Way to Reach Us.
+                Not Ready to Chat on WhatsApp? Here&apos;s Another Way to Reach
+                Us.
               </motion.h1>
 
               <motion.form
@@ -366,7 +368,13 @@ export default function Contact({ onMessageSent }: ContactProps) {
                       fill="#25D366"
                     />
                   </svg>
-                  <p className="text-sm md:text-base">+65 8197 7376</p>
+                  <Link
+                    href="https://wa.me/6581977376?text=Hi%2C%20I%20would%20like%20to%20claim%20my%20free%20consultation"
+                    target="_blank"
+                    className="text-sm md:text-base"
+                  >
+                    +65 8197 7376
+                  </Link>
                 </div>
               </motion.div>
 
