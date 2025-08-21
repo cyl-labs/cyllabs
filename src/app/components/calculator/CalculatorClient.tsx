@@ -4,7 +4,6 @@ import { useState } from "react";
 import Gradient from "../Gradient";
 import Wrapper from "../Wrapper";
 import Navbar from "../Navbar";
-import CalculatorWelcome from "../calculator/CalculatorWelcome";
 import CalculatorReach from "../calculator/CalculatorReach";
 import CalculatorMessages from "../calculator/CalculatorMessages";
 import CalculatorIndustry from "../calculator/CalculatorIndustry";
