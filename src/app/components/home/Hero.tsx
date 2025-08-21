@@ -28,8 +28,15 @@ export default function Hero() {
             }}
           >
             <h1 className="w-3/4 text-[64px] text-right font-semibold max-[1200px]:text-[48px] max-md:w-full">
-              Launch a <span className="text-[#FD5001]">premium</span> website
-              in as little as <span className="text-[#FD5001]">14 days</span>.
+              Launch a{" "}
+              <span className="bg-gradient-to-r from-[#A63200] via-[#FD5001] to-[#FF6B2D] bg-clip-text text-transparent">
+                premium
+              </span>{" "}
+              website in as little as{" "}
+              <span className="bg-gradient-to-r from-[#A63200] via-[#FD5001] to-[#FF6B2D] bg-clip-text text-transparent">
+                14 days
+              </span>
+              .
             </h1>
           </motion.div>
           <motion.div

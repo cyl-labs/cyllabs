@@ -334,7 +334,7 @@ export default function ReportClient() {
                   <Counter to={jumpInRevenue} />%
                 </p>
                 <h3 className="text-[20px] opacity-70 leading-[1.2] tracking-normal">
-                  Boost in revenue saved
+                  Boost in revenue
                 </h3>
               </motion.div>
             ) : (
