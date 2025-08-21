@@ -11,7 +11,7 @@ import CalculatorIndustry from "../calculator/CalculatorIndustry";
 import CalculatorPrice from "../calculator/CalculatorPrice";
 
 export default function CalculatorClient() {
-  const [section, setSection] = useState("welcome");
+  const [section, setSection] = useState("reach");
   const [reach, setReach] = useState("");
   const [messages, setMessages] = useState("");
   const [industry, setIndustry] = useState("");
@@ -25,9 +25,6 @@ export default function CalculatorClient() {
           <Navbar />
         </div>
         <div className="flex-1 flex items-center justify-center">
-          {section === "welcome" && (
-            <CalculatorWelcome setSection={setSection} />
-          )}
           {section === "reach" && (
             <CalculatorReach
               reach={reach}
