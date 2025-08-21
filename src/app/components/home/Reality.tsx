@@ -52,21 +52,23 @@ export default function Reality() {
         </div>
         <div className="flex flex-col items-center px-6 gap-8 text-white text-center">
           <h1 className="w-1/2 text-[64px] font-semibold max-[1200px]:w-4/5 max-md:w-full max-sm:text-[40px]">
-            <span className="bg-gradient-to-r from-[#A63200] via-[#FD5001] to-[#FF6B2D] bg-clip-text text-transparent">FREE Guide</span>: Why Cheap Websites Lose You Customers
+            <span className="bg-gradient-to-r from-[#A63200] via-[#FD5001] to-[#FF6B2D] bg-clip-text text-transparent">
+              FREE Guide
+            </span>
+            : Why Cheap Websites Lose You Customers
           </h1>
 
           <p className="w-1/2 text-[20px] leading-[1.2] tracking-normal opacity-90 max-[1200px]:w-4/5 max-md:w-full max-sm:text-[20px]">
-          Simple guide for Singapore SME owners.
+            Simple guide for Singapore SME owners.
           </p>
           <div className="w-1/2 text-[20px] leading-[1.2] tracking-normal opacity-70 max-[1200px]:w-4/5 max-md:w-full max-sm:text-[20px]">
-  <p>
-    Many bosses think a $500 website can do the job. But cheap sites look
-    unprofessional, load slowly, and turn customers away.
-  </p>
+            <p>
+              Many bosses think a $500 website can do the job. But cheap sites
+              look unprofessional, load slowly, and turn customers away.
+            </p>
 
-  <p className="mt-4">Quick read. View in browser.</p>
-</div>
-
+            <p className="mt-4">Quick read. View in browser.</p>
+          </div>
 
           {/* Badges */}
           <div className="flex flex-wrap items-center justify-center gap-3">

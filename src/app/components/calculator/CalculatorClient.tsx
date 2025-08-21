@@ -6,15 +6,15 @@ import Wrapper from "../Wrapper";
 import Navbar from "../Navbar";
 import CalculatorReach from "../calculator/CalculatorReach";
 import CalculatorMessages from "../calculator/CalculatorMessages";
-import CalculatorIndustry from "../calculator/CalculatorIndustry";
 import CalculatorPrice from "../calculator/CalculatorPrice";
 
 export default function CalculatorClient() {
   const [section, setSection] = useState("reach");
   const [reach, setReach] = useState("");
   const [messages, setMessages] = useState("");
-  const [industry, setIndustry] = useState("");
   const [price, setPrice] = useState("");
+  const sections = ["reach", "messages", "price"];
+  const progress = ((sections.indexOf(section) + 1) / sections.length) * 100;
 
   return (
     <div className="min-h-screen relative overflow-hidden">
@@ -39,13 +39,6 @@ export default function CalculatorClient() {
               setMessages={(value) => setMessages(String(value))}
             />
           )}
-          {section === "industry" && (
-            <CalculatorIndustry
-              industry={industry}
-              setSection={setSection}
-              setIndustry={setIndustry}
-            />
-          )}
           {section === "price" && (
             <CalculatorPrice
               reach={reach}
@@ -54,6 +47,12 @@ export default function CalculatorClient() {
               setPrice={(value: string | number) => setPrice(String(value))}
             />
           )}
+        </div>
+        <div className="absolute bottom-0 left-0 w-full h-2 bg-white">
+          <div
+            className="h-full bg-blue-500 duration-300"
+            style={{ width: `${progress}%` }}
+          />
         </div>
       </Wrapper>
     </div>
