@@ -59,7 +59,8 @@ export default function CalculatorMessages({
             delay: 0.2,
           }}
         >
-          We’ll use this to see how well your audience turns into real leads.
+          We&apos;ll use this to see how well your audience turns into real
+          leads.
         </motion.p>
       </div>
       <motion.div
@@ -120,7 +121,7 @@ export default function CalculatorMessages({
           className="w-fit h-fit cursor-pointer bg-white rounded-full !px-8 !py-4 text-[20px] font-semibold"
           onClick={handleSubmit}
         >
-          Next
+          Almost there
           <svg
             className="min-w-6 min-h-6"
             xmlns="http://www.w3.org/2000/svg"
