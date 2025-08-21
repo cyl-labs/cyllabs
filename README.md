@@ -1,6 +1,6 @@
-YC when
+Fixed sitemap
 
-This shit's tech stack
+Tech stack
 - Next.js
 - TailwindCSS
 - ShadCN
