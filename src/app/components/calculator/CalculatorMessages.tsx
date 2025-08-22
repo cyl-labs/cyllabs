@@ -8,13 +8,11 @@ export default function CalculatorMessages({
   reach,
   messages,
   price,
-  setSection,
   setMessages,
 }: {
   reach: string | number;
   messages: string | number;
   price: number;
-  setSection: (section: string) => void;
   setMessages: (messages: string | number) => void;
 }) {
   const router = useRouter();
