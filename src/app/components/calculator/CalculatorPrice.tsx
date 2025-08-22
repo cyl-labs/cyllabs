@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 
 export default function CalculatorPrice({
@@ -53,12 +54,12 @@ export default function CalculatorPrice({
             delay: 0.2,
           }}
         >
-          We’ll use this to estimate the revenue your missed leads could be
+          We&apos;ll use this to estimate the revenue your missed leads could be
           bringing in.
         </motion.p>
       </div>
       <motion.div
-        className="flex flex-col gap-4"
+        className="flex flex-col gap-8"
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{
@@ -72,7 +73,7 @@ export default function CalculatorPrice({
         <h2 className="text-[32px] text-[#FEF1E1] font-semibold">
           Average sale value
         </h2>
-        <input
+        <Input
           className="text-[64px] text-[#FEF1E1] font-semibold placeholder-[#999999] focus:outline-none max-[1200px]:text-[48px] max-sm:text-[40px] max-sm:hidden"
           type="number"
           min="0"
@@ -85,12 +86,12 @@ export default function CalculatorPrice({
             }
           }}
         />
-        <input
-          className="text-[64px] text-[#FEF1E1] font-semibold placeholder-[#999999] focus:outline-none max-[1200px]:text-[48px] max-sm:text-[40px] sm:hidden"
+        <Input
+          className="text-[#FEF1E1] font-semibold placeholder-[#999999] focus:outline-none sm:hidden"
           type="number"
           min="0"
           value={price}
-          placeholder="Enter here"
+          placeholder="Enter your average sale value e.g. 250"
           onChange={(e) => {
             const value = e.target.value;
             if (value === "" || Number(value) >= 0) {

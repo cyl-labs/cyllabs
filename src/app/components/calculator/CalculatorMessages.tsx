@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 
 export default function CalculatorMessages({
@@ -64,7 +65,7 @@ export default function CalculatorMessages({
         </motion.p>
       </div>
       <motion.div
-        className="flex flex-col gap-4"
+        className="flex flex-col gap-8"
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{
@@ -78,8 +79,8 @@ export default function CalculatorMessages({
         <h2 className="text-[32px] text-[#FEF1E1] font-semibold">
           Average no. of messages per week
         </h2>
-        <input
-          className="text-[64px] text-[#FEF1E1] font-semibold placeholder-[#999999] focus:outline-none max-[1200px]:text-[48px] max-sm:text-[40px] max-sm:hidden"
+        <Input
+          className="w-1/2 text-[64px] text-[#FEF1E1] font-semibold placeholder-[#999999] focus:outline-none max-[1200px]:text-[48px] max-sm:text-[40px] max-sm:hidden"
           type="number"
           min="0"
           value={messages}
@@ -91,12 +92,12 @@ export default function CalculatorMessages({
             }
           }}
         />
-        <input
-          className="text-[64px] text-[#FEF1E1] font-semibold placeholder-[#999999] focus:outline-none max-[1200px]:text-[48px] max-sm:text-[40px] sm:hidden"
+        <Input
+          className="text-[#FEF1E1] font-semibold placeholder-[#999999] focus:outline-none sm:hidden"
           type="number"
           min="0"
           value={messages}
-          placeholder="Enter here"
+          placeholder="Enter your no. of weekly messages"
           onChange={(e) => {
             const value = e.target.value;
             if (value === "" || Number(value) >= 0) {

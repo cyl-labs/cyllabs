@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 
 export default function CalculatorReach({
@@ -47,12 +48,12 @@ export default function CalculatorReach({
             delay: 0.2,
           }}
         >
-          Give us your best guess. We’ll turn it into the number of leads and
+          Give us your best guess. We&apos;ll turn it into the number of leads and
           sales you could be getting.
         </motion.p>
       </div>
       <motion.div
-        className="flex flex-col gap-4"
+        className="flex flex-col gap-8"
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{
@@ -66,8 +67,8 @@ export default function CalculatorReach({
         <h2 className="text-[32px] text-[#FEF1E1] font-semibold">
           Monthly reach or profile views
         </h2>
-        <input
-          className="text-[64px] text-[#FEF1E1] font-semibold placeholder-[#999999] focus:outline-none max-[1200px]:text-[48px] max-sm:text-[40px] max-sm:hidden"
+        <Input
+          className="w-1/2 text-[64px] text-[#FEF1E1] font-semibold placeholder-[#999999] focus:outline-none max-[1200px]:text-[48px] max-sm:text-[40px] max-sm:hidden"
           type="number"
           value={reach}
           placeholder="Enter your reach e.g. 8,000"
@@ -78,11 +79,11 @@ export default function CalculatorReach({
             }
           }}
         />
-        <input
-          className="text-[64px] text-[#FEF1E1] font-semibold placeholder-[#999999] focus:outline-none max-[1200px]:text-[48px] max-sm:text-[40px] sm:hidden"
+        <Input
+          className="text-[#FEF1E1] font-semibold placeholder-[#999999] focus:outline-none sm:hidden"
           type="number"
           value={reach}
-          placeholder="Enter here"
+          placeholder="Enter your reach e.g. 8,000"
           onChange={(e) => {
             const value = e.target.value;
             if (value === "" || Number(value) >= 0) {
