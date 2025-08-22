@@ -46,7 +46,7 @@ export default function CalculatorReach({
           animate={{ x: 0, opacity: 1 }}
           transition={{ type: "spring", stiffness: 100, damping: 30, restDelta: 0.001, delay: 0.2 }}
         >
-          Give us your best guess. We&apos;ll turn it into the number of sales you could be getting.
+          Just give your best guess. We&apos;ll use it to estimate how many sales you could get.
         </motion.p>
       </div>
 
