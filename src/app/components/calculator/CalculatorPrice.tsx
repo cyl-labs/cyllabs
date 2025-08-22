@@ -1,30 +1,26 @@
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { toast } from "sonner";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
 
 export default function CalculatorPrice({
-  reach,
-  messages,
-  price,
   setPrice,
+  setSection,
 }: {
-  reach: string | number;
-  messages: string | number;
-  price: string | number;
-  setPrice: (price: string | number) => void;
+  setPrice: (price: number) => void;
+  setSection: (section: string) => void;
 }) {
-  const router = useRouter();
-
   function handleSubmit() {
-    if (String(price) !== "" && Number(price) > 0) {
-      localStorage.setItem("data", JSON.stringify({ reach, messages, price }));
-      router.push("/report");
-    } else {
-      toast.error("Please enter a valid number into the field.");
-    }
+    setSection("reach");
   }
+
+  const options = [
+    { value: 10, label: "$10 – 🍔 coffee/fast food (small purchase)" },
+    { value: 20, label: "$20 – 📦 small retail item (book, skincare)" },
+    { value: 50, label: "$50 – 👕 clothing / casual meal for 2" },
+    { value: 100, label: "$100 – 💇‍♂️ salon session / premium dinner" },
+    { value: 200, label: "$200+ – 🛍 luxury item / electronics" },
+  ];
 
   return (
     <div className="max-w-[100vw] h-full max-h-[500px] flex flex-col flex-grow justify-between px-16 py-8 max-md:px-6 max-md:py-4">
@@ -33,12 +29,7 @@ export default function CalculatorPrice({
           className="text-[64px] text-white font-semibold max-[1200px]:text-[48px] max-sm:text-[40px]"
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          transition={{
-            type: "spring",
-            stiffness: 100,
-            damping: 30,
-            restDelta: 0.001,
-          }}
+          transition={{ type: "spring", stiffness: 100, damping: 30, restDelta: 0.001 }}
         >
           How Much Is Each Customer Worth?
         </motion.h1>
@@ -46,77 +37,43 @@ export default function CalculatorPrice({
           className="text-[20px] text-[#999999] leading-[1.2] tracking-normal"
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          transition={{
-            type: "spring",
-            stiffness: 100,
-            damping: 30,
-            restDelta: 0.001,
-            delay: 0.2,
-          }}
+          transition={{ type: "spring", stiffness: 100, damping: 30, restDelta: 0.001, delay: 0.2 }}
         >
-          We&apos;ll use this to estimate the revenue your missed leads could be
-          bringing in.
+          We&apos;ll use this to estimate the revenue your missed leads could be bringing in.
         </motion.p>
       </div>
+
       <motion.div
-        className="flex flex-col gap-8"
+        className="flex flex-col gap-6"
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
-        transition={{
-          type: "spring",
-          stiffness: 100,
-          damping: 30,
-          restDelta: 0.001,
-          delay: 0.4,
-        }}
+        transition={{ type: "spring", stiffness: 100, damping: 30, restDelta: 0.001, delay: 0.4 }}
       >
-        <h2 className="text-[32px] text-[#FEF1E1] font-semibold">
-          Average sale value
-        </h2>
-        <Input
-          className="text-[64px] text-[#FEF1E1] font-semibold placeholder-[#999999] focus:outline-none max-[1200px]:text-[48px] max-sm:text-[40px] max-sm:hidden"
-          type="number"
-          min="0"
-          value={price}
-          placeholder="Enter your average sale value e.g. 250"
-          onChange={(e) => {
-            const value = e.target.value;
-            if (value === "" || Number(value) >= 0) {
-              setPrice(value);
-            }
-          }}
-        />
-        <Input
-          className="text-[#FEF1E1] font-semibold placeholder-[#999999] focus:outline-none sm:hidden"
-          type="number"
-          min="0"
-          value={price}
-          placeholder="Enter your average sale value e.g. 250"
-          onChange={(e) => {
-            const value = e.target.value;
-            if (value === "" || Number(value) >= 0) {
-              setPrice(value);
-            }
-          }}
-        />
+        <RadioGroup
+          defaultValue={String(options[0].value)}
+          onValueChange={(v) => setPrice(Number(v))}
+          className="flex flex-col gap-2 text-[#FEF1E1]"
+        >
+          {options.map((opt) => (
+            <div key={opt.value} className="flex items-center space-x-2">
+              <RadioGroupItem id={`price-${opt.value}`} value={String(opt.value)} />
+              <Label className="text-base leading-[1.2] tracking-normal" htmlFor={`price-${opt.value}`}>{opt.label}</Label>
+            </div>
+          ))}
+        </RadioGroup>
       </motion.div>
+
       <motion.div
         className="flex justify-end"
         initial={{ x: 100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
-        transition={{
-          type: "spring",
-          stiffness: 100,
-          damping: 30,
-          restDelta: 0.001,
-          delay: 0.6,
-        }}
+        transition={{ type: "spring", stiffness: 100, damping: 30, restDelta: 0.001, delay: 0.6 }}
       >
         <Button
-          className="w-fit h-fit bg-white rounded-full !px-8 !py-4 text-[20px] font-semibold cursor-pointer"
+          className="w-fit cursor-pointer h-fit bg-white rounded-full !px-8 !py-4 text-[20px] font-semibold"
           onClick={handleSubmit}
         >
-          Read the report
+          Next
           <svg
             className="min-w-6 min-h-6"
             xmlns="http://www.w3.org/2000/svg"

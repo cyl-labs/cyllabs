@@ -9,11 +9,11 @@ import CalculatorMessages from "../calculator/CalculatorMessages";
 import CalculatorPrice from "../calculator/CalculatorPrice";
 
 export default function CalculatorClient() {
-  const [section, setSection] = useState("reach");
-  const [reach, setReach] = useState("");
+  const [section, setSection] = useState("price");
+  const [reach, setReach] = useState(1000);
   const [messages, setMessages] = useState("");
-  const [price, setPrice] = useState("");
-  const sections = ["reach", "messages", "price"];
+  const [price, setPrice] = useState(10);
+  const sections = ["price", "reach", "messages"];
   const progress = ((sections.indexOf(section) + 1) / sections.length) * 100;
 
   return (
@@ -28,23 +28,22 @@ export default function CalculatorClient() {
             <CalculatorReach
               reach={reach}
               setSection={setSection}
-              setReach={(value) => setReach(String(value))}
+              setReach={(value) => setReach(value)}
             />
           )}
           {section === "messages" && (
             <CalculatorMessages
               reach={reach}
               messages={messages}
+              price={price}
               setSection={setSection}
               setMessages={(value) => setMessages(String(value))}
             />
           )}
           {section === "price" && (
             <CalculatorPrice
-              reach={reach}
-              messages={messages}
-              price={price}
-              setPrice={(value: string | number) => setPrice(String(value))}
+              setPrice={(price: number) => setPrice(price)}
+              setSection={setSection}
             />
           )}
         </div>

@@ -2,18 +2,23 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 export default function CalculatorMessages({
   reach,
   messages,
+  price,
   setSection,
   setMessages,
 }: {
   reach: string | number;
   messages: string | number;
+  price: number;
   setSection: (section: string) => void;
   setMessages: (messages: string | number) => void;
 }) {
+  const router = useRouter();
+
   function handleSubmit() {
     if (messages === "") {
       toast.error("Please enter a number into the field.");
@@ -28,7 +33,8 @@ export default function CalculatorMessages({
     }
 
     if (Number(messages) <= Number(reach)) {
-      setSection("price");
+      localStorage.setItem("data", JSON.stringify({ reach, messages, price }));
+      router.push("/report");
     }
   }
 
@@ -119,10 +125,10 @@ export default function CalculatorMessages({
         }}
       >
         <Button
-          className="w-fit h-fit cursor-pointer bg-white rounded-full !px-8 !py-4 text-[20px] font-semibold"
+          className="w-fit h-fit bg-white rounded-full !px-8 !py-4 text-[20px] font-semibold cursor-pointer"
           onClick={handleSubmit}
         >
-          Almost there
+          Read the report
           <svg
             className="min-w-6 min-h-6"
             xmlns="http://www.w3.org/2000/svg"
