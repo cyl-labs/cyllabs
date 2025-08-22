@@ -36,7 +36,6 @@ export default function CalculatorClient() {
               reach={reach}
               messages={messages}
               price={price}
-              setSection={setSection}
               setMessages={(value) => setMessages(String(value))}
             />
           )}
