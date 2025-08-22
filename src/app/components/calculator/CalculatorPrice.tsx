@@ -31,7 +31,7 @@ export default function CalculatorPrice({
           animate={{ x: 0, opacity: 1 }}
           transition={{ type: "spring", stiffness: 100, damping: 30, restDelta: 0.001 }}
         >
-          How Much Is Each Customer Worth?
+          How Much Does 1 Customer Usually Spend With You?
         </motion.h1>
         <motion.p
           className="text-[20px] text-[#999999] leading-[1.2] tracking-normal"
@@ -39,7 +39,7 @@ export default function CalculatorPrice({
           animate={{ x: 0, opacity: 1 }}
           transition={{ type: "spring", stiffness: 100, damping: 30, restDelta: 0.001, delay: 0.2 }}
         >
-          We&apos;ll use this to estimate the revenue your missed leads could be bringing in.
+          The examples are just to show the price range.
         </motion.p>
       </div>
 

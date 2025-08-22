@@ -50,7 +50,7 @@ export default function CalculatorMessages({
             restDelta: 0.001,
           }}
         >
-          How Many People Contact You Each Week?
+          How Many People Message You Each Week?
         </motion.h1>
         <motion.p
           className="text-[20px] text-[#999999] leading-[1.2] tracking-normal"
@@ -64,8 +64,7 @@ export default function CalculatorMessages({
             delay: 0.2,
           }}
         >
-          We&apos;ll use this to see how well your audience turns into real
-          leads.
+          This helps us see how your audience turns into real customers.
         </motion.p>
       </div>
       <motion.div
